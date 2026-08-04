@@ -11,6 +11,7 @@
 - [Components](components/README.md)
 - [Implementation roadmap](implementation/roadmap.md)
 - [Test strategy](testing/test-strategy.md)
+- [Documentation templates](templates/README.md)
 
 ## Documentation conventions
 
