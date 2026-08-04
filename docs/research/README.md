@@ -11,6 +11,7 @@ remain labelled `Status: Unverified` until it is confirmed.
 ## Research records
 
 - [RESEARCH-0001: Engine-management platform](RESEARCH-0001-engine-management-platform.md)
+- [RESEARCH-0002: Level 1 I/O and trigger requirements](RESEARCH-0002-level-1-io-and-trigger-requirements.md)
 
 ## Navigation
 
