@@ -28,7 +28,7 @@ remain incomplete.
 ## Requirement traceability
 
 This architecture primarily implements the accepted requirements ARC-001
-through ARC-008 and supports SYS-010 through SYS-012, SAF-001 through SAF-007,
+through ARC-008 and supports SYS-010 through SYS-014, SAF-001 through SAF-008,
 and applicable development and documentation requirements.
 
 ## System context
@@ -38,6 +38,20 @@ electrical power distribution; rider controls; lighting and signaling;
 instrumentation and diagnostics; safety functions; and optional future chassis
 and rider-assistance systems. Not all domains are implemented in the first
 stage.
+
+## Charging-architecture boundary
+
+**Status: Accepted**
+
+The project retains the original field-regulated generator architecture and
+rejects SH847 integration and permanent-magnet generator conversion under
+[ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md).
+The original system still requires inspection, measurement, repair where
+needed, and load testing against the final electrical budget. Exact generator
+details from the manual-stated 1995 4KM1 variant are not automatically
+confirmed for the project-recorded 1997 motorcycle.
+
+Review: Technical Review Required
 
 ## Three-level functional architecture
 
@@ -52,6 +66,8 @@ stage.
 Level 1 contains functions that must remain in the engine-management system
 because they directly affect combustion, engine operation, or immediate
 engine-safe behavior.
+
+- Fuel, ignition, and direct engine authority remain in Level 1.
 
 - Crankshaft position and engine-speed acquisition; camshaft position where
   required by the selected strategy; engine phase and synchronization.
@@ -159,6 +175,22 @@ requirements.
 - Loss of a safety-critical input shall produce a documented response
   appropriate to the risk. A detected fall or tip-over shall cause engine and
   fuel shutdown and require deliberate restart or reset action.
+
+The following crank-signal-loss behavior is a proposed safety requirement, not
+an accepted detailed strategy.
+
+Status: Proposal
+
+Review: Technical Review Required
+
+- Loss of a valid crank signal or an invalid trigger sequence shall stop fuel
+  injection and ignition commands. Fuel-pump shutdown shall follow a defined
+  and validated timeout. Exact timeout, filtering, thresholds, diagnostics,
+  recovery, and restart behavior remain Unverified.
+- No cam-loss fallback is assumed. Behavior before start and during running
+  shall be defined separately, and any grouped-injection or wasted-spark
+  fallback requires technical review and experimental validation before
+  acceptance.
 - Recovery from faults shall not depend on undocumented behavior. Safe-state
   design remains subject to technical review and later validation.
 
@@ -191,4 +223,4 @@ Status: Unverified
 
 ## Navigation
 
-[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [Decisions](../decisions/README.md)
+[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [Decisions](../decisions/README.md) | [ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md)

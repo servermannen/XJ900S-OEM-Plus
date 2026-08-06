@@ -12,6 +12,7 @@ decision must explain the reason and reference the superseding record.
 
 - [ADR-0001: Project Principles](ADR-0001-project-principles.md)
 - [ADR-0002: Three-Level Control Architecture](ADR-0002-three-level-control-architecture.md)
+- [ADR-0003: Retain Original Field-Regulated Charging Architecture](ADR-0003-retain-original-field-regulated-charging-architecture.md)
 
 ## Navigation
 

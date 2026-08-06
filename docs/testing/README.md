@@ -15,6 +15,7 @@ validation.
 
 - [Test strategy](test-strategy.md)
 - [TEST-PLAN-0001: Original pickup characterization](TEST-PLAN-0001-original-pickup-characterization.md)
+- [TEST-PLAN-0002: Trigger decoder and timing validation](TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
 
 ## Navigation
 

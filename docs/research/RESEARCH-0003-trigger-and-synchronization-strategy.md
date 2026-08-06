@@ -23,6 +23,7 @@ Excluded: final ECU/rusEFI hardware, sensor, tooth pattern, bracket, machining, 
 - Model: Yamaha XJ900S Diversion.
 - Model year: 1997.
 - Model designation currently recorded by the project: 4KM.
+- Recorded frame/vehicle identifier: 4KM060267.
 
 Every source shall be verified against the relevant engine and model variant. Differences between XJ900S years, regions, XJ900 variants, related engine families, and parts-catalogue supersessions shall not be transferred without explicit evidence.
 
@@ -45,7 +46,7 @@ The project baseline records the motorcycle as 1997 XJ900S, 4KM. No specific 199
 | TRG-F002 | Cylinder numbering | #1 through #4 used by manual. | Confirmed | Manual 3-8/3-9. | 1997 applicability unverified. |
 | TRG-F003 | Firing order | 1-2-4-3 from documented compression-TDC sequence. | Confirmed | Manual 3-8/3-9. | Confirmed for 4KM1; 1997 applicability unverified. |
 | TRG-F004 | Ignition-system type | Digital TCI. | Confirmed | Manual 2-3/2-17. | 1997 applicability unverified. |
-| TRG-F005 | Ignitor identification | 4JT051, Mitsubishi. | Confirmed | Manual 2-17. | 1997 applicability unverified. |
+| TRG-F005 | Ignitor identification | The current record reads 4JT051, Mitsubishi; the project has identified a possible J4T051 transcription discrepancy. | Unverified | Manual 2-17 must be rechecked. | Do not normalize the identifier until the underlying source is available; 1997 applicability also remains unverified. |
 | TRG-F006 | Ignition-coil count | Two coils; four plugs shown. | Confirmed | Manual 7-1/7-4. | 1997 applicability unverified. |
 | TRG-F007 | Ignition-coil identification | J0312/J0313 Nippondenso; specified resistance and spark gap. | Confirmed | Manual 2-17. | 1997 part continuity unverified. |
 | TRG-F008 | Coil-to-cylinder pairing | Indicated 1/4 and 2/3; HT leads not labelled. | Unverified | Manual 3-8/3-9, 7-1/7-4. | Trace 1997 HT leads. |
@@ -63,19 +64,30 @@ The project baseline records the motorcycle as 1997 XJ900S, 4KM. No specific 199
 | TRG-F020 | Crankshaft-access opportunities | Timing-plate location evidenced; generator/internal locations unmeasured. | Unverified | Manual 3-19/4-10/4-68. | 1997 packaging/relationship. |
 | TRG-F021 | Camshaft-access opportunities | The manual procedure requires removal of the cylinder-head cover and surrounding components; no dedicated factory cam-sensor provision is shown in the reviewed sections. | Confirmed | Manual 4-72 to 4-78. | 1997 packaging and direct physical inspection remain Unverified. |
 
+## Source identifier discrepancy
+
+Status: Unverified
+
+The repository currently contains `4JT051` for the Mitsubishi ignitor, while a
+possible `J4T051` reading has been reported. The underlying complete manual
+page is not stored in the repository and the discrepancy cannot be resolved
+from the available project evidence. The existing identifier is therefore not
+corrected or normalized. The source shall be checked directly before either
+identifier is used as a confirmed specification or part reference.
+
 ## Original ignition architecture and phase implications
 
 For 1995 4KM1, the manual documents digital TCI, one ignitor, one pickup, two coils, and four plugs. Initial timing is 5 degrees BTDC at 1,000 rpm and specified advance is 40 degrees BTDC at 5,000 rpm; the advance graph uses speed and throttle opening. Coil primary resistance is 1.87-2.53 ohms, secondary resistance is 12-18 kohms, minimum spark-gap test is 6 mm, and pickup resistance is 446-545 ohms at 20 C. Do not infer EFI suitability from original operation.
 
-**Status:** Unverified
+**Status: Unverified**
 
 The combination of one crank pickup, no documented cam-position input, two ignition coils, and four spark plugs strongly supports a wasted-spark architecture. The service-manual material reviewed does not explicitly use the term "wasted spark", so direct confirmation from the 1997 wiring arrangement or motorcycle inspection remains required.
 
-**Status:** Unverified
+**Status: Unverified**
 
 The verified firing order and conventional paired-TDC relationship strongly indicate ignition pairs 1/4 and 2/3. The reviewed circuit diagram does not label the high-tension leads by cylinder. The actual coil-to-cylinder connections shall be traced on the motorcycle before the pairing is marked Confirmed.
 
-**Status:** Unverified
+**Status: Unverified**
 
 The manual confirms a two-wire pickup coil with a specified winding resistance. This is consistent with a passive magnetic or variable-reluctance pickup, but the reviewed pages do not explicitly classify the sensor technology. Final classification requires component documentation or waveform measurement.
 
@@ -94,6 +106,12 @@ The 1-2-4-3 firing order is confirmed for the manual-stated 4KM1 variant. The ex
 
 Assess events/revolution, resolution, unique index, speed range, amplitude, polarity, noise, direction ambiguity, air gap, runout, conditioning, and candidate-decoder compatibility. Exact electrical values remain unverified without manual, datasheet, or direct measurement.
 
+The original pickup's presence or availability does not establish electrical
+health, cranking margin, timing accuracy, decoder compatibility, functional
+suitability, safety suitability, or acceptance for rusEFI or any other Level 1
+ECU. Physical resemblance, connector fit, or connector compatibility likewise
+does not establish physical, electrical, or functional compatibility.
+
 ## Candidate sensing locations
 
 | Location ID | Location | Relationship, packaging, and access | Modification/reversibility | Evidence status | Required measurement |
@@ -108,23 +126,87 @@ Assess events/revolution, resolution, unique index, speed range, amplitude, pola
 
 A convenient rotating component is not a valid crank or cam reference until its rotational relationship, space, and mounting are verified.
 
+## Proposed staged synchronization architecture
+
+### Controlled first-start development stage
+
+Status: Proposal
+
+The first controlled EFI start may use crankshaft synchronization only,
+wasted-spark ignition, and grouped, batch, or semi-sequential injection. It may
+have no dependency on the cam sensor and shall be limited to a controlled
+operating range with conservative ignition and defined fuel-pump shutdown after
+loss of valid crankshaft rotation. This stage is for development and
+validation; it is not automatically an accepted final road configuration.
+
+### Final target for evaluation
+
+Status: Proposal
+
+Evaluate a sufficiently high-resolution crank trigger plus a separate
+cam-phase signal for full 720-degree phase identification, sequential-injection
+capability, individually controlled ignition capability, and diagnosable
+crank/cam correlation. Sequential operation is not accepted. Crank sensing is
+an accepted required function, but the sensor, sensor technology, trigger
+pattern, tooth count, location, mounting, conditioning, offset, decoder, and
+final implementation remain open.
+
 ## Trigger-strategy candidates
 
-| Strategy | Crank modification | Cam modification | 720-degree phase | Sequential potential | Ignition potential | Complexity/serviceability/reversibility | Evidence maturity | Preliminary status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| STRAT-01 Retain original crank pickup only | No/Unverified | No | Unverified | Conditional | Conditional | Low/Unverified/High | Low | Unverified |
-| STRAT-02 Enhanced crank, no cam | Yes | No | No or Conditional | Conditional | Conditional | Medium/Unverified/Medium | Low | Proposal |
-| STRAT-03 Enhanced crank plus cam | Yes | Yes | Yes | Yes | Yes | High/Unverified/Medium | Low | Proposal |
-| STRAT-04 Original crank plus cam | Unverified | Yes | Conditional | Conditional | Conditional | Medium/Unverified/Medium | Low | Proposal |
-| STRAT-05 Replacement crank plus retained pickup | Yes | Optional | Conditional | Conditional | Conditional | High/Unverified/Medium | Low | Proposal |
+| Strategy | Modification concept | Potential benefit | Evidence required | Status |
+| --- | --- | --- | --- | --- |
+| STRAT-01 Original pickup and original timing plate | Retain both original items. | Maximum preservation and reversibility if the signal proves adequate. | Electrical health, geometry, cranking waveform, timing correlation, decoder synchronization, and fixed-timing stability. | Unverified |
+| STRAT-02 Original pickup with replacement trigger wheel | Retain the pickup while replacing or adding the trigger target. | May preserve the sensor and improve reference resolution. | Pickup technology and bandwidth, wheel geometry, air gap, runout, balance, retention, decoder support, and service access. | Proposal |
+| STRAT-03 New Hall-effect sensor with replacement trigger wheel | Add an active sensor and matched ferromagnetic wheel. | May provide speed-independent digital switching if the complete interface is suitable. | Supply, output type, pull-up, target geometry, environment, mounting, runout, fault behavior, input protection, and decoder support. | Proposal |
+| STRAT-04 Original pickup and timing plate plus cam phase | Retain the original crank reference and add phase sensing. | May provide 720-degree identification if original crank resolution is adequate. | All STRAT-01 evidence plus cam correlation, mechanical safety, and decoder support. | Proposal |
+| STRAT-05 Replacement crank reference plus cam phase | Add higher-resolution crank and separate cam targets. | Supports evaluation of the final synchronization target. | Complete mechanical, electrical, firmware, fault, serviceability, and validation evidence. | Proposal |
 
-STRAT-01 must be assessed for resolution, phase ambiguity, decoder support, starting robustness, timing accuracy, and diagnostics. STRAT-04 depends on original-crank resolution and reliable synchronization. No strategy is accepted.
+No strategy is selected. Retaining a connector, using a physically similar
+sensor, or observing an engine start is not component or strategy acceptance.
+
+## Crank trigger-pattern candidates
+
+| Pattern candidate | Ordinary crank spacing | Potential value | Limitations and required evidence | Status |
+| --- | --- | --- | --- | --- |
+| 24-1 | 15 crank degrees | Lower feature count may ease geometry or cranking detection in some packages. | Available diameter, feature geometry, cranking margin, speed range, runout, decoder support, and fault detection remain unverified. | Proposal |
+| 36-1 | 10 crank degrees | Useful reference candidate for comparing resolution and manufacturing feasibility. | It is not selected; all packaging, sensing, runout, balance, retention, service, and decoder evidence remains required. | Proposal |
+| 60-2 | 6 crank degrees | Higher nominal angular sampling may support some control and diagnostic strategies. | Smaller features and shorter intervals may reduce margin; more teeth are not automatically better. | Proposal |
+
+Pattern selection depends on available diameter, feature width and depth,
+sensor technology, air gap, cranking performance, maximum engine speed,
+runout, balance, material, retention, service access, decoder support, fault
+detection, and manufacturing feasibility. No pattern is accepted.
+
+## Proposed cam-phase candidate
+
+Status: Proposal
+
+Evaluate one event per camshaft revolution, corresponding to one event per 720
+crankshaft degrees, using active Hall-effect sensing as the preferred sensor
+type to evaluate and a mechanically retained ferromagnetic target. The
+installation shall remain removable and serviceable. Exact sensor, target,
+bracket, cover modification, air gap, signal behavior, cable exit, sealing,
+and location remain Unverified.
+
+Mechanical safety constraints are:
+
+- No glued loose magnet inside the engine.
+- No target that can fall into the cam-chain drive.
+- No welding on the camshaft or cam sprocket.
+- No weakening of an original cam sprocket without structural analysis.
+- No interference with the cam chain, guides, valves, cover, lubrication, or
+  valve-clearance service.
+- No sealing method or cable exit is accepted without validation.
 
 ## Sensor and trigger-pattern considerations
 
 Variable-reluctance sensing requires assessment of passive operation, speed-dependent amplitude, polarity, cranking performance, air gap, zero-crossing conditioning, noise, shielding, and ECU compatibility. Hall-effect sensing requires assessment of supply, digital output, target, pull-up/output type, cranking consistency, environment, fault behavior, and ECU compatibility. Magnetoresistive or other active sensing is Status: Unverified and needs specific evidence.
 
-Consider single-event, evenly spaced, missing-tooth, unique-index, and crank-plus-cam patterns; tooth/gap geometry, edge, direction, cranking quality, maximum speed, concentricity, runout, material, air gap, decoder support, startup, and resynchronization. Complexity shall be justified by control and diagnostic need, not tooth count.
+Consider single-event, evenly spaced, missing-tooth, unique-index, and
+crank-plus-cam patterns; tooth/gap geometry, edge, direction, cranking quality,
+maximum speed, concentricity, runout, material, air gap, decoder support,
+startup, and resynchronization. Complexity shall be justified by control and
+diagnostic need, not tooth count.
 
 ## Mechanical, electrical, and fault criteria
 
@@ -134,7 +216,43 @@ Correct supply, ground/reference, shielding, ignition-noise separation, input pr
 
 Review: Technical Review Required
 
-Synchronization-delay, unknown-phase behavior, temporary crank/cam loss, degraded cam-loss operation, immediate crank-loss shutdown, resynchronization, false-edge rejection, stop detection, reverse rotation, fault storage, post-safety-shutdown restart, and power-interruption recovery are Status: Unverified. Do not define limp-home behavior without accepted safety analysis.
+### Crank-signal loss and invalid trigger behavior
+
+Status: Proposal
+
+Review: Technical Review Required
+
+- Fuel-injection commands shall stop.
+- Ignition commands shall stop.
+- The fuel pump shall be switched off after a defined and validated timeout.
+- Implausible frequency or an invalid trigger sequence shall not cause fuel or
+  ignition output.
+- Exact timeouts, filtering, thresholds, diagnostics, recovery, and restart
+  behavior remain Unverified.
+
+### Cam-signal loss
+
+Status: Proposal
+
+Behavior before start and during running shall be defined separately. No
+fallback is assumed. Any fallback to grouped injection or wasted spark shall be
+experimentally validated and technically reviewed before acceptance.
+
+### Fall-event activation
+
+Status: Accepted
+
+A valid fall event requires fuel-pump command off, injector commands off,
+ignition commands off, and deliberate reset or restart behavior. Sensor and
+implementation details remain Unverified.
+
+Synchronization delay, unknown-phase behavior, temporary crank/cam loss,
+resynchronization, false-edge rejection, stop detection, reverse rotation,
+fault storage, post-safety-shutdown restart, and power-interruption recovery
+remain Unverified. Tests shall cover disconnection, intermittent connection,
+false edges or noise, low cranking voltage, hot sensor conditions, start/stop
+transitions, resynchronization, and loss during controlled operation. Do not
+define limp-home behavior without an accepted safety analysis.
 
 ## Required motorcycle inspection and measurements
 
@@ -146,9 +264,22 @@ Synchronization-delay, unknown-phase behavior, temporary crank/cam loss, degrade
 
 Review: Technical Review Required
 
+## Decision gates
+
+No gate is passed or accepted by this research record.
+
+| Gate | Required evidence | Initial state |
+| --- | --- | --- |
+| Gate 1 - Pickup electrical health | Direct pickup resistance, cable-manipulation stability, harness observations, temperature, and applicable source comparison from TEST-PLAN-0001. | Not evaluated |
+| Gate 2 - Mechanical trigger health | Feature geometry, air-gap variation, condition, retention, accessible runout, and timing correlation from TEST-PLAN-0001. | Not evaluated |
+| Gate 3 - Cranking signal | Raw waveform, amplitude range, event count and spacing, polarity, noise, missing/false events, cranking voltage/speed, and repeatability. | Blocked pending TEST-PLAN-0001 safety preconditions |
+| Gate 4 - Decoder synchronization | Stable bench replay and passive cranking synchronization using an exactly identified ECU configuration. | Not evaluated |
+| Gate 5 - Fixed-timing stability | Commanded-versus-measured timing and speed-related drift investigation under the later validation plan. | Not evaluated |
+| Gate 6 - Fault behavior | Reviewed crank loss, invalid sequence, cam loss, noise, resynchronization, and shutdown evidence. | Not evaluated |
+
 ## Required source research and evidence gaps
 
-Obtain the correct Yamaha service manual, wiring diagram, ignition troubleshooting, timing/valve-timing section, and parts diagrams for crank, generator, pickup, cam, head, and valve cover; then cross-reference OEM part numbers, bulletins, and reliable original-part photographs. Consult ECU decoder documentation only after original trigger facts are established.
+Obtain the correct Yamaha service manual, wiring diagram, ignition troubleshooting, timing/valve-timing section, and parts diagrams for crank, generator, pickup, cam, head, and valve cover; then cross-reference OEM part numbers, bulletins, and reliable original-part photographs. Recheck the underlying manual page to resolve the `4JT051`/`J4T051` discrepancy. Consult ECU decoder documentation only after original trigger facts are established.
 
 Gaps: 1997 applicability, coil pairing, pickup geometry/waveform/angle, cam and crank packaging/dimensions/exposure, trigger requirements, synchronization criteria, conditioning, decoder compatibility, degraded-operation policy, fabrication method, and validation procedure.
 
@@ -163,22 +294,34 @@ project motorcycle before confirmation.
 
 The existing pickup and timing-plate location is the best-evidenced first crank-reference location for physical inspection and waveform characterization. Its geometry, angular resolution, cranking behavior, and EFI suitability remain unverified.
 
-The current research shall compare preservation of the original crank reference, an enhanced or replacement crank trigger, and addition of a cam-phase signal. No future trigger strategy, added sensor technology, future ignition topology, or cam-sensor installation location is accepted by this research record.
+The current research shall compare the original pickup and original timing
+plate, the original pickup with a replacement wheel, a new Hall-effect sensor
+with a replacement wheel, the 24-1, 36-1, and 60-2 candidate patterns, and a
+separate one-event-per-cam-revolution phase signal. No trigger strategy,
+pattern, sensor, bracket, ECU, ignition topology, or cam-sensor installation
+location is accepted by this research record.
 
 ## Decision impact
 
 - Related research: [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md) and [RESEARCH-0002](RESEARCH-0002-level-1-io-and-trigger-requirements.md).
-- Related requirements: SYS-007 through SYS-009; applicable SAF, REL, SRV, ARC, and DEV.
+- Related requirements: SYS-007 through SYS-009, SYS-013, SAF-001, SAF-003,
+  SAF-004, SAF-007, SAF-008, and applicable REL, SRV, ARC, and DEV requirements.
 - Related architecture: Level 1; related roadmap stages: Stage 2, Stage 3, and Stage 4.
 - ADR required: Yes. Component evaluation required: Yes, after candidates exist. Bench testing required: Yes. Motorcycle measurements required: Yes.
-- Recommended next action: 1. Verify motorcycle model code and engine number. 2. Trace both coils to spark-plug cylinders. 3. Photograph and measure timing plate, pickup, clearance, and mounting. 4. Develop a technically reviewed measurement plan. 5. Capture pickup waveform during cranking and idle. 6. Correlate events with TDC/firing marks. 7. Inspect and measure cam-end and cam-sprocket locations.
+- Recommended next action: Execute
+  [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md)
+  only after its technical-review and safety preconditions are satisfied.
+  Complete its evidence gates before selecting any trigger component, then use
+  the resulting characterized signal in
+  [TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md).
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-06 | Consolidated source boundaries, staged synchronization, crank-pattern and cam-phase candidates, safe states, and evidence gates. | Prepare a component-neutral trigger decision path without promoting proposals or unexecuted tests. |
 | 2026-08-04 | Created initial research record. | Define evidence required for later trigger and synchronization decisions. |
 
 ## Navigation
 
-[Research index](README.md) | [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md) | [RESEARCH-0002](RESEARCH-0002-level-1-io-and-trigger-requirements.md) | [Documentation index](../INDEX.md)
+[Research index](README.md) | [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md) | [RESEARCH-0002](RESEARCH-0002-level-1-io-and-trigger-requirements.md) | [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md) | [TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md) | [Test strategy](../testing/test-strategy.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [Implementation roadmap](../implementation/roadmap.md) | [Documentation index](../INDEX.md)

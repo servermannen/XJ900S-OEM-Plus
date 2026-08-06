@@ -44,8 +44,9 @@ architecture, decisions, and documentation conventions.
 Status: In progress
 
 **Outputs:** README, AGENTS.md, documentation index, accepted requirements,
-three-level architecture, ADR-0001, ADR-0002, this roadmap, and the initial
-test-strategy framework.
+three-level architecture, ADR-0001, ADR-0002, accepted charging-architecture
+[ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md),
+this roadmap, and the initial test-strategy framework.
 
 **Exit criteria:** Purpose and conventions are documented; architecture is
 recorded; navigation is usable; and no unresolved requirements/architecture
@@ -56,8 +57,10 @@ contradiction remains. These criteria have not been declared satisfied.
 **Objective:** Establish the mechanical, electrical, and operational baseline
 before major modernization.
 
-**Work:** Verify starting, charging, fuel delivery, ignition, cooling, and basic
-electrical operation; document wiring, modifications, faults, maintenance,
+**Work:** Verify starting, the retained field-regulated charging system, fuel
+delivery, ignition, cooling, and basic electrical operation; inspect and record
+generator, regulator, rectifier, brushes, slip rings, windings, connectors, and
+grounds where applicable; document wiring, modifications, faults, maintenance,
 braking, steering, suspension, chassis, dimensions, installation space,
 photographs, measurements, and test results.
 
@@ -72,7 +75,9 @@ Review: Technical Review Required
 **Objective:** Convert open areas into measurable requirements and verified
 motorcycle data.
 
-**Work:** Capture engine sensing, fuel system, charging and electrical load,
+**Work:** Capture engine sensing, original-pickup characterization under
+[TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md),
+fuel system, charging output and electrical load, voltage drop, temperature,
 physical space, intake and throttle measurements, injector and fuel-pressure
 requirements, sensor environment, rider controls, instrumentation, diagnostics,
 safe states, degraded operation, and legal or inspection considerations.
@@ -93,6 +98,10 @@ requirements before a complete system is built.
 ignition and injection channels; pump and fall-event shutdown; cable and
 drive-by-wire alternatives; sensing and actuation functions; diagnostics and
 logging; capability gaps; and externally handled functions.
+
+Trigger-decoder and fixed-timing evaluation shall follow
+[TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
+only after applicable TEST-PLAN-0001 evidence and safety gates are satisfied.
 
 **Exit criteria:** Platform and control-strategy ADRs are accepted; inputs,
 outputs, synchronization, and shutdown architecture are evidence-based; and
@@ -243,4 +252,4 @@ Status: Unverified
 
 ## Navigation
 
-[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [Decision register](../decisions/README.md) | [Test strategy](../testing/test-strategy.md)
+[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [Decision register](../decisions/README.md) | [ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md) | [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md) | [TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md) | [Test strategy](../testing/test-strategy.md)

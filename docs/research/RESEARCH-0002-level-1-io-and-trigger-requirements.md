@@ -29,11 +29,18 @@ Status: Unverified
 
 These research inputs are not all confirmed implementation facts.
 
-- The engine is an inline four-cylinder four-stroke engine; the project intends electronically controlled fuel injection and ignition.
+- The engine is an air-cooled inline four-cylinder four-stroke engine; the
+  project intends electronically controlled fuel injection and ignition.
 - Four cylinders require individual or grouped fuel and ignition control.
 - Level 1 retains direct authority over fuel, ignition, engine state, and engine shutdown.
 - Cable throttle remains valid initially; DBW is a separately evaluated future option.
-- A fall event requires engine and fuel shutdown and deliberate restart or reset.
+- A crankshaft-position input is an accepted mandatory Level 1 function. Its
+  sensor, technology, trigger pattern, location, mounting, signal conditioning,
+  offset, decoder, and final implementation remain open.
+- A fall or tip-over sensor is an accepted project requirement. Level 1 retains
+  engine and fuel-pump shutdown authority, while sensor model, orientation,
+  signal type, thresholds, plausibility, reset behavior, missing-signal
+  behavior, wiring, and implementation remain open.
 - Level 1 remains independent of optional Level 2 and Level 3 systems for basic operation.
 - Bench testing precedes installed critical-output testing where practical.
 
@@ -41,7 +48,11 @@ Exact timing references, trigger geometry, sensor signal types, and actuator ele
 
 ## Requirement classes
 
-- **Mandatory initial I/O:** needed for initial Level 1 operation.
+- **Mandatory initial function or planning path:** needed for initial Level 1
+  operation, development, or calibration without selecting its implementation.
+- **Final-target or strongly preferred function:** evaluated for the intended
+  final architecture without making it an initial dependency or accepted
+  component decision.
 - **Strategy-dependent I/O:** needed only by an accepted control strategy.
 - **Safety-critical I/O:** affects fuel, ignition, state, or shutdown.
 - **Optional initial I/O:** useful but not required for basic operation.
@@ -49,6 +60,35 @@ Exact timing references, trigger geometry, sensor signal types, and actuator ele
 - **Diagnostic and test interfaces:** configuration, observation, testing, and service.
 
 Hardware comparison shall distinguish these classes rather than treating every possible function as mandatory.
+
+## Sensor architecture planning baseline
+
+The classifications below describe functional planning paths. They do not
+select a sensor, mounting location, signal range, calibration, connector,
+pinout, ECU board, or fallback behavior.
+
+| Function | Planning class | Function status | Implementation status | Boundary |
+| --- | --- | --- | --- | --- |
+| Crankshaft position | Mandatory initial | Accepted | Unverified | Sensor, pattern, conditioning, offset, and decoder remain Unverified. |
+| Throttle position | Mandatory initial | Proposal | Unverified | Cable throttle is permitted initially; no throttle body, TPS, cable arrangement, or idle strategy is selected. |
+| MAP or accepted equivalent load signal | Mandatory initial | Proposal | Unverified | The equivalent load method requires evidence and acceptance. |
+| Intake-air temperature | Mandatory initial | Proposal | Unverified | Sensor, location, range, and calibration remain open. |
+| Engine temperature appropriate for an air-cooled engine | Mandatory initial | Proposal | Unverified | Cylinder-head temperature, oil temperature, or another validated engine-temperature proxy may be evaluated; none is selected. |
+| Battery or system voltage | Mandatory initial | Proposal | Unverified | The path may be internal or external; range, accuracy, and fault handling remain open. |
+| Fall or tip-over input | Mandatory initial | Accepted | Unverified | Sensor model, orientation, interface, thresholds, plausibility, reset, missing-signal behavior, and wiring remain Unverified. |
+| Practical wideband-oxygen interface | Mandatory initial development and calibration path | Proposal | Unverified | Analog, digital, or network interface and external controller remain open. |
+| Level 1 fuel-pump command and shutdown authority | Mandatory initial | Accepted | Unverified | Output circuit, prime logic, timeout, filtering, and relay or driver implementation remain open. |
+| Cam phase | Final target or strongly preferred | Proposal | Unverified | Needed to evaluate full 720-degree phase identification; initial crank-only development shall not depend on it. |
+| Fuel-pressure monitoring | Final target or strongly preferred | Proposal | Unverified | Sensor, range, mounting, and protective response remain open. |
+| Oil-pressure warning or monitoring | Final target or strongly preferred | Proposal | Unverified | Switched or analog path and response remain open. |
+| Knock sensing | Optional or later evaluation | Proposal | Unverified | It shall not become an initial Level 1 dependency. |
+| Wheel-speed inputs | Optional or later evaluation | Proposal | Unverified | They remain Level 3-facing unless a later accepted architecture requires them. |
+| DBW-related redundant sensing | Future-reserved | Proposal | Unverified | It is required only if a dedicated future decision accepts DBW. |
+| Additional thermal measurements | Optional or later evaluation | Proposal | Unverified | These supplement, but do not replace without validation, the mandatory engine-temperature path. |
+
+Availability, published specification, physical compatibility, electrical
+compatibility, functional compatibility, safety suitability, and final
+acceptance shall be evaluated separately for every later component candidate.
 
 ## Fuel-injection outputs
 
@@ -78,7 +118,7 @@ Commands may be logic-level or power-driving depending on later coil/module sele
 
 Crankshaft position is mandatory for engine-speed determination and angular synchronization through cranking, starting, idle, and the operating range.
 
-**Status:** Accepted
+**Status: Accepted**
 
 Review: Technical Review Required
 
@@ -103,9 +143,31 @@ Cam input is safety-relevant where used for phase control.
 
 ## Synchronization strategy
 
-Status: Unverified
+### Controlled first-start development stage
 
-Candidates are full sequential with crank/cam; sequential fuel with another accepted ignition strategy; batch/semi-sequential with wasted spark; crank-only startup with phase acquisition; and separately justified crank-only operation. Evaluate sync time, noise robustness, recovery, phase accuracy, firmware support, bench testing, diagnostics, and safe uncertainty behavior. Accept the strategy before final ECU selection.
+Status: Proposal
+
+The first controlled EFI start may use crankshaft synchronization only,
+wasted-spark ignition, and grouped, batch, or semi-sequential injection. It may
+have no dependency on a cam sensor and shall use a limited operating range,
+conservative ignition, and defined fuel-pump shutdown following loss of valid
+crankshaft rotation. This is a development and validation stage, not an
+accepted final road configuration.
+
+### Final synchronization target
+
+Status: Proposal
+
+Evaluate a sufficiently high-resolution crank trigger plus a separate
+cam-phase signal for full 720-degree phase identification, sequential-injection
+capability, individually controlled ignition capability, and diagnosable
+crank/cam correlation. Sequential operation, a trigger pattern, a sensor, and a
+decoder are not accepted by this proposal.
+
+Both stages require evaluation of synchronization time, noise robustness,
+recovery, phase accuracy, firmware support, bench testing, diagnostics, and
+safe uncertainty behavior. The strategy shall be accepted before final ECU
+selection.
 
 ## Analog input requirements
 
@@ -114,15 +176,21 @@ Candidates are full sequential with crank/cam; sequential fuel with another acce
 | AIN-001 | Throttle position | Mandatory initial | Analog position | Safety-relevant | Unverified |
 | AIN-002 | MAP or equivalent load | Mandatory initial | Analog load | Engine-critical | Unverified |
 | AIN-003 | Intake-air temperature | Mandatory initial | Analog temperature | Engine-critical | Unverified |
-| AIN-004 | Engine temperature | Mandatory initial | Analog temperature | Engine-critical | Unverified |
-| AIN-005 | Wideband-controller analog output, if the selected interface uses analog signaling | Strategy-dependent | Analog oxygen output | Safety-relevant | Unverified |
-| AIN-006 | Battery/system voltage | Strategy-dependent | Analog or internal | Safety-relevant | Unverified |
-| AIN-007 | Fuel pressure | Optional initial | Analog pressure | Safety-relevant | Unverified |
-| AIN-008 | Oil-pressure sensing, if analog sensing is selected | Optional initial | Analog pressure | Safety-relevant | Unverified |
-| AIN-009 | Oil temperature | Optional initial | Analog temperature | Optional | Unverified |
+| AIN-004 | Engine temperature appropriate for an air-cooled engine | Mandatory initial | Analog temperature or another validated path | Engine-critical | Unverified |
+| AIN-005 | Wideband-controller output, if the selected interface uses analog signaling | Mandatory initial development/calibration path | Analog oxygen output | Safety-relevant | Unverified |
+| AIN-006 | Battery/system voltage | Mandatory initial | Analog or internal | Safety-relevant | Unverified |
+| AIN-007 | Fuel pressure | Final target or strongly preferred | Analog pressure | Safety-relevant | Unverified |
+| AIN-008 | Oil-pressure sensing, if analog sensing is selected | Final target or strongly preferred | Analog pressure | Safety-relevant | Unverified |
+| AIN-009 | Additional oil-temperature measurement, where oil temperature is not already the selected mandatory engine-temperature path | Optional or later evaluation | Analog temperature | Optional | Unverified |
 | AIN-010 | Spare analog capacity | Future-reserved | Unspecified | Not applicable | Unverified |
 
 Exact voltage ranges and calibration curves are Unverified. At least one spare analog channel is preferred; final reserve count is not accepted.
+
+The XJ900S is air-cooled. No coolant-temperature sensor is assumed. Candidate
+engine-temperature paths include cylinder-head temperature, oil temperature,
+or another validated proxy, but no sensor or location is selected.
+One physical sensor/input shall not be double-counted in the I/O budget as both
+AIN-004 and AIN-009.
 
 ## Digital and switched input requirements
 
@@ -135,16 +203,24 @@ Exact voltage ranges and calibration curves are Unverified. At least one spare a
 | DIN-005 | Neutral switch where used | Direct or approved derived | Degraded operation/diagnostics unless required | Debounce, plausibility | Unverified |
 | DIN-006 | Side stand where used | Direct or approved derived | Defined by accepted safety logic | Debounce, plausibility, timeout, fail-safe | Unverified |
 | DIN-007 | Kill switch | Direct | Stop or block operation | Debounce, plausibility, fail-safe | Unverified |
-| DIN-008 | Vehicle/wheel speed if later required | Approved interface | Diagnostics/degraded operation | Plausibility, timeout | Unverified |
+| DIN-008 | Vehicle/wheel speed if later required | Approved interface | No initial Level 1 dependency | Plausibility, timeout | Proposal |
 | DIN-009 | Calibration/service mode | Direct | Diagnostics unless accepted otherwise | Debounce, plausibility | Unverified |
 | DIN-010 | Spare digital capacity | Future-reserved | Not applicable | To be defined | Unverified |
 | DIN-011 | Oil-pressure switch, if switched sensing is selected | Direct or approved derived | Warning or defined protective response | Debounce and plausibility where applicable | Unverified |
 
 Final logic states and wiring polarity are open. Safety-related inputs require Review: Technical Review Required.
 
+The accepted fall-sensor requirement does not accept a component or signal
+behavior. A valid fall event requires fuel-pump command off, injector commands
+off, ignition commands off, and deliberate reset or restart behavior. Exact
+detection, timing, and recovery details require technical review and validation.
+
 ## Fuel-pump, idle, and auxiliary outputs
 
-Level 1 shall control or retain safety authority over fuel-pump operation. Prime, cranking, running, stall, shutdown, fall-event, and engine-speed-loss behavior need definition and independent bench testing.
+Level 1 shall control and retain safety authority over fuel-pump operation.
+Prime, cranking, running, stall, shutdown, fall-event, and engine-speed-loss
+behavior need definition and independent bench testing. Level 2 shall not gain
+hidden fuel-pump or engine authority.
 
 Preliminary requirement: One fuel-pump command output
 
@@ -175,6 +251,9 @@ Preliminary requirement: One practical wideband oxygen input path
 
 Status: Proposal
 
+The practical development and calibration path is mandatory for planning; the
+interface technology and hardware remain proposed and unverified.
+
 ## Throttle strategy
 
 ### Cable throttle
@@ -184,7 +263,7 @@ constitute a final throttle-strategy selection. Level 1 requires
 throttle-position sensing; redundant sensing is not accepted as mandatory for
 cable throttle. DBW shall not be required solely for future features.
 
-**Status:** Accepted
+**Status: Accepted**
 
 ### Drive-by-wire
 
@@ -193,6 +272,50 @@ DBW is optional and future-facing. Direct DBW needs redundant sensing, actuator 
 Function status: Proposal
 
 Review: Technical Review Required
+
+Knock sensing, wheel-speed input, DBW-related redundant sensing, and additional
+thermal measurements shall not become hidden dependencies for initial Level 1
+operation.
+
+## Safe states and fault behavior
+
+Review: Technical Review Required
+
+### Crank-signal loss or invalidity
+
+Status: Proposal
+
+Review: Technical Review Required
+
+- Fuel-injection commands shall stop.
+- Ignition commands shall stop.
+- The fuel pump shall be switched off after a defined and validated timeout.
+- Implausible frequency or an invalid trigger sequence shall not cause fuel or
+  ignition output.
+- Exact timeout, filtering, thresholds, diagnostics, recovery, and restart
+  behavior remain Unverified.
+
+### Cam-signal loss
+
+Status: Proposal
+
+Behavior before start and during running shall be defined separately. No
+fallback mode is assumed. Any fallback to grouped injection or wasted spark
+requires experimental validation and technical review before acceptance.
+
+### Fall-event activation
+
+Status: Accepted
+
+- Fuel-pump command off.
+- Injector commands off.
+- Ignition commands off.
+- Deliberate reset or restart behavior required.
+
+Fault testing shall include disconnected sensors, intermittent connections,
+false edges or noise, low cranking voltage, hot sensors, start/stop
+transitions, resynchronization, and loss during controlled operation. No
+"limp-home" behavior is defined without a dedicated safety analysis.
 
 ## Diagnostic, power, and ECU-state interfaces
 
@@ -216,6 +339,7 @@ Review: Technical Review Required
 | Cam inputs | Strategy-dependent | 1 | Proposal | Strategy open. |
 | Mandatory analog inputs | 4 | 4 | Proposal | TPS, MAP or equivalent load, intake-air temperature, and engine temperature. |
 | Wideband interface path | 1 practical interface | 1 practical interface | Proposal | May be analog, digital, or network-based. |
+| Battery/system-voltage path | 1 practical path | 1 practical path | Proposal | May be internal or external; implementation unverified. |
 | Preferred analog capacity | Not applicable | At least 7 including reserve | Proposal | Reserve not accepted. |
 | Safety/engine digital inputs | Not finalized | Not finalized | Unverified | Depends on strategy. |
 | Fuel-pump command | 1 | 1 | Proposal | Level 1 authority. |
@@ -239,7 +363,8 @@ Review: Technical Review Required
 
 Status: Unverified
 
-- Firing order, ignition topology, crank/cam locations, resolution, packaging, sensor type/amplitude, and cranking waveform quality.
+- Exact 1997 ignition topology, crank/cam locations, resolution, packaging,
+  sensor type/amplitude, and cranking waveform quality.
 - Synchronization strategy; injector/ignition electrical characteristics; TPS, MAP, temperature, and idle strategy.
 - Safety signal derivation; pump, tach/warning, spare capacity, power/ground/transient, protocol, calibration, and DBW decisions.
 
@@ -250,29 +375,38 @@ Status: Unverified
 
 ## Preliminary conclusion
 
-The current planning baseline prefers four injector commands, four ignition
-commands, one dedicated crank input, one cam input, four mandatory external
-analog engine-sensor inputs plus one practical wideband interface path,
-fuel-pump control, practical diagnostics, and strategy-dependent idle and
-auxiliary outputs. These values remain proposals until trigger strategy,
-ignition topology, sensor interfaces, and actuator hardware are verified.
+The accepted functional baseline requires crank sensing, Level 1 engine and
+fuel-pump shutdown authority, and a fall or tip-over sensor without accepting
+their implementations. The planning baseline includes throttle position, MAP
+or an accepted equivalent load signal, intake-air temperature, an appropriate
+air-cooled-engine temperature path, battery/system voltage, and a practical
+wideband interface. A crank-plus-cam final target, fuel-pressure monitoring,
+oil-pressure warning or monitoring, four injector commands, and four ignition
+commands remain proposals rather than accepted hardware requirements.
 
 No ECU hardware shall be accepted solely because its published I/O count appears sufficient.
 
 ## Decision impact
 
-- Related research: [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md).
-- Related requirements: SYS-007 through SYS-009; applicable SAF, REL, SRV, ARC, and DEV.
+- Related research: [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md)
+  and [RESEARCH-0003](RESEARCH-0003-trigger-and-synchronization-strategy.md).
+- Related requirements: SYS-007 through SYS-009, SYS-013, SAF-001, SAF-003,
+  SAF-004, SAF-007, SAF-008, and applicable REL, SRV, ARC, and DEV requirements.
 - Related architecture: Level 1; related roadmap stage: Stage 2 and Stage 3.
 - ADR required: Yes, for trigger/control-strategy decisions. Component evaluation required: Yes. Bench testing required: Yes.
-- Recommended next action: Verify the XJ900S engine and existing ignition topology, then document candidate crank and cam sensing strategies.
+- Recommended next action: Execute
+  [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md)
+  only after its review gates are satisfied, then use its evidence in
+  RESEARCH-0003 and the later decoder-validation plan before selecting trigger
+  or ECU hardware.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-06 | Consolidated staged synchronization, air-cooled temperature sensing, fall-sensor, monitoring, and safe-state planning. | Separate accepted functions from proposed targets and unverified implementations before hardware evaluation. |
 | 2026-08-04 | Created initial research record. | Define I/O and trigger research before ECU hardware comparison. |
 
 ## Navigation
 
-[Research index](README.md) | [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [ADR-0002](../decisions/ADR-0002-three-level-control-architecture.md) | [Implementation roadmap](../implementation/roadmap.md) | [Test strategy](../testing/test-strategy.md) | [Documentation index](../INDEX.md)
+[Research index](README.md) | [RESEARCH-0001](RESEARCH-0001-engine-management-platform.md) | [RESEARCH-0003](RESEARCH-0003-trigger-and-synchronization-strategy.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [ADR-0002](../decisions/ADR-0002-three-level-control-architecture.md) | [Implementation roadmap](../implementation/roadmap.md) | [Test strategy](../testing/test-strategy.md) | [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md) | [TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md) | [Documentation index](../INDEX.md)

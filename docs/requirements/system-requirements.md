@@ -119,6 +119,24 @@ Status: Accepted
 Rationale: Preserves staged development and avoids unnecessary initial complexity.
 Verification method: Architecture review.
 
+### SYS-013
+
+Requirement ID: SYS-013
+Requirement: The Level 1 engine-management system shall use a crankshaft-position input for engine-speed determination and synchronization.
+Status: Accepted
+Rationale: Records the accepted need for crankshaft sensing without selecting a sensor, trigger pattern, location, conditioning, decoder, or final implementation.
+Verification method: Architecture review and functional test.
+Review: Technical Review Required
+
+### SYS-014
+
+Requirement ID: SYS-014
+Requirement: The project shall retain the original field-regulated generator architecture unless measured evidence supports a superseding ADR.
+Status: Accepted
+Rationale: Implements ADR-0003 while preserving an evidence-based reopening path.
+Verification method: Documentation review.
+Review: Technical Review Required
+
 ## Safety requirements
 
 ### SAF-001
@@ -182,6 +200,18 @@ Requirement: Safety-related faults shall be diagnosable to a practical extent.
 Status: Accepted
 Rationale: Supports practical identification of safety-related faults.
 Verification method: Functional test.
+Review: Technical Review Required
+
+### SAF-008
+
+Requirement ID: SAF-008
+Requirement: The project shall include a fall or tip-over sensor whose valid activation causes Level 1 fuel-pump, injector, and ignition shutdown and requires deliberate reset or restart behavior.
+Status: Accepted
+Rationale: Records the accepted sensor requirement and Level 1 shutdown authority without selecting the sensor or its implementation.
+The exact reset sequence, state conditions, timing, missing-signal behavior,
+and restart interlocks remain Unverified and require a later accepted safety
+strategy.
+Verification method: Functional and fault-injection test.
 Review: Technical Review Required
 
 ## Reliability requirements

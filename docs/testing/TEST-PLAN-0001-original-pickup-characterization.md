@@ -11,6 +11,8 @@ management.
 
 **Execution status: Not started**
 
+**Test result: Not available**
+
 Review: Technical Review Required
 
 The plan shall not be executed until equipment inventory, probe ratings, scope grounding, connection diagram, and engine-start prevention are technically reviewed. No result classification is assigned before execution.
@@ -24,6 +26,31 @@ Excluded: ignition primary/secondary/TCI measurement, high voltage, modification
 ## Known reference values
 
 For manual-stated 1995 4KM1 only: pickup 446-545 ohms at 20 degrees C; White/Red and White/Green leads; 5 degrees BTDC at 1,000 rpm; 40 degrees BTDC at 5,000 rpm; timing check 950-1,050 rpm; timing-plate bolt 45 Nm. These are comparison references, not 1997 limits. Do not remove or tighten the timing-plate bolt for inspection.
+
+## Test-object and session metadata
+
+No field below has been populated. Record the values during an authorized test
+session without inferring a missing identifier or condition.
+
+| Field | Recorded value | Initial state |
+| --- | --- | --- |
+| Test ID | TEST-PLAN-0001 | Defined |
+| Date and time | Not recorded | Not started |
+| Operator | Not recorded | Not started |
+| Frame/vehicle identifier | 4KM060267 | Project-recorded; verify against the test object |
+| Engine number | Not recorded | Not started |
+| Ambient temperature | Not recorded | Not started |
+| Engine temperature | Not recorded | Not started |
+| Battery open-circuit voltage | Not recorded | Not started |
+| Battery voltage during cranking | Not recorded | Not started |
+| Meter model and serial number | Not recorded | Not started |
+| Oscilloscope model and serial number | Not recorded | Not started |
+| Probe type and attenuation | Not recorded | Not started |
+| Sample rate | Not recorded | Not started |
+| Original TCI connected or disconnected | Not recorded | Not started |
+| Ignition coils connected or disconnected | Not recorded | Not started |
+| Fuel-system state | Not recorded | Not started |
+| Spark plugs installed or removed | Not recorded | Not started |
 
 ## Available equipment
 
@@ -104,25 +131,100 @@ block waveform capture.
 
 ### Phase A - Non-invasive visual identification
 
-Record VIN/model/engine; photograph coils, HT routes, TCI, pickup connector/routing; record part numbers, connector pins, White/Red/White/Green where applicable, and 4KM1 discrepancies. No electrical measurement.
+No electrical measurement is included in this phase.
+
+1. Record the motorcycle identity, project-recorded frame/vehicle identifier,
+   and engine number without inferring production year or submodel from the 4KM
+   prefix.
+2. Photograph the pickup connector before disconnection or cleaning.
+3. Identify and photograph the White/Red and White/Green pickup wires where
+   confirmed on the motorcycle.
+4. Photograph the complete accessible pickup cable routing.
+5. Inspect and record connector lock, seals, terminals, insulation, previous
+   repairs, cable exit, and strain relief.
+6. Document proximity to ignition wiring, high-tension leads, starter wiring,
+   charging wiring, and other high-current paths.
+7. Photograph the ignition coils, high-tension lead routing, TCI, timing cover,
+   and accessible timing marks.
+8. Trace ignition-coil and high-tension-lead routing without assuming cylinder
+   pairing or wasted-spark operation.
+9. Record visible part identifiers exactly as read. Flag the unresolved
+   `4JT051`/`J4T051` ignitor discrepancy rather than normalizing it.
+10. Record differences between the project motorcycle and the manual-stated
+    1995 4KM1 reference.
 
 ### Phase B - Static pickup measurement
 
-Ignition off, key removed, and accidental starter operation prevented: identify/disconnect pickup, prove absence of voltage, measure lead-to-lead resistance with EQ-001, record temperature/stable value, reverse leads, and record open/unstable/intermittent behavior. Chassis observation only after topology review. EQ-004 is optional. Manual-range resistance is not proof of dynamic suitability.
+1. Switch ignition off, remove the key, and apply the approved accidental
+   starter-operation prevention controls.
+2. Positively identify and disconnect the pickup so resistance is measured
+   directly at the disconnected pickup, isolated from the TCI and energized
+   circuitry.
+3. Prove absence of voltage using the reviewed method before selecting
+   resistance mode. Never use resistance mode on an energized circuit.
+4. Record pickup and ambient temperature.
+5. Measure lead-to-lead resistance with EQ-001 and record the stable value,
+   minimum, maximum, instability, open-circuit indications, and interruptions.
+6. Reverse the meter leads and repeat the measurement.
+7. Perform a controlled cable-manipulation test while observing resistance;
+   avoid pulling, sharp bending, or damage.
+8. Repeat the measurement from the TCI-side harness with the TCI disconnected
+   and record the result separately.
+9. Do not invent a permitted harness-resistance delta. Retain the raw values
+   for later review.
+10. Make pickup-lead-to-ground observations only after topology and grounding
+    review defines a safe and meaningful method.
+11. EQ-004 may provide a separately identified repeatability measurement.
+12. Compare only with the manual-stated 1995 4KM1 reference range and preserve
+    the 1997 applicability limitation. An in-range resistance does not prove
+    dynamic, decoder, or EFI suitability.
+
+Do not use a megohmmeter or high-voltage insulation tester on the pickup,
+harness, TCI, or connected motorcycle circuitry.
 
 ### Phase C - Mechanical inspection
 
-Photograph cover; remove only required service cover; do not loosen plate bolt. Photograph pickup, plate, features, pin, fasteners, marks, pointer, routing, and seals; count/measure features, clearances, and non-damaging air gap; record damage/contamination/runout/adjustment/modification. Prevent debris and restore sealing. Do not infer angles from photos.
+1. Photograph the timing-plate area before cleaning or disturbing contamination.
+2. Remove only the service cover required by the reviewed method. Do not loosen
+   the timing-plate bolt merely for inspection.
+3. Photograph the pickup body, magnetic face, potting, cable exit, mount,
+   timing plate, centre retention, pins, fasteners, marks, pointer, routing,
+   seals, contact marks, contamination, and previous modification.
+4. Identify and record the visible trigger-feature count.
+5. Measure visible feature width, feature height, gaps, and rotor diameter where
+   accessible with an appropriate non-damaging method.
+6. Measure pickup air gap at all relevant trigger features and record minimum,
+   maximum, and variation.
+7. Measure radial and axial runout only where a valid reference surface and safe
+   method are available; record values without inventing Yamaha limits.
+8. Record available radial, axial, and cover clearance without treating it as
+   component compatibility.
+9. Prevent debris entry and restore the inspected area to its approved safe
+   configuration.
+
+Do not drill, grind, weld, or otherwise modify the original timing plate. Do
+not infer dimensions or angles from photographs.
 
 ### Phase D - Cranking waveform planning
 
 **Execution status: Blocked**
 
-Blocked pending approved connection diagram and start prevention. Required outputs if approved: loaded/unloaded and differential signal, approved-reference signal, cranking correlation, amplitude/count/spacing/polarity/noise/irregular events/repeatability.
+Waveform capture remains blocked until probe identity and rating are verified,
+the oscilloscope grounding architecture is technically reviewed, a connection
+diagram is approved, the motorcycle is secured, fuel and ignition risks are
+controlled, unintended engine start is prevented, and an emergency-stop method
+is available.
+
+When approved, record separate configurations with spark plugs installed and,
+only if separately safe and justified, spark plugs removed. Capture minimum and
+maximum peak-to-peak amplitude, event count per revolution, event spacing,
+polarity, irregular intervals, ringing, noise, missing events, false events,
+battery voltage, approximate cranking speed, and repeatability. Preserve the
+raw scope waveform and configuration for every capture.
 
 #### Method D1 &mdash; True differential measurement
 
-**Status:** Unverified
+**Status: Unverified**
 
 Use a suitable differential probe across the pickup leads only after its
 identity, rating, range, and common-mode capability have been verified through
@@ -131,7 +233,7 @@ differential-probe equipment is available.
 
 #### Method D2 &mdash; Two-channel subtraction
 
-**Status:** Proposal
+**Status: Proposal**
 
 Use two-channel subtraction only with both ordinary oscilloscope ground clips
 at one approved reference point, matched probes and attenuation, and a
@@ -144,6 +246,32 @@ common-mode range, probe matching, and connection diagram.
 **Execution status: Blocked**
 
 Requires reviewed cranking work, retained probes, restored operation, ventilation, thermal/rotating protection, and approved shutdown. No ignition-primary or secondary measurement.
+
+No idle capture may proceed until the cranking tests and all live-engine safety
+preconditions have been reviewed. This phase excludes ignition-primary and
+ignition-secondary probing.
+
+## Planned timing correlation
+
+**Execution status: Blocked**
+
+Review: Technical Review Required
+
+Develop and approve a separate method for correlating pickup trigger events to
+true cylinder-1 top dead centre (TDC). Use a degree wheel and a repeatable TDC
+measurement method. Do not rely only on painted factory timing marks, the
+piston's apparent highest dial-indicator point, or the stated ignition timing.
+
+The method shall record:
+
+- Geometric trigger position.
+- Electrical zero crossing.
+- Selected signal edge.
+- Angle relative to true cylinder-1 TDC.
+
+Do not specify crankshaft rotation direction until it is verified from an
+applicable service source. Do not use the planned correlation to imply a
+selected ECU-detected edge or trigger offset.
 
 ## Engine-start prevention method
 
@@ -201,16 +329,23 @@ No method is selected. It must preserve pickup/TCI state, prevent unintended sta
 | PCK-RES-002 | Pickup resistance with meter leads reversed | Phase B | Not started | Not run |
 | PCK-RES-003 | Optional independent repeatability measurement using EQ-004 | Phase B | Not started | Not run |
 | PCK-RES-004 | Pickup-lead-to-chassis observation, only after topology review | Phase B | Not started | Not run |
+| PCK-RES-005 | Controlled pickup-cable manipulation observation | Phase B | Not started | Not run |
+| PCK-RES-006 | TCI-side harness resistance with TCI disconnected | Phase B | Not started | Not run |
 | PCK-GEO-001 | Visible timing-feature count | Phase C | Not started | Not run |
 | PCK-GEO-002 | Timing-feature widths and gaps | Phase C | Not started | Not run |
 | PCK-GEO-003 | Pickup air gap | Phase C | Not started | Not run |
 | PCK-GEO-004 | Available radial and axial clearance | Phase C | Not started | Not run |
 | PCK-GEO-005 | Timing-cover clearance | Phase C | Not started | Not run |
+| PCK-GEO-006 | Visible feature height and rotor diameter where accessible | Phase C | Not started | Not run |
+| PCK-GEO-007 | Radial runout where a valid reference and safe method exist | Phase C | Not started | Not run |
+| PCK-GEO-008 | Axial runout where a valid reference and safe method exist | Phase C | Not started | Not run |
 | PCK-WAV-001 | Cranking differential waveform using Method D1 | Phase D, Method D1 | Blocked | Not run |
 | PCK-WAV-002 | Cranking differential waveform using Method D2 | Phase D, Method D2 | Blocked | Not run |
 | PCK-WAV-003 | Connected and normally loaded cranking waveform | Phase D | Blocked | Not run |
 | PCK-WAV-004 | Disconnected or unloaded waveform, only if separately justified | Phase D | Blocked | Not run |
 | PCK-WAV-005 | Idle waveform capture | Phase E | Blocked | Not run |
+| PCK-TDC-001 | Repeatable true cylinder-1 TDC determination | Planned timing correlation | Blocked | Not run |
+| PCK-TDC-002 | Geometric and electrical trigger correlation to true cylinder-1 TDC | Planned timing correlation | Blocked | Not run |
 | PCK-SAF-001 | Test-equipment and probe verification | Before Phases B through E | Not started | Not run |
 | PCK-SAF-002 | Oscilloscope grounding review | Before Phase D | Not started | Not run |
 | PCK-SAF-003 | Connection-diagram review | Before Phases B through E | Not started | Not run |
@@ -222,9 +357,16 @@ shall record date, operator, motorcycle, equipment, probe or lead, connection
 point, operating state, environmental conditions, raw value, unit, uncertainty,
 evidence reference, and reviewed result classification.
 
-## Evidence storage
+## Evidence handling and storage
 
-Proposed, not-created repository paths are `evidence/pickup/photos/`, `evidence/pickup/measurements/`, `evidence/pickup/waveforms/`, and `evidence/pickup/diagrams/`. Do not store copyrighted manual pages. Retain original waveform files, CSV where supported, original photographs, connection diagrams, and notes; screenshots and edited images shall not replace raw/original evidence. Filenames shall reference the measurement identifier; record checksums where practical.
+Proposed, not-created repository paths are `evidence/pickup/photos/`,
+`evidence/pickup/measurements/`, `evidence/pickup/waveforms/`, and
+`evidence/pickup/diagrams/`. Do not store copyrighted manual pages. Retain
+original waveform files, CSV exports where supported, original photographs,
+screenshots, connection diagrams, operator notes, and equipment records.
+Screenshots and edited images shall not replace raw/original evidence.
+Filenames shall reference the measurement identifier; record checksums where
+practical.
 
 ## Stop criteria
 
@@ -285,6 +427,22 @@ The session may be marked Completed only when:
 Completion of the measurement session does not accept any EFI trigger component
 or strategy. Execution status and result classification remain separate.
 
+## Decision gates
+
+No gate is passed. Each gate requires retained evidence and technical review
+where applicable.
+
+| Gate | Required evidence | Initial state |
+| --- | --- | --- |
+| Gate 1 - Pickup electrical health | Direct pickup resistance in both meter directions, temperature, cable-manipulation stability, interruptions, and separately recorded TCI-side harness measurement. | Not evaluated |
+| Gate 2 - Mechanical timing-plate health | Before-cleaning photographs, feature geometry, pickup and mount condition, air-gap range and variation, retention, contact/contamination observations, and available runout evidence. | Not evaluated |
+| Gate 3 - Cranking waveform quality | Approved differential capture, cranking voltage and speed, amplitude range, event count/spacing, polarity, noise, ringing, missing/false events, and configuration. | Blocked pending waveform preconditions |
+| Gate 4 - Repeatability and timing correlation | Repeated captures plus reviewed correlation of geometric position, zero crossing, selected edge, and angle to true cylinder-1 TDC. | Blocked pending prior gates and separate review |
+
+The output of this plan is evidence for later decoder testing. Passing any gate
+does not by itself accept the pickup, timing plate, sensor technology, trigger
+pattern, decoder, ECU, or synchronization strategy.
+
 ## Decision boundary
 
 This plan may characterize the original pickup and timing-plate arrangement, but
@@ -333,6 +491,13 @@ evidence supports a trigger and synchronization decision.
 22. [ ] Relative links resolve.
 23. [ ] No malformed UTF-8 exists.
 24. [ ] No trailing whitespace exists.
+25. [ ] Test result remains Not available until execution evidence is reviewed.
+
+## Change history
+
+| Date | Change | Reason |
+| --- | --- | --- |
+| 2026-08-06 | Expanded test-object metadata, phased methods, timing correlation, evidence handling, and decision gates. | Prepare complete, blocked characterization evidence before decoder or component selection. |
 
 ## Recommended next action
 
@@ -342,4 +507,4 @@ evidence supports a trigger and synchronization decision.
 
 ## Navigation
 
-[Test strategy](test-strategy.md) | [RESEARCH-0002](../research/RESEARCH-0002-level-1-io-and-trigger-requirements.md) | [RESEARCH-0003](../research/RESEARCH-0003-trigger-and-synchronization-strategy.md) | [Testing index](README.md)
+[Test strategy](test-strategy.md) | [TEST-PLAN-0002](TEST-PLAN-0002-trigger-decoder-and-timing-validation.md) | [RESEARCH-0002](../research/RESEARCH-0002-level-1-io-and-trigger-requirements.md) | [RESEARCH-0003](../research/RESEARCH-0003-trigger-and-synchronization-strategy.md) | [System requirements](../requirements/system-requirements.md) | [System architecture](../architecture/system-architecture.md) | [Implementation roadmap](../implementation/roadmap.md) | [Testing index](README.md)
