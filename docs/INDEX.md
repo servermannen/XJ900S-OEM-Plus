@@ -18,6 +18,7 @@
 - [Level 1 I/O and trigger requirements](research/RESEARCH-0002-level-1-io-and-trigger-requirements.md)
 - [Trigger and synchronization strategy](research/RESEARCH-0003-trigger-and-synchronization-strategy.md)
 - [RESEARCH-0004: rusEFI dual-bank short-term fuel trim](research/RESEARCH-0004-rusefi-dual-bank-stft.md)
+- [1997-on electrical baseline extraction](research/RESEARCH-0005-1997-on-electrical-baseline.md)
 - [Original pickup characterization plan](testing/TEST-PLAN-0001-original-pickup-characterization.md)
 - [Trigger decoder and timing validation plan](testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
 - [ADR-0003: Retain Original Field-Regulated Charging Architecture](decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md)

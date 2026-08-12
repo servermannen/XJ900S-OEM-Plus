@@ -18,6 +18,14 @@ compatible until it has been confirmed.
 - [COMP-0002: 2022 MT-07 clutch lever and
   perch](COMP-0002-2022-mt07-clutch-lever-perch.md) — acquired candidate; cable
   and physical compatibility remain under evaluation.
+- [COMP-0003: Owner-reported 2003 FZS600
+  handlebar](COMP-0003-2003-fzs600-handlebar.md) — purchased candidate;
+  Yamaha application, normalized part number, condition, dimensions, and
+  compatibility remain unverified.
+- [COMP-0004: Owner-reported 2023-2024 Tracer 9 right switch and DBW
+  grip](COMP-0004-2023-2024-tracer9-right-switch-dbw-grip.md) — purchased
+  candidate; Yamaha application, electrical interfaces, DBW strategy, and
+  compatibility remain unverified.
 
 ## Navigation
 

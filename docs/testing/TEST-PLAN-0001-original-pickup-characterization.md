@@ -317,6 +317,102 @@ No method is selected. It must preserve pickup/TCI state, prevent unintended sta
 | CSV filename where available | Not recorded | Required where supported. |
 | Operator notes | Not recorded | Required before waveform work. |
 
+## Pickup field measurement record
+
+The identifiers in this section are the stable field-record identifiers
+requested for the physical measurement campaign. They summarize the more
+granular visual, resistance, geometry, waveform, timing, and safety identifiers
+below; they do not replace those controls or authorize execution.
+
+Terminal A and terminal B are temporary field-record labels only. Assign them
+to photographed connector cavities before measurement and retain that mapping
+with every result. Do not infer polarity, Yamaha pin naming, or wire identity
+from the temporary labels.
+
+### Field-record execution phases
+
+These groupings clarify the evidence phase for the stable IDs without changing
+the detailed measurement identifiers or any prerequisite:
+
+- Non-invasive identification and photography: PCK-01 and PCK-02.
+- Passive disconnected electrical measurements: PCK-03, PCK-04, and PCK-05.
+- Energized starter-cranking and waveform work: PCK-06, PCK-07, and PCK-08.
+- Mechanical trigger characterization: PCK-09.
+
+The energized group remains Blocked until every applicable Phase D safety,
+equipment, grounding, connection-diagram, engine-start-prevention, motorcycle,
+fuel, ventilation, and emergency-stop prerequisite is satisfied and reviewed.
+The phase grouping does not authorize execution or weaken any existing gate.
+
+| Measurement ID | Required record | Related detailed evidence |
+| --- | --- | --- |
+| PCK-01 | Connector location, connector identification, and pin count | PCK-VIS-003 and the connector photographs |
+| PCK-02 | Wire colours observed on the actual motorcycle and schematic wire colours, recorded separately | PCK-VIS-003 and the exact schematic source reference |
+| PCK-03 | Pickup resistance terminal-to-terminal | PCK-RES-001, PCK-RES-002, and applicable repeatability evidence |
+| PCK-04 | Pickup terminal A resistance or isolation observation to engine and chassis ground | PCK-RES-004 under the reviewed topology and grounding method |
+| PCK-05 | Pickup terminal B resistance or isolation observation to engine and chassis ground | PCK-RES-004 under the reviewed topology and grounding method |
+| PCK-06 | AC signal during starter cranking, distinguishing AC voltage indication, instrument mode and known bandwidth information, measured or derived frequency, and conditionally derived engine RPM | PCK-WAV-001 or PCK-WAV-002 under an approved method |
+| PCK-07 | Raw waveform capture and configuration | Applicable PCK-WAV record and oscilloscope configuration record |
+| PCK-08 | Electrical polarity referenced to the photographed terminal mapping and selected waveform convention | Applicable PCK-WAV record and later timing-correlation evidence |
+| PCK-09 | Trigger geometry or tooth/lobe pattern and mechanical reference position | PCK-GEO-001 through PCK-GEO-008 and applicable PCK-TDC evidence |
+
+### Pickup results table
+
+The result cells are intentionally empty until an authorized physical session
+is performed. For each execution, add a separate row if conditions, instruments,
+connections, or repeated results differ. Do not replace a raw value with a
+later interpretation.
+
+| Measurement ID | Date | Recorded value or observation | Unit | Measurement instrument and identifier | Measurement conditions and connection points | Execution status | Result | Evidence or photo reference |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| PCK-01 |  |  |  |  |  | Not started | Not run |  |
+| PCK-02 |  |  |  |  |  | Not started | Not run |  |
+| PCK-03 |  |  |  |  |  | Not started | Not run |  |
+| PCK-04 |  |  |  |  |  | Not started | Not run |  |
+| PCK-05 |  |  |  |  |  | Not started | Not run |  |
+| PCK-06 |  |  |  |  |  | Blocked | Not run |  |
+| PCK-07 |  |  |  |  |  | Blocked | Not run |  |
+| PCK-08 |  |  |  |  |  | Blocked | Not run |  |
+| PCK-09 |  |  |  |  |  | Not started | Not run |  |
+
+### Required interpretation fields
+
+- PCK-01 shall identify connector location, any legible connector or component
+  identifier, cavity orientation, and pin count.
+- PCK-02 shall keep wire colours observed on the actual motorcycle separate
+  from schematic wire colours and shall cite the schematic edition and page or
+  figure. A colour match is not proof of circuit identity.
+- PCK-03 through PCK-05 shall record raw resistance or instrument indication,
+  selected range, meter lead orientation, stable/minimum/maximum behavior,
+  temperature, disconnected state, engine-ground reference, chassis-ground
+  reference, and applicable uncertainty. A high-voltage insulation tester
+  shall not be used.
+- PCK-06 shall record the AC voltage indication separately from the meter or
+  instrument mode and relevant bandwidth information where known. Record
+  whether frequency is measured directly or derived and retain the derivation
+  method. Derive engine RPM only where recorded trigger geometry establishes a
+  valid relationship between signal frequency and crankshaft speed; otherwise
+  record RPM as not derived. Also record battery voltage, plugs-installed or
+  plugs-removed state, TCI state, measurement conditions, and repeated results.
+- PCK-07 shall retain the raw waveform, screenshot, CSV where supported,
+  oscilloscope and probe identity, attenuation, coupling, timebase, sample
+  rate, bandwidth, trigger settings, reference points, and the reviewed
+  connection method.
+- PCK-08 shall define polarity relative to the photographed terminal mapping,
+  instrument channel convention, geometric approach direction where known,
+  zero crossing, and selected edge. It shall not imply a selected ECU input
+  polarity or trigger offset.
+- PCK-09 shall record visible feature count; tooth or lobe pattern; feature
+  width, height, and spacing where measurable; rotor diameter; pickup air gap;
+  available runout evidence; rotation direction only if verified; and the
+  mechanical reference position relative to a reviewed true cylinder-1 TDC
+  method.
+
+Every PCK-01 through PCK-09 result shall identify the measurement instrument,
+conditions, date, result classification, and evidence or photo reference. If a
+field cannot be established, record `Unknown`, `Not recorded`, `Not run`, or
+`Blocked` with the reason rather than estimating it.
+
 ## Measurement identifiers
 
 | Measurement ID | Planned observation or measurement | Applicable phase or method | Initial execution status | Result |
@@ -443,6 +539,12 @@ The output of this plan is evidence for later decoder testing. Passing any gate
 does not by itself accept the pickup, timing plate, sensor technology, trigger
 pattern, decoder, ECU, or synchronization strategy.
 
+Continuity or plausible resistance does not establish suitability as an EFI
+crankshaft-position source. Successful engine cranking or starting does not
+validate trigger quality. Waveform quality, trigger geometry, synchronization
+robustness, and ECU decoder compatibility remain separate validation questions
+and require their own retained evidence and review.
+
 ## Decision boundary
 
 This plan may characterize the original pickup and timing-plate arrangement, but
@@ -492,11 +594,16 @@ evidence supports a trigger and synchronization decision.
 23. [ ] No malformed UTF-8 exists.
 24. [ ] No trailing whitespace exists.
 25. [ ] Test result remains Not available until execution evidence is reviewed.
+26. [ ] PCK-01 through PCK-09 remain unpopulated until physical measurements or observations are performed.
+27. [ ] Continuity, resistance, cranking, or starting is not treated as EFI trigger validation.
+28. [ ] Waveform, geometry, synchronization robustness, and decoder compatibility remain separately evaluated.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-12 | Clarified PCK-06 recording and the PCK-01 through PCK-09 execution phases. | Separate voltage indication, instrument mode, frequency, conditional RPM derivation, and evidence phases without changing stable IDs or safety gates. |
+| 2026-08-11 | Added the stable PCK-01 through PCK-09 field record and explicit non-validation boundaries. | Provide a systematic empty measurement record without changing blocked execution or accepting EFI compatibility. |
 | 2026-08-06 | Expanded test-object metadata, phased methods, timing correlation, evidence handling, and decision gates. | Prepare complete, blocked characterization evidence before decoder or component selection. |
 
 ## Recommended next action
