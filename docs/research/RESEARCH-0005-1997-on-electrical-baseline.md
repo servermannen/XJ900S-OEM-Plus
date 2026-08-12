@@ -64,7 +64,7 @@ without explicit applicability evidence or direct inspection.
 | Source ID | Source | Type | Availability in repository | Applicability and limitation | Information status | Execution status | Result |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ELEC-SRC-001 | Yamaha XJ900S(G) Service Manual, 4KM-28197-20 | Yamaha service manual | Referenced by existing research; copyrighted pages are not stored in the repository | Manual-stated 1995 4KM1 only; 1997 applicability remains Unverified | Confirmed for source identity and stated scope only | Not applicable | Not applicable |
-| ELEC-SRC-002 | Photographed 1997-on Haynes schematic | Secondary manual schematic | No usable copy or evidence reference is currently recorded in the repository | Do not reconstruct the schematic; add the exact edition, page, photograph reference, and applicability when available | Unverified | Not applicable | Not applicable |
+| ELEC-SRC-002 | Photographed 1997-on Haynes schematic | Secondary manual schematic | Reviewed schematic interpretation supplied for this extraction; no usable copy or photograph reference is recorded in the repository | Source-stated XJ900S 1997-on; exact edition, page, and photograph reference remain to be recorded. It is not direct evidence of the project motorcycle. | Unverified | Not applicable | Not applicable |
 | ELEC-SRC-003 | Project motorcycle inspection | Direct observation | Not performed for this record | Applies only to the identified motorcycle, date, configuration, and observed access points | Unverified | Not started | Not run |
 | ELEC-SRC-004 | Project motorcycle electrical measurements | Direct measurement | Not performed for this record | Requires an approved method, identified instruments, recorded conditions, and retained evidence | Unverified | Not started | Not run |
 
@@ -121,24 +121,28 @@ basic engine operation. This baseline extraction does not change that boundary.
 
 ## Circuit identification and path register
 
-No circuit facts have been populated. Complete the fields from cited sources
-and direct inspection without merging those evidence classes.
+The entries below contain schematic-derived information from `ELEC-SRC-002`
+only. No circuit relationship has yet been verified by direct observation on
+`XJ900S-01`. Source-stated XJ900S 1997-on applicability does not establish
+applicability to `XJ900S-01`.
+Connector, pin, terminal, and physical-layout detail remains Not recorded unless
+the cited source interpretation explicitly identifies it.
 
 | Circuit ID | Function | Schematic source and path | Schematic connector, pins, and wire colours | Observed connector location and ID | Observed pin count and wire colours | Direct evidence reference | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ELB-01 | Pickup coil to original ignition control unit | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-02 | Original ignition control unit power, ground, inputs, and outputs | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-03 | Ignition coil supply and control paths | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-04 | TPS supply, reference, signal, and return paths | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-05 | Fuel-pump relay coil and switched-contact paths | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-06 | Fuel-pump supply, return, protection, and connector path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-07 | Starter-request input and starter-control path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-08 | Kill-switch or engine-stop-switch path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-09 | Neutral-switch path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-10 | Clutch-switch path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-11 | Sidestand-switch path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-12 | Starter-interlock relay, diode, junction, or equivalent logic path | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
-| ELB-13 | Engine-stop path affecting ignition and fuel-pump operation | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified |
+| ELB-01 | Pickup coil to original ignition control unit | Two conductors: White/Red and Black/Blue, each shown from pickup coil to original ignition control unit; polarity not assigned | Connector and pin detail Not recorded; White/Red; Black/Blue | Not recorded | Not recorded | ELEC-SRC-002; SCH-001 to SCH-002 | Unverified |
+| ELB-02 | Original ignition control unit power, ground, inputs, and outputs | White/Red, Black/Blue, Light Blue, Red/White, Blue/Black, Yellow/Black, Black, Orange, Gray, Yellow, and Blue are visibly traceable at the unit; only relationships recorded in SCH rows are assigned | Connector and pin detail Not recorded; listed schematic colours | Not recorded | Not recorded | ELEC-SRC-002; SCH-001 to SCH-030 | Unverified |
+| ELB-03 | Ignition coil supply and control paths | Two HT coils supply four spark plugs; Orange and Gray are separate control paths from original ignition control unit; Red/Black is common coil supply | Connector and pin detail Not recorded; Orange; Gray; Red/Black | Not recorded | Not recorded | ELEC-SRC-002; SCH-006 to SCH-008 | Unverified |
+| ELB-04 | TPS supply, reference, signal, and return paths | Yellow, Blue, and Black/Blue each connect TPS to original ignition control unit; individual functions not assigned | Connector and pin detail Not recorded; Yellow; Blue; Black/Blue | Not recorded | Not recorded | ELEC-SRC-002; SCH-009 to SCH-011 | Unverified |
+| ELB-05 | Fuel-pump relay coil and switched-contact paths | Relay is inside relay assembly: Red/Black connects to relay path; Blue/Red connects relay path to original ignition control unit; Blue/Black connects relay path to fuel pump; fourth connection is internal from starting circuit cut-off relay/internal logic | Physical terminals Not recorded; Red/Black; Blue/Red; Blue/Black; internal relay-assembly link | Not recorded | Not recorded | ELEC-SRC-002; SCH-012 to SCH-015 | Unverified |
+| ELB-06 | Fuel-pump supply, return, protection, and connector path | Blue/Black connects fuel-pump relay path to fuel pump; Black connects fuel pump to earth/ground | Connector and protection detail Not recorded; Blue/Black; Black | Not recorded | Not recorded | ELEC-SRC-002; SCH-014; SCH-016 | Unverified |
+| ELB-07 | Starter-request input and starter-control path | Start switch has Black and Blue/White conductors; Blue/White continues into starting circuit cut-off relay/starter-control path; Red/White is part of ignition/starter-relay/original-ignition-control-unit-related supply path | Connector and pin detail Not recorded; Black; Blue/White; Red/White | Not recorded | Not recorded | ELEC-SRC-002; SCH-017 to SCH-019 | Unverified |
+| ELB-08 | Kill-switch or engine-stop-switch path | Stop switch is between Red/Black and Red/White | Connector and pin detail Not recorded; Red/Black; Red/White | Not recorded | Not recorded | ELEC-SRC-002; SCH-020 to SCH-021 | Unverified |
+| ELB-09 | Neutral-switch path | Light Blue is neutral-switch signal path; switch is represented as grounding and participates in interlock-related network | Connector and pin detail Not recorded; Light Blue | Not recorded | Not recorded | ELEC-SRC-002; SCH-022 | Unverified |
+| ELB-10 | Clutch-switch path | Black/Yellow goes to starting circuit cut-off relay; Blue/Yellow participates in ignition-main-switch/diode/sidestand interlock network | Connector and pin detail Not recorded; Black/Yellow; Blue/Yellow | Not recorded | Not recorded | ELEC-SRC-002; SCH-023 to SCH-024 | Unverified |
+| ELB-11 | Sidestand-switch path | Blue/Yellow is sidestand signal path; Black connects sidestand switch to earth/ground | Connector and pin detail Not recorded; Blue/Yellow; Black | Not recorded | Not recorded | ELEC-SRC-002; SCH-025 to SCH-026 | Unverified |
+| ELB-12 | Starter-interlock relay, diode, junction, or equivalent logic path | Starting circuit cut-off relay is inside relay assembly. Directly reviewed conductors are Blue/White, Blue/Black, Blue, and Black/Yellow. Broader network includes Blue/Yellow, Light Blue, and internal diodes. | Physical terminals, connector cavities, and logical terminal assignment Not recorded | Not recorded | Not recorded | ELEC-SRC-002; SCH-018; SCH-023; SCH-027 to SCH-030 | Unverified |
+| ELB-13 | Engine-stop path affecting ignition and fuel-pump operation | Red/White is ignition/starter-relay/original-ignition-control-unit-related supply path; Red/Black is ignition-coil/fuel-pump-relay-related supply path; Blue/Red links fuel-pump-relay path to original ignition control unit; stop switch is between Red/Black and Red/White; Orange and Gray are coil controls | Connector, terminal, shutdown sequence, and fuel-pump-current switching detail Not recorded | Not recorded | Not recorded | ELEC-SRC-002; SCH-006; SCH-007; SCH-012; SCH-013; SCH-020; SCH-021 | Unverified |
 
 ## Component identification register
 
@@ -163,9 +167,43 @@ Use one row per source-derived node, connector, pin, wire, splice, protection
 device, switch contact, relay contact, or ground relevant to ELB-01 through
 ELB-13. Add rows during extraction; do not infer omitted detail.
 
+All `SCH` rows added for this extraction have evidence class
+Schematic-derived, information status Unverified, execution status Not
+applicable, and result Not applicable. Those classifications apply to the
+source-derived interpretation, not to the project motorcycle.
+
 | Extraction ID | Circuit ID | Source ID and page/figure | Source-stated model/year | From node | Via connector, pin, colour, or device | To node | Information status | Notes or conflict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SCH-001 | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified | Not recorded |
+| SCH-001 | ELB-01 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Pickup coil | White/Red conductor | Original ignition control unit | Unverified | Schematic-derived; polarity not assigned. |
+| SCH-002 | ELB-01 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Pickup coil | Black/Blue conductor | Original ignition control unit | Unverified | Schematic-derived; polarity not assigned. |
+| SCH-003 | ELB-02 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Original ignition control unit | Light Blue conductor visible at unit | External Light Blue path Not recorded | Unverified | Schematic-derived conductor occurrence at unit. The neutral-switch occurrence is recorded separately in SCH-022; complete path continuity and function remain Unverified. |
+| SCH-004 | ELB-02 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Original ignition control unit | Blue/Black conductor visible at unit | External Blue/Black path Not recorded | Unverified | Schematic-derived conductor occurrence at unit. The fuel-pump-relay-to-pump occurrence is recorded separately in SCH-014; complete path continuity and function remain Unverified. |
+| SCH-005 | ELB-02 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Starting circuit cut-off relay/interlock network | Yellow/Black; Black; Yellow; Blue conductors | Original ignition control unit | Unverified | Schematic-derived trace at unit; functions not assigned. |
+| SCH-006 | ELB-03 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Original ignition control unit | Orange conductor | Ignition HT coil | Unverified | Schematic-derived control path; coil/cylinder pairing not assigned. |
+| SCH-007 | ELB-03 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Original ignition control unit | Gray conductor | Other ignition HT coil | Unverified | Schematic-derived control path; coil/cylinder pairing not assigned. |
+| SCH-008 | ELB-03 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Ignition-related supply path | Red/Black common supply | Two ignition HT coils | Unverified | Schematic-derived; arrangement supplies four spark plugs but is not classified. |
+| SCH-009 | ELB-04 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | TPS | Yellow conductor | Original ignition control unit | Unverified | Schematic-derived; function not assigned. |
+| SCH-010 | ELB-04 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | TPS | Blue conductor | Original ignition control unit | Unverified | Schematic-derived; function not assigned. |
+| SCH-011 | ELB-04 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | TPS | Black/Blue conductor | Original ignition control unit | Unverified | Schematic-derived; function not assigned. |
+| SCH-012 | ELB-05, ELB-13 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Red/Black supply path | Relay path connection | Fuel-pump relay within relay assembly | Unverified | Schematic-derived; relay terminal not assigned. |
+| SCH-013 | ELB-05, ELB-13 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Fuel-pump relay path | Blue/Red conductor | Original ignition control unit | Unverified | Schematic-derived link; no fuel-pump-current switching inference. |
+| SCH-014 | ELB-05, ELB-06 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Fuel-pump relay path | Blue/Black conductor | Fuel pump | Unverified | Schematic-derived external relay path. |
+| SCH-015 | ELB-05 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Starting circuit cut-off relay/internal relay-assembly logic | Internal relay-assembly connection | Fuel-pump relay path | Unverified | Schematic-derived internal connection; not an external wire or terminal. |
+| SCH-016 | ELB-06 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Fuel pump | Black conductor | Earth/ground | Unverified | Schematic-derived. |
+| SCH-017 | ELB-07 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Start switch | Black conductor | Starter-request path | Unverified | Schematic-derived; exact logic not assigned. |
+| SCH-018 | ELB-07, ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Start switch | Blue/White conductor | Starting circuit cut-off relay/starter-control path | Unverified | Schematic-derived. |
+| SCH-019 | ELB-07, ELB-13 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Ignition/starter-relay/original-ignition-control-unit-related supply path | Red/White conductor | Related supply path | Unverified | Schematic-derived; function and terminal detail not assigned. |
+| SCH-020 | ELB-08, ELB-13 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Stop switch | Red/Black conductor | Stop-switch contact | Unverified | Schematic-derived; source-derived relationship only. |
+| SCH-021 | ELB-08, ELB-13 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Stop-switch contact | Red/White conductor | Stop-switch path | Unverified | Schematic-derived; no shutdown sequence inferred. |
+| SCH-022 | ELB-09 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Neutral switch | Light Blue conductor; grounding-switch representation | Interlock-related network/earth | Unverified | Schematic-derived; active-level semantics not assigned. |
+| SCH-023 | ELB-10, ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Clutch switch | Black/Yellow conductor | Starting circuit cut-off relay | Unverified | Schematic-derived. |
+| SCH-024 | ELB-10 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Clutch-switch path | Blue/Yellow conductor | Ignition-main-switch/diode/sidestand interlock network | Unverified | Schematic-derived; exact logic not assigned. |
+| SCH-025 | ELB-11 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Sidestand switch | Blue/Yellow conductor | Sidestand interlock path | Unverified | Schematic-derived. |
+| SCH-026 | ELB-11 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Sidestand switch | Black conductor | Earth/ground | Unverified | Schematic-derived. |
+| SCH-027 | ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Starting circuit cut-off relay | Blue/Black conductor | Relay-assembly external path | Unverified | Schematic-derived; direct relay conductor, not assigned as coil terminal. |
+| SCH-028 | ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Starting circuit cut-off relay | Blue conductor | Relay-assembly external path | Unverified | Schematic-derived; direct relay conductor, not assigned as coil terminal. |
+| SCH-029 | ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Interlock network | Blue/Yellow and Light Blue conductors | Starting circuit cut-off relay/related network | Unverified | Schematic-derived broader network; not every wire is a direct relay terminal. |
+| SCH-030 | ELB-12 | ELEC-SRC-002; page/figure Not recorded | XJ900S 1997-on (source-stated) | Relay assembly | Internal diodes | Interlock network | Unverified | Schematic-derived internal devices; separate from external conductors and contacts. |
 
 ## Direct-observation worksheet
 
