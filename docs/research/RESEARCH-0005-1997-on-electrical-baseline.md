@@ -64,7 +64,7 @@ without explicit applicability evidence or direct inspection.
 | Source ID | Source | Type | Availability in repository | Applicability and limitation | Information status | Execution status | Result |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ELEC-SRC-001 | Yamaha XJ900S(G) Service Manual, 4KM-28197-20 | Yamaha service manual | Referenced by existing research; copyrighted pages are not stored in the repository | Manual-stated 1995 4KM1 only; 1997 applicability remains Unverified | Confirmed for source identity and stated scope only | Not applicable | Not applicable |
-| ELEC-SRC-002 | Photographed 1997-on Haynes schematic | Secondary manual schematic | Reviewed schematic interpretation supplied for this extraction; no usable copy or photograph reference is recorded in the repository | Source-stated XJ900S 1997-on; exact edition, page, and photograph reference remain to be recorded. It is not direct evidence of the project motorcycle. | Unverified | Not applicable | Not applicable |
+| ELEC-SRC-002 | User-provided photographed/scanned schematic, described in the project record as a Haynes schematic | Secondary manual schematic | The source markings visible to the project record are `XJ900S 1997-on`, `8•24`, and `Electrical system`. The scan or photograph itself is not retained in the repository. | Source-stated XJ900S 1997-on only. Edition, ISBN, publication year, complete manual title, market applicability, and exact production-code applicability are Not established. It is not direct evidence that the schematic applies to `XJ900S-01`. | Unverified | Not applicable | Not applicable |
 | ELEC-SRC-003 | Project motorcycle inspection | Direct observation | Not performed for this record | Applies only to the identified motorcycle, date, configuration, and observed access points | Unverified | Not started | Not run |
 | ELEC-SRC-004 | Project motorcycle electrical measurements | Direct measurement | Not performed for this record | Requires an approved method, identified instruments, recorded conditions, and retained evidence | Unverified | Not started | Not run |
 
@@ -90,6 +90,33 @@ identify both.
 An observation or measurement does not automatically establish component
 identity, source applicability, health, compatibility, or validation. Those
 conclusions require their own evidence and review.
+
+## Historical and source reconciliation
+
+The following matrix keeps the manual-stated 1995 4KM1 evidence,
+`ELEC-SRC-002` schematic extraction, and direct evidence from `XJ900S-01`
+separate. A source-stated 1997-on schematic is not direct evidence for the
+project motorcycle, and adjacent-year Yamaha information shall not be silently
+transferred to it.
+
+| Function or property | Yamaha 1995 4KM1 evidence | 1997-on schematic evidence | XJ900S-01 direct evidence | Consolidated status / consequence |
+| --- | --- | --- | --- | --- |
+| Pickup count | One pickup documented. | One pickup coil shown in the reviewed topology. | Direct physical observation not recorded. | Confirmed for the stated 4KM1 source and schematic-derived for the 1997-on source; Unverified for `XJ900S-01`. |
+| Pickup lead colours | White/Red; White/Green. | White/Red; Black/Blue. | Actual wire colours not directly observed or recorded. | The White/Green versus Black/Blue discrepancy remains explicit; do not normalize either source to the other. |
+| Pickup resistance | 446–545 ohms at 20 °C. | No resistance specification established from the schematic. | Not measured. | Confirmed only for the manual-stated 1995 4KM1 source; a comparison reference, not an accepted 1997 limit. |
+| Ignition-system type | Digital TCI documented. | An ignition control unit and related topology are shown, but the schematic alone does not establish every implementation detail or retain all 1995 specifications. | Component identity and marking require direct observation where not already retained. | Confirmed for manual-stated 4KM1 only; 1997 and `XJ900S-01` applicability remain Unverified. |
+| Ignition-coil count and spark plugs | Two ignition coils; four spark plugs. | Two HT coils supplying four plugs. | Physical components and routing not retained in this baseline. | 1995 evidence is Confirmed for 4KM1; schematic-derived topology is not direct `XJ900S-01` evidence. |
+| Firing order | 1-2-4-3 documented. | Not established by the electrical schematic. | Exact 1997 applicability not established. | Confirmed for manual-stated 4KM1 only; do not upgrade it to a confirmed 1997 result. |
+| Coil-to-cylinder pairing | 1/4 and 2/3 indicated by existing research; HT leads are not labelled by cylinder. | HT leads are not labelled by cylinder. | Not traced. | Status: Unverified for the project motorcycle pending physical HT-lead tracing. |
+| Wasted-spark classification | Strongly supported interpretation; the reviewed Yamaha material does not explicitly use the term. | Not explicitly classified. | Not observed. | Status: Unverified; no inference is promoted to a confirmed fact. |
+| TPS | Existing 4KM1 material does not establish the 1997-on schematic conductor functions. | Yellow, Blue, and Black/Blue connect TPS to the ignition control unit. | Connector, cavities, wire colours, pin functions, voltage levels, and transfer function not recorded. | Schematic-derived conductor relationship only; supply, signal, and return functions remain Unverified. |
+| Cam/phase sensor | No cam-position sensor/input or dedicated sensor provision identified in reviewed 4KM1 source sections. | No cam/phase conclusion is established by this schematic extraction. | Not inspected. | Confirmed only for the reviewed 4KM1 material. Crank sensing is an accepted mandatory Level 1 function; cam phase is final-target/strongly preferred, and initial development shall not depend on an unvalidated cam implementation. |
+| Fuel-pump system | No 1995 detail is transferred by this row. | Relay inside relay assembly; Red/Black relay-path connection; Blue/Red link to original ignition control unit; Blue/Black to pump; Black pump earth; internal relationship with starting circuit cut-off relay/internal logic. | Not observed or measured. | Schematic-derived relationships only; do not infer terminal numbering, coil polarity, ECU output type, prime duration, stall timeout, current, or EFI-pump suitability. |
+| Engine-stop switch | No 1995 detail is transferred by this row. | Stop switch between Red/Black and Red/White. | Not observed. | Schematic-derived topology only; current, voltage, shutdown sequence, failure behavior, and future conditioning remain Unverified. |
+| Neutral switch | No 1995 detail is transferred by this row. | Light Blue path with grounding-switch representation. | Switch state, voltage, and shared-circuit interaction not recorded. | Grounding-switch representation does not establish the final ECU-facing active logic level; pull-up, voltage, and shared-network behavior remain Unverified. |
+| Sidestand switch | No 1995 detail is transferred by this row. | Blue/Yellow signal path and Black earth/ground. | Stand-up/down state and running-engine behavior not recorded. | Schematic-derived topology only; electrical states and running-engine shutdown behavior remain Unverified. |
+| Clutch switch | No 1995 detail is transferred by this row. | Black/Yellow toward starting circuit cut-off relay; Blue/Yellow in ignition-main-switch/diode/sidestand interlock network. | Contact states, voltage, and network relationship not observed. | Do not reduce this circuit to an assumed simple ground switch. |
+| Starting circuit cut-off / interlock | No 1995 detail is transferred by this row. | Blue/White, Blue/Black, Blue, Black/Yellow, broader Blue/Yellow and Light Blue network, and internal diodes. | Not observed or tested. | Schematic-derived topology does not establish relay terminals or a Boolean truth table. |
 
 ## Accepted architecture boundary
 
@@ -118,6 +145,28 @@ basic engine operation. This baseline extraction does not change that boundary.
 7. Do not energize, disconnect, bridge, back-feed, or bypass a safety-related
    circuit under this research record. Electrical execution requires an
    applicable technically reviewed test method.
+
+## Level 1 electrical-interface consolidation
+
+This is a requirements and evidence matrix, not a selected I/O allocation,
+ECU pinout, or conditioning design. Source voltage, active state/polarity,
+electrical type, and conditioning are recorded as Unverified or Not
+established where no retained source establishes them.
+
+| Function | Original source/load | Known source-derived topology | Source voltage | Active state / polarity | Electrical type | Required conditioning or isolation | Intended Level 1 role | Required safe/fault behavior | Evidence/status | Next evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| XJ crank pickup | Original pickup coil | `ELB-01`: White/Red and Black/Blue between pickup and original ignition control unit. | Not established | Not established | Not established | Not established; do not parallel a candidate ECU with the original TCI without reviewed loading and grounding analysis. | Accepted mandatory engine-speed and synchronization function. | Loss of valid synchronization requires defined fuel/ignition-safe behavior; exact timeout and recovery remain Unverified. | Schematic-derived; Unverified for `XJ900S-01`. | `TEST-PLAN-0001` PCK-01 through PCK-09 under its existing gates. |
+| Future cam/phase | No original 1997-on source path established. | No cam/phase topology established by this extraction. | Not established | Not established | Not established | Future design requires separate evidence and technical review. | Final-target/strongly preferred phase path; not an initial development dependency. | No fallback is assumed; behavior requires review before acceptance. | Proposal / Unverified. | Physical packaging and later dedicated source/measurement work. |
+| Original TPS | Original TPS | `ELB-04`: Yellow, Blue, and Black/Blue between TPS and ignition control unit. | Not established | Not established | Not established | Technically reviewed measurement method required before live testing. | Candidate original-input baseline only; no reuse or function allocation accepted. | No original-Yamaha safe behavior is inferred. | Schematic-derived; Unverified for `XJ900S-01`. | Connector/cavity, wire, function, and transfer-characteristic evidence. |
+| Fuel-pump control path | Relay assembly and fuel pump | `ELB-05`/`ELB-06`: Red/Black, Blue/Red, Blue/Black, Black, and internal cut-off-relay/internal logic relationship. | Not established | Not established | Not established | Future interface requires reviewed isolation and fault analysis. | Level 1 retains fuel-pump command and shutdown authority. | Level 1 pump shutdown authority; engine-speed-loss details require definition and validation. | Schematic-derived; Unverified for `XJ900S-01`. | Relay/pump identification and reviewed key-on, cranking, running, and post-stall observations. |
+| Engine-stop switch | Stop switch | `ELB-08`: Red/Black to Red/White through stop switch. | Not established | Not established | Not established | Future conditioning is Not established. | Engine-stop shall not depend on Level 2. | Defined Level 1 engine-safe behavior required; original shutdown sequence remains Unverified. | Schematic-derived; Unverified for `XJ900S-01`. | Contact behavior, voltage/current characteristics, and approved observed effect. |
+| Starter request | Start switch and starter-control path | `ELB-07`: Black and Blue/White, with Blue/White to cut-off relay/starter-control path. | Not established | Not established | Not established | Not established. | Starting input where used; no direct fuel/ignition authority transferred to Level 2. | Permission to crank is a separate question from running-engine shutdown. | Schematic-derived; Unverified for `XJ900S-01`. | Switch/contact state and reviewed interlock observations. |
+| Neutral | Neutral switch | `ELB-09`: Light Blue with grounding-switch representation in interlock network. | Not established | Not established | Grounding-switch representation only. | Pull-up, voltage, shared-network, and ECU interface are Not established. | Input where an accepted strategy uses it. | Defined only by later accepted safety logic. | Schematic-derived; Unverified for `XJ900S-01`. | Physical state, voltage, and shared-circuit evidence. |
+| Clutch | Clutch switch | `ELB-10`: Black/Yellow to cut-off relay; Blue/Yellow in diode/sidestand interlock network. | Not established | Not established | Not established | Do not assume simple ground-switch conditioning. | Input where an accepted strategy uses it. | Defined only by later accepted safety logic. | Schematic-derived; Unverified for `XJ900S-01`. | Physical contact, voltage, and network evidence. |
+| Sidestand | Sidestand switch | `ELB-11`: Blue/Yellow signal path and Black earth/ground. | Not established | Not established | Not established | Not established. | Input where an accepted strategy uses it. | Starter-inhibit and running-engine behavior require separate evidence and accepted safety logic. | Schematic-derived; Unverified for `XJ900S-01`. | Stand-up/down state, voltage, starter, and running-engine observations. |
+| Ignition coil control path | Two HT coils | `ELB-03`: Orange and Gray control paths; Red/Black common supply; two coils/four plugs. | Not established | Not established | Not established | No candidate interface or coil reuse is accepted. | Level 1 retains ignition authority. | Loss of valid synchronization must lead to defined ignition-safe behavior. | Schematic-derived; coil pairing and wasted-spark classification Unverified for `XJ900S-01`. | Coil/HT routing, markings, pairing, and reviewed electrical characterization. |
+| Future tip-over input | No original source/load selected. | No original-XJ topology claimed. | Not established | Not established | Not established | Future interface requires separate evidence and technical review. | Accepted Level 1 safety requirement; sensor and implementation unselected. | Valid accepted fall/tip-over handling requires Level 1 engine and fuel shutdown with deliberate reset/restart behavior. | Accepted requirement; implementation Unverified. | Later component, interface, and fault-behavior evidence. |
+| Level 1 CAN to Level 2 | No original-XJ source/load claimed. | Architecture interface only; no protocol is selected. | Not established | Not established | Not established | Interface direction, validity, timeout, startup, shutdown, and fault handling require definition. | Optional documented state/request/diagnostic exchange only. | CAN shall not participate in direct fuel, ignition, throttle, fuel-pump, or engine-shutdown authority. | Accepted architecture boundary; implementation Unverified. | Approved interface definition after Level 1 source characteristics are measured. |
 
 ## Circuit identification and path register
 
@@ -239,6 +288,16 @@ before execution.
 | ESI-05 | Neutral, clutch, and sidestand interaction under an approved method | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified | Not started | Not run |
 | ESI-06 | Starter, ignition-control, and fuel-pump path relationship | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Not recorded | Unverified | Not started | Not run |
 
+### Starter permission and running-engine shutdown are separate questions
+
+The starting circuit cut-off topology identifies evidence to collect for
+starter permission; it does not prove the complete truth table for whether an
+already-running engine may continue operating. Record both questions against
+the existing `ESI-*` rows: starter-permitted and starter-inhibited conditions
+in `ESI-02` and `ESI-03`, and running-engine/engine-stop/interlock behavior in
+`ESI-04` through `ESI-06`. These conditions are recording needs, not expected
+Yamaha behavior, and no Boolean truth table is inferred here.
+
 ## Measurement and execution boundary
 
 **Execution status: Not started**
@@ -257,6 +316,59 @@ by the safety and equipment gates in TEST-PLAN-0001.
 Ignition-primary and ignition-secondary probing are outside this record. A
 live-engine or cranking observation shall not proceed merely because the
 motorcycle can be started or the instrument is battery powered.
+
+## Remaining direct-evidence gaps
+
+No motorcycle observation or measurement has been added by this consolidation.
+The following evidence is still required from `XJ900S-01`; it supplements but
+does not replace the detailed records and controls in the linked test plans.
+
+### Pickup
+
+- Identify the physical connector, actual motorcycle wire colours, visible
+  marking, resistance, waveform, polarity, trigger geometry, and timing
+  correlation.
+- Use [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md)
+  for this work. Do not reproduce its procedures or change its execution
+  state in this record.
+- Waveform capture remains blocked pending review of oscilloscope/probe
+  identity and rating, grounding architecture, connection diagram,
+  engine-start prevention, motorcycle restraint, fuel and ventilation controls,
+  and emergency-stop method. Battery-powered operation does not prove
+  electrical isolation.
+
+### Ignition
+
+- Record direct coil and HT-lead routing, actual coil-to-cylinder pairing, and
+  accessible component markings.
+- Ignition-primary and ignition-secondary probing remain outside
+  `TEST-PLAN-0001` and are not authorized here.
+
+### TPS
+
+- Record connector and cavity identification, actual wire colours,
+  supply/reference/signal determination, voltage range, and transfer
+  direction/function.
+- An appropriate technically reviewed measurement method is required before
+  live testing.
+
+### Engine stop and interlocks
+
+- For engine stop, record actual switch/contact behavior, voltage,
+  current/interface characteristics where needed, and observed shutdown effect.
+- For neutral, record actual switch state, voltage, and interaction with
+  shared circuitry.
+- For clutch, record physical switch/contact states, voltage, and actual
+  relationship to the interlock network.
+- For sidestand, record physical switch state with stand up/down, voltage,
+  starter-inhibit behavior, and running-engine behavior.
+- For the fuel pump, record the actual relay/pump connection and key-on,
+  cranking, running, and post-stall behavior.
+
+Where any observation requires energizing, cranking, running, bypassing,
+disconnecting, or manipulating a safety-related circuit, a technically
+reviewed test method is required before execution. This document contains no
+unsafe live-test instruction.
 
 ## Evaluation criteria
 
@@ -310,8 +422,9 @@ by completion of this worksheet.
 
 ## Open questions
 
-- Which exact 1997-on Haynes edition, schematic page, and photographed evidence
-  are available, and what model-year applicability does the source state?
+- Can the underlying scan or photograph for `ELEC-SRC-002` be retained as a
+  permissible evidence reference, and can its edition, complete title, market,
+  and production-code applicability be established without inventing them?
 - Which connectors, pins, colours, components, splices, grounds, fuses, relays,
   and diodes are present on the project motorcycle?
 - How do the starter, kill, neutral, clutch, and sidestand paths interact with
@@ -339,19 +452,24 @@ by completion of this worksheet.
 
 ## Recommended next action
 
-1. Record the exact 1997-on Haynes schematic evidence reference if the source
-   becomes available; do not copy copyrighted pages into the repository.
-2. Complete non-invasive identification and photography before populating any
-   direct-observation field.
-3. Prepare reviewed connection and safety methods before electrical
-   measurement or state testing.
-4. Use TEST-PLAN-0001 for pickup characterization and TEST-PLAN-0002 only after
-   its predecessor evidence and gates are satisfied.
+1. Retain the improved 1997-on schematic source reference and its explicit
+   applicability boundary; do not copy copyrighted pages into the repository.
+2. Perform and document non-invasive physical identification on `XJ900S-01`.
+3. Trace ignition-coil/HT routing and relevant connectors and wires.
+4. Execute pickup characterization only through the existing
+   [TEST-PLAN-0001](../testing/TEST-PLAN-0001-original-pickup-characterization.md)
+   gates.
+5. Define technically reviewed methods for the remaining energized interlock,
+   fuel-pump, engine-stop, and TPS observations.
+6. Only after measured source characteristics exist, update the Level 1 I/O
+   allocation and map signals against candidate rusEFI physical pins and
+   electrical capabilities. This does not select a rusEFI ECU.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-13 | Consolidated 1995 4KM1 reference evidence, 1997-on schematic extraction, project-motorcycle evidence gaps, and Level 1 interface/evidence requirements. | Create one traceable baseline without claiming new motorcycle measurements, component selection, implementation, or validation. |
 | 2026-08-12 | Replaced the full vehicle identifier with internal test-object identifier `XJ900S-01`. | Keep exact test-object references non-sensitive without changing the recorded model or year. |
 | 2026-08-11 | Created the 1997-on electrical baseline extraction record. | Provide an evidence-classified worksheet for source extraction, direct observation, and later reviewed measurements before EFI reuse decisions. |
 
