@@ -26,6 +26,11 @@ compatible until it has been confirmed.
   grip](COMP-0004-2023-2024-tracer9-right-switch-dbw-grip.md) — purchased
   candidate; Yamaha application, electrical interfaces, DBW strategy, and
   compatibility remain unverified.
+- [COMP-0005: Owner-reported 2022 MT-10 throttle-body
+  assembly](COMP-0005-2022-mt10-throttle-body-assembly.md) — acquired,
+  owner-reported candidate; donor-system architecture is partially confirmed
+  from the Yamaha 2022 service manual, while exact physical candidate identity
+  and XJ900S/rusEFI compatibility remain under evaluation.
 
 ## Navigation
 
