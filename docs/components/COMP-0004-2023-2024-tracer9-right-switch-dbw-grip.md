@@ -21,7 +21,7 @@ mandatory.
 - OEM part number: `B5U-8291R-10` - supplied part number; Yamaha application
   and exact variant not independently verified
 - Variant identifiers: MTT890/B5U - owner-provided identification; exact market
-  and variant applicability Unknown
+  and variant applicability Unverified
 - Source or listing: Owner-provided purchase identification; original listing
   URL and seller record are not currently retained in the repository
 - Evaluation date: 2026-08-11
@@ -31,6 +31,13 @@ mandatory.
 **Status: Unverified**
 
 **Review: Technical Review Required**
+
+## Source register
+
+| Source ID | Source | Scope and evidence boundary |
+| --- | --- | --- |
+| COMP-0004-SRC-001 | Owner-reported purchase identification | Acquisition provenance only; does not confirm Yamaha application, exact model-year range, market, variant, marking, condition, connector, electrical specification, compatibility, or acceptance. |
+| COMP-0004-SRC-002 | *2024 Yamaha Tracer 9 GT+ Service Manual*, BLG-28197-70-E0; model MTT09DAR; first edition May 2023; Yamaha Motor Co., Ltd. | Authoritative Yamaha evidence only for the documented MTT09DAR 2024 Tracer 9 GT+ donor/reference architecture. It does not identify, establish electrical equivalence of, or officially apply to the purchased owner-reported MTT890/B5U assembly with supplied part number `B5U-8291R-10`. |
 
 ## Intended function
 
@@ -49,7 +56,7 @@ shall be evaluated independently.
 | Subsystem | Evaluation scope | Current status | Current recommendation |
 | --- | --- | --- | --- |
 | A. Rider switch functions | Individual switch functions, contact or communication behavior, connector and electrical interface, diagnostics, engine-stop or starter relevance, Level 1/Level 2 assignment, and physical integration | Unverified | Continue research |
-| B. Accelerator-position / DBW grip functions | Accelerator-position sensing, channel independence, transfer functions, plausibility, mechanical return, fault behavior, diagnostics, Level 1 interface, and relationship to any separately evaluated throttle actuator | Unverified | Continue research |
+| B. Accelerator-position / DBW grip functions | Accelerator-position sensing, channel independence, transfer functions, plausibility, mechanical return, fault behavior, diagnostics, Level 1 interface, and relationship to any separately evaluated throttle actuator | Unverified for purchased candidate and project | Continue research |
 
 Future evidence may change the status or recommendation for either subsystem
 without changing the other. Acceptance or rejection of the rider-switch
@@ -62,6 +69,8 @@ is accepted by this separation.
 
 ### Confirmed project-provenance information
 
+**Status: Confirmed**
+
 - The owner reports that the project purchased the assembly.
 - The owner identifies the source as a 2023-2024 Yamaha Tracer 9, MTT890/B5U.
 - The owner supplied part number `B5U-8291R-10`.
@@ -70,6 +79,94 @@ These statements confirm only owner-reported acquisition provenance. They do
 not independently verify Yamaha application, exact model-year range, variant,
 part-number applicability, electrical specification, DBW compatibility, or
 project suitability.
+
+## Confirmed Yamaha Tracer 9 GT+ reference architecture
+
+**Status: Confirmed**
+
+Confirmed in this section applies only to the documented MTT09DAR 2024 Tracer
+9 GT+ donor/reference architecture in COMP-0004-SRC-002. It is not a direct
+observation of the purchased MTT890/B5U physical candidate.
+
+### Dual accelerator-position sensing
+
+The Yamaha reference system monitors two accelerator-position sensor signals:
+
+- Diagnostic code 14 - accelerator position sensor signal 1
+- Diagnostic code 15 - accelerator position sensor signal 2
+
+For both channels in the documented MTT09DAR system, Yamaha diagnostic-tool
+display values are 14-18 fully closed, 82-92 fully open, and 7-12 when the
+throttle grip is moved past normal closed position in the deceleration
+direction. These are diagnostic-tool display values only; they are not volts,
+degrees, percentages, or direct transfer-function values. No linearity is
+inferred.
+
+### APS diagnostic trouble codes
+
+The documented Yamaha reference architecture includes P2122, P2123, P2127,
+P2128, and P2138.
+
+- P2122 and P2127 low-voltage detection: 0.25 V or less.
+- P2123 and P2128 high-voltage detection: 4.75 V or more.
+- P2138: difference/deviation between accelerator-position sensor output
+  voltage 1 and output voltage 2.
+
+These DTC thresholds are reference-system fault-detection criteria. They do
+not establish normal operating endpoints, sensor transfer functions, or a
+supply voltage for the purchased candidate.
+
+### Documented APS-to-ECU conductors
+
+The MTT09DAR ECU layout and troubleshooting document six APS conductor paths:
+White/Red, Yellow, Yellow/Red, Brown, White/Black, and Yellow/Black.
+
+| MTT09DAR ECU cavity | Conductor colour |
+| --- | --- |
+| 35 | White/Red |
+| 42 | Yellow |
+| 45 | Yellow/Red |
+| 51 | Brown |
+| 54 | White/Black |
+| 57 | Yellow/Black |
+
+These are donor/reference-system ECU cavity assignments only, not the purchased
+assembly's connector cavity numbers. The source is not used here to assign
+Vref, ground, APS1, or APS2 functions to individual wire colours. The ECU
+layout treats the grip-warmer circuit separately from these six APS conductor
+paths; this does not establish the purchased assembly's connector partition or
+internal wiring.
+
+### Service relationship to right handlebar switch
+
+In the MTT09DAR APS troubleshooting procedure, if the two APS diagnostic checks
+do not pass, Yamaha instructs replacement of the `handlebar switch (right)`.
+This supports only that Yamaha treats the accelerator-position sensor as
+service-integrated with the right-handlebar-switch assembly in this documented
+reference architecture. The purchased B5U assembly has not been physically
+verified to have the same construction.
+
+### Documented APS fail-safe behavior
+
+For P2122, P2123, P2127, P2128, and P2138, the documented Yamaha reference
+system records poor engine response, loss of engine power, and unstable idle.
+Where documented, its response includes accelerator opening fixed to 0 degrees,
+YCC-T evacuation activated, output restricted, O2 feedback not carried out,
+fuel cut prohibited by accelerator opening, ISC feedback not carried out, ISC
+learning not carried out, quick shift not carried out, and ACC fixed OFF.
+
+These are Yamaha donor/reference-system responses, not accepted Diversion 2027
+safe states. They shall not be copied into the project without a dedicated
+safety analysis and accepted design.
+
+### Yamaha evidence locations
+
+| Subject | Printed reference in COMP-0004-SRC-002 |
+| --- | --- |
+| ECU coupler layout and APS conductors | 9-9–9-11 |
+| APS self-diagnostic and DTC table | 9-73 |
+| P2122, P2123, P2127, P2128, and P2138 troubleshooting | 9-282–9-284 |
+| Diagnostic modes 14/15 and right-handlebar-switch replacement | 9-284 |
 
 ## Applicable requirements
 
@@ -107,15 +204,15 @@ project suitability.
 
 | Attribute | Value | Unit | Source | Status |
 | --- | --- | --- | --- | --- |
-| Owner-reported source model | Tracer 9, MTT890/B5U | Not applicable | Owner-provided purchase identification | Confirmed |
-| Owner-reported source model years | 2023-2024 | Year range | Owner-provided purchase identification | Confirmed |
+| Owner-reported source model | Tracer 9, MTT890/B5U | Not applicable | Owner-provided purchase identification | Confirmed as owner-reported provenance |
+| Owner-reported source model years | 2023-2024 | Year range | Owner-provided purchase identification | Confirmed as owner-reported provenance |
 | Supplied part number | B5U-8291R-10 | Not applicable | Owner-provided seller/product identification | Confirmed as reported; Yamaha application Unverified |
 | Exact Yamaha application and variant | Unknown | Not applicable | No authoritative Yamaha parts source recorded | Unverified |
 | Switch functions and contact logic | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
-| Connector identities and pinout | Unknown | Unknown | No authoritative documentation or documented direct inspection recorded | Unverified |
-| Supply voltage, current, and signal levels | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
-| Throttle-grip sensor channels and transfer functions | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
-| Sensor redundancy, plausibility, and fault behavior | Unknown | Unknown | No authoritative documentation or validated test recorded | Unverified |
+| Connector identities and purchased-candidate pinout | Unknown | Unknown | No authoritative documentation or documented direct inspection recorded | Unverified |
+| Purchased-candidate supply voltage, current, and signal levels | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
+| Throttle-grip sensor channels and transfer functions | MTT09DAR reference system: dual monitored APS channels; purchased-candidate topology and transfer functions Unknown | Not applicable | Yamaha service manual; no documented direct candidate measurement | Confirmed for reference architecture; Unverified for purchased candidate |
+| Sensor redundancy, plausibility, and fault behavior | MTT09DAR reference system: dual APS channels, deviation monitoring, and documented donor fail-safe behavior; purchased candidate and project implementation Unknown | Not applicable | Yamaha service manual; no candidate validation | Confirmed for reference architecture; Unverified for purchased candidate and project |
 | Mechanical clamp, grip, and handlebar dimensions | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
 
 ## Physical compatibility
@@ -137,19 +234,22 @@ establish electrical, functional, DBW, or safety compatibility.
 
 ## Electrical or functional compatibility
 
-- Supply and signals: Unknown; do not energize the assembly until the exact
-  pinout, supply, grounds, sensor outputs, switch contacts, and protection needs
-  are established from authoritative evidence or a reviewed test method.
-- Inputs and outputs: Right-hand switch functions, throttle-grip sensing,
-  possible communications, and any actuator relationship are Unknown.
+- Supply and signals: The MTT09DAR source documents reference-system APS paths
+  and diagnostic criteria, but the purchased candidate's exact pinout, supply,
+  grounds, sensor outputs, switch contacts, and protection needs remain
+  Unverified. Do not energize it until positive connector/pin identification
+  and a reviewed test method exist.
+- Inputs and outputs: Rider-switch functions remain independently Unverified.
+  Throttle-grip sensing, possible communications, and any actuator relationship
+  remain Unverified for the purchased candidate.
 - Communication and diagnostics: Unknown; no discrete, resistive, serial, or
-  network interface is assumed.
+  network interface is assumed for the purchased candidate.
 - Control authority and failure behavior: If DBW were later accepted, direct
   throttle authority would remain Level 1. Non-engine rider-switch functions
   may be assigned according to the accepted Level 1/Level 2 architecture
   without transferring engine authority. Level 2 shall not receive direct
-  throttle, fuel, or ignition authority. Missing, shorted, implausible, stale,
-  or disagreeing signals and mechanical return behavior remain Unverified.
+  throttle, fuel, or ignition authority. The Yamaha donor ECU connection is
+  useful reference evidence only, not an accepted project implementation.
 - Required interface hardware: Connector mates, supply and protection circuits,
   sensor interfaces, possible network hardware, throttle actuator, and
   mechanical adaptations are Unknown.
@@ -164,15 +264,20 @@ or safe-state design.
 
 - The purchased assembly is available for non-destructive identification,
   inspection, and later reviewed bench characterization.
-- A production assembly may provide useful packaging evidence if exact identity
-  and functions are established.
+- The Yamaha reference architecture provides authoritative production-reference
+  evidence for a dual-channel APS architecture and associated safety-monitoring
+  pattern, without verifying physical-candidate identity, topology, or
+  compatibility.
 
 ### Risks and constraints
 
-- Yamaha application, exact variant, and part-number scope are not
-  independently verified.
-- Connector, pinout, supply, switch logic, sensor topology, transfer functions,
-  diagnostics, and failure behavior are unknown.
+- Official Yamaha application of `B5U-8291R-10`; exact model-year coverage;
+  exact market/variant; markings; connector manufacturer/family; physical
+  connector cavity numbering; exact purchased-candidate pinout; actual wire
+  colours; harness branching; supply/reference, ground, and APS signal
+  assignments; voltage-versus-angle and channel-correlation functions;
+  mechanical grip angle; return force; hysteresis; wear; environmental
+  condition; and rusEFI compatibility remain Unverified.
 - DBW is not selected, and this component shall not create a hidden DBW or
   donor-system dependency.
 - Incorrect energization or interpretation could damage the assembly or create
@@ -189,8 +294,8 @@ or safe-state design.
 - Authoritative Yamaha parts-catalogue application and exact variant evidence.
 - Retained seller record, photographs, markings, connector identities, and
   harness details.
-- Authoritative wiring, pinout, electrical limits, switch logic, throttle-sensor
-  topology, transfer functions, and diagnostic behavior.
+- Purchased-candidate pinout, electrical limits, switch logic, sensor topology,
+  transfer functions, and diagnostic behavior.
 - Mechanical dimensions, operating angle, return behavior, wear, sealing, and
   environmental condition.
 - An accepted throttle strategy, Level 1 authority design, safety analysis,
@@ -206,6 +311,15 @@ unintended engine output. No DBW architecture, throttle compatibility,
 switch-function compatibility, installation safety, or road readiness is
 established.
 
+The reference system's two-channel APS and Yamaha plausibility monitoring
+demonstrate the type of redundancy and fault detection used in a production
+system. They do not establish that merely reading two analogue channels is
+sufficient for Diversion 2027. Project acceptance will require defined channel
+plausibility rules, electrical fault handling, mechanical return behavior, safe
+state, throttle-actuator coordination, power/reset behavior, diagnostics, and
+fault-injection validation. This component record does not define those final
+rules.
+
 Review: Technical Review Required
 
 ## Accepted architecture boundary
@@ -217,46 +331,65 @@ fuel, ignition, engine synchronization, fuel-pump safety, engine shutdown, and
 any later accepted direct DBW authority to Level 1. Level 2 may handle
 documented non-engine rider-switch functions according to the accepted
 architecture, but that assignment shall not transfer engine authority. Level 2
-shall not gain direct fuel, ignition, or throttle authority or become required
-for basic engine operation. This component record does not alter that decision.
+shall not receive direct throttle, fuel, or ignition authority and shall not
+become required for basic engine operation. This component record does not
+alter that decision.
 
 ## Serviceability and availability
 
 - Replaceability and availability: Unknown
-- Documentation and connector availability: Official application, wiring,
-  pinout, connector, diagnostic, and service information are not recorded.
+- Documentation and connector availability: Yamaha MTT09DAR donor/reference
+  service documentation is recorded; exact purchased-component application,
+  parts, connectors, and interfaces are not.
 - Long-term support and alternatives: Unknown
 
 ## Decision recommendation
 
 **Recommendation: Continue research**
 
-**Rationale:** The assembly is available for identification, but its official
-application, electrical interfaces, mechanical requirements, switch behavior,
-DBW safety behavior, and relationship to any future accepted architecture
-remain unverified. Bench energization and DBW evaluation are premature until
-authoritative information and a reviewed method exist.
+**Rationale:** The Yamaha reference architecture provides authoritative
+production-reference evidence for APS architecture and safety monitoring, but
+the physical candidate's official application, identity, electrical interfaces,
+mechanical requirements, switch behavior, DBW safety behavior, and compatibility
+remain Unverified. Bench energization and DBW evaluation are premature until
+positive identification and a reviewed method exist.
 
 ## Required validation
 
+### Future direct inspection
+
 - Verify the part number, exact model-year range, market, and variant using an
-  authoritative Yamaha parts source.
-- Photograph all markings, connectors, cavities, wire colours, harness routing,
-  clamp and locating features, grip, and visible condition.
-- Obtain authoritative wiring and service information before applying power or
-  assuming any pin function.
-- Identify switch contacts, supplies, grounds, sensor channels, transfer
-  functions, any communication interface, diagnostic behavior, and failure
-  states through authoritative evidence and reviewed non-destructive testing.
-- Measure mechanical dimensions, operating range, return behavior, free play,
-  retention, and clearance using a documented method.
-- Keep switch-function evaluation separate from DBW evaluation; acceptance of
-  or rejection of either subsystem shall not imply acceptance or rejection of
-  the other.
-- Create a dedicated DBW requirements, safety, architecture, and validation
-  record before any DBW selection or powered motorcycle integration.
-- Define acceptance criteria and complete technical review before installation
-  or road use.
+  authoritative Yamaha parts catalogue; marketplace listings do not establish
+  official application.
+- Photograph all labels and moulded markings.
+- Photograph every connector from terminal and harness sides; record connector
+  cavity counts, populated cavities, actual wire colours, harness branching,
+  and connector/manufacturer markings.
+- Record mechanical grip travel, any over-closed/deceleration-direction movement
+  if physically present, free return behavior, visible wear/damage, and clamp
+  and locating geometry.
+
+### Future electrical characterization
+
+Only after positive connector/pin identification and a reviewed method:
+
+- Identify sensor supply/reference paths, sensor grounds, APS channel 1, and
+  APS channel 2.
+- Measure output versus grip angle and both channels simultaneously;
+  characterize correlation, closed, open, and any over-closed region.
+- Repeat measurements for hysteresis and repeatability.
+- Test open/short fault behavior only in a controlled bench system after a
+  dedicated safety method exists.
+
+Do not energize the component merely to match Yamaha diagnostic values, and do
+not prescribe an arbitrary supply voltage from the 0.25/4.75 V DTC thresholds.
+
+Keep rider-switch evaluation separate from DBW evaluation; acceptance of or
+rejection of either subsystem shall not imply acceptance or rejection of the
+other. Create a dedicated DBW requirements, safety, architecture, and
+validation record before any DBW selection or powered motorcycle integration.
+Define acceptance criteria and complete technical review before installation or
+road use.
 
 ## Traceability
 
@@ -274,15 +407,17 @@ authoritative information and a reviewed method exist.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-13 | Added authoritative Yamaha Tracer 9 GT+ APS reference-architecture extraction. | Add donor/reference evidence without verifying purchased-candidate identity or accepting DBW. |
 | 2026-08-12 | Added independent rider-switch and accelerator-position/DBW subsystem evaluation boundaries. | Allow separate future status and recommendation without transferring engine authority or accepting either subsystem. |
 | 2026-08-11 | Created initial component evaluation record. | Record the purchased candidate and owner-reported provenance without selecting DBW or accepting application, compatibility, or validation. |
 
 ## Guidance
 
-Similarity, connector fit, grip movement, and purchase do not establish fit or
-acceptance. Keep source provenance, specification, physical compatibility,
-electrical compatibility, functional compatibility, safety suitability, and
-acceptance separate.
+Similarity, connector fit, grip movement, purchase, and donor-system
+documentation do not establish physical identity, fit, electrical/function
+compatibility, safety suitability, or acceptance. Keep source provenance,
+donor/reference-system facts, direct observations, measurements, proposals, and
+accepted decisions separate.
 
 ## Navigation
 
