@@ -5,6 +5,10 @@ project.
 
 **Document status: Draft**
 
+[Purchased / on-hand inventory](PURCHASED-ON-HAND-INVENTORY.md) records
+acquisition and availability only. It is not a compatibility or acceptance
+register.
+
 ## Component records
 
 Document production source, Yamaha model year where relevant, OEM part number
@@ -31,6 +35,14 @@ compatible until it has been confirmed.
   owner-reported candidate; donor-system architecture is partially confirmed
   from the Yamaha 2022 service manual, while exact physical candidate identity
   and XJ900S/rusEFI compatibility remain under evaluation.
+- [COMP-0006: Owner-reported MT-10 RN781/B5Y main wiring
+  harness](COMP-0006-mt10-b5y-main-wiring-harness.md) — purchased
+  donor/reference candidate; identity, completeness, and compatibility require
+  verification.
+- [COMP-0007: Owner-reported Tracer 9 GT BAP/MTT890 front/sub
+  harness](COMP-0007-tracer9-b5u-front-sub-harness.md) — purchased
+  donor/reference candidate; identity, completeness, and compatibility require
+  verification.
 
 ## Navigation
 
