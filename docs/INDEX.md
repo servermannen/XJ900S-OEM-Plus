@@ -21,6 +21,7 @@
 - [RESEARCH-0004: rusEFI dual-bank short-term fuel trim](research/RESEARCH-0004-rusefi-dual-bank-stft.md)
 - [COMP-0005: Owner-reported 2022 MT-10 throttle-body assembly](components/COMP-0005-2022-mt10-throttle-body-assembly.md)
 - [RESEARCH-0006: XJ900S to MT-10 Intake and Throttle-Body Interface](research/RESEARCH-0006-intake-and-throttle-body-interface.md)
+- [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](research/RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md)
 - [1997-on electrical baseline extraction](research/RESEARCH-0005-1997-on-electrical-baseline.md)
 - [Original pickup characterization plan](testing/TEST-PLAN-0001-original-pickup-characterization.md)
 - [Trigger decoder and timing validation plan](testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
