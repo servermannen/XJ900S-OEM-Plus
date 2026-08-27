@@ -47,5 +47,16 @@ until they have received technical review, then use
 ## Git workflow
 
 - Make focused changes related only to the requested task.
+- Before proposing or creating an ID in any sequentially numbered document
+  series (for example `RESEARCH-*`, `ADR-*`, `TEST-PLAN-*`, `COMP-*`,
+  `COMPONENT-*`, or a future equivalent), inspect the existing family sequence
+  and search the entire repository, including already committed files, for the
+  exact proposed ID; for example, run `rg -n "RESEARCH-0007" .` and
+  `rg -n "RESEARCH-[0-9]{4}" .`. Absence from `git diff` or the working tree
+  does not establish that an ID is unused.
+- Check `docs/INDEX.md` and the applicable family-specific README or index when
+  one exists; for `RESEARCH-*`, check both `docs/INDEX.md` and
+  `docs/research/README.md`. Do not create the document until the proposed ID
+  is confirmed unused repository-wide.
 - Show the diff before committing.
 - Do not commit or push unless explicitly instructed.
