@@ -7,6 +7,7 @@
 - [System requirements](requirements/system-requirements.md)
 - [System architecture](architecture/system-architecture.md)
 - [Decisions](decisions/README.md)
+- [ADR-0004: Project Priority Order](decisions/ADR-0004-project-priority-order.md)
 - [Research](research/README.md)
 - [Components](components/README.md)
 - [Purchased / on-hand component inventory](components/PURCHASED-ON-HAND-INVENTORY.md)

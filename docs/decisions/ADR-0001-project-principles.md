@@ -26,6 +26,12 @@ The project adopts these principles:
 Future documentation must distinguish evidence from assumptions and preserve
 the reasoning behind accepted decisions.
 
+## Supersession
+
+[ADR-0004](ADR-0004-project-priority-order.md) supersedes this record only with
+respect to the ordering of project priorities. The remaining principles and
+the original decision text in this record remain valid.
+
 ## Navigation
 
 [Decision register](README.md) · [Documentation index](../INDEX.md)

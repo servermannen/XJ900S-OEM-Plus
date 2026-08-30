@@ -14,14 +14,16 @@ mandatory.
 - Component: Right-hand switch assembly with integrated drive-by-wire throttle
   grip - owner-provided identification
 - Manufacturer: Yamaha - owner-provided identification; marking not recorded
-- Source model: Tracer 9, MTT890/B5U - owner-provided identification; official
-  Yamaha application not independently verified
-- Model year or range: 2023-2024 - owner-provided identification; official
-  Yamaha application not independently verified
-- OEM part number: `B5U-8291R-10` - supplied part number; Yamaha application
-  and exact variant not independently verified
-- Variant identifiers: MTT890/B5U - owner-provided identification; exact market
-  and variant applicability Unverified
+- Source model: Tracer 9 - historic owner-provided donor/source-model
+  identification; exact official Yamaha application not independently verified
+- Model year or range: 2023-2024 - historic owner-provided donor/source-model
+  identification; official Yamaha application not independently verified
+- OEM part number: `BAP-8291R-10` - currently supplied project identification;
+  exact Yamaha application and variant not independently verified
+- Historic part-number identification: `B5U-8291R-10` - superseded/conflicting
+  historic project information; exact Yamaha application Unverified
+- Variant identifiers: MTT890/B5U - historic owner-provided donor/source-model
+  identification; exact market and variant applicability remain Unverified
 - Source or listing: Owner-provided purchase identification; original listing
   URL and seller record are not currently retained in the repository
 - Evaluation date: 2026-08-11
@@ -36,8 +38,8 @@ mandatory.
 
 | Source ID | Source | Scope and evidence boundary |
 | --- | --- | --- |
-| COMP-0004-SRC-001 | Owner-reported purchase identification | Acquisition provenance only; does not confirm Yamaha application, exact model-year range, market, variant, marking, condition, connector, electrical specification, compatibility, or acceptance. |
-| COMP-0004-SRC-002 | *2024 Yamaha Tracer 9 GT+ Service Manual*, BLG-28197-70-E0; model MTT09DAR; first edition May 2023; Yamaha Motor Co., Ltd. | Authoritative Yamaha evidence only for the documented MTT09DAR 2024 Tracer 9 GT+ donor/reference architecture. It does not identify, establish electrical equivalence of, or officially apply to the purchased owner-reported MTT890/B5U assembly with supplied part number `B5U-8291R-10`. |
+| COMP-0004-SRC-001 | Owner-reported purchase identification | Acquisition provenance includes current `BAP-8291R-10`, superseded/conflicting historic part-number identification `B5U-8291R-10`, and historic donor/source-model identification MTT890/B5U. It does not confirm Yamaha application, exact model-year range, market, variant, marking, condition, connector, electrical specification, compatibility, or acceptance. |
+| COMP-0004-SRC-002 | *2024 Yamaha Tracer 9 GT+ Service Manual*, BLG-28197-70-E0; model MTT09DAR; first edition May 2023; Yamaha Motor Co., Ltd. | Authoritative Yamaha evidence only for the documented MTT09DAR 2024 Tracer 9 GT+ donor/reference architecture. It does not identify, establish electrical equivalence of, or officially apply to the purchased assembly with currently supplied project identification `BAP-8291R-10`. |
 
 ## Intended function
 
@@ -72,13 +74,20 @@ is accepted by this separation.
 **Status: Confirmed**
 
 - The owner reports that the project purchased the assembly.
-- The owner identifies the source as a 2023-2024 Yamaha Tracer 9, MTT890/B5U.
-- The owner supplied part number `B5U-8291R-10`.
+- The owner historically identified the source as a 2023-2024 Yamaha Tracer 9,
+  MTT890/B5U.
+- The currently supplied project identification is `BAP-8291R-10`.
+- The superseded/conflicting historic project part-number identification is
+  `B5U-8291R-10`.
 
-These statements confirm only owner-reported acquisition provenance. They do
+These statements confirm only project-reported acquisition provenance. They do
 not independently verify Yamaha application, exact model-year range, variant,
 part-number applicability, electrical specification, DBW compatibility, or
 project suitability.
+
+The exact relationship between the current `BAP-8291R-10` part identification
+and the historic MTT890/B5U donor/source-model identification remains
+Unverified.
 
 ## Confirmed Yamaha Tracer 9 GT+ reference architecture
 
@@ -86,7 +95,7 @@ project suitability.
 
 Confirmed in this section applies only to the documented MTT09DAR 2024 Tracer
 9 GT+ donor/reference architecture in COMP-0004-SRC-002. It is not a direct
-observation of the purchased MTT890/B5U physical candidate.
+observation of the purchased physical candidate.
 
 ### Dual accelerator-position sensing
 
@@ -204,9 +213,10 @@ safety analysis and accepted design.
 
 | Attribute | Value | Unit | Source | Status |
 | --- | --- | --- | --- | --- |
-| Owner-reported source model | Tracer 9, MTT890/B5U | Not applicable | Owner-provided purchase identification | Confirmed as owner-reported provenance |
+| Historic owner-reported source model and variant | Tracer 9, MTT890/B5U | Not applicable | Owner-provided purchase identification | Confirmed as historic owner-reported provenance; exact Yamaha application Unverified |
 | Owner-reported source model years | 2023-2024 | Year range | Owner-provided purchase identification | Confirmed as owner-reported provenance |
-| Supplied part number | B5U-8291R-10 | Not applicable | Owner-provided seller/product identification | Confirmed as reported; Yamaha application Unverified |
+| Currently supplied project identification | BAP-8291R-10 | Not applicable | Latest approved project identification | Confirmed as project-supplied identification; Yamaha application Unverified |
+| Superseded/conflicting historic part-number identification | B5U-8291R-10 | Not applicable | Historic project information | Confirmed as historic project information; Yamaha application and relationship to current identification Unverified |
 | Exact Yamaha application and variant | Unknown | Not applicable | No authoritative Yamaha parts source recorded | Unverified |
 | Switch functions and contact logic | Unknown | Unknown | No authoritative documentation or documented direct measurement recorded | Unverified |
 | Connector identities and purchased-candidate pinout | Unknown | Unknown | No authoritative documentation or documented direct inspection recorded | Unverified |
@@ -271,7 +281,7 @@ or safe-state design.
 
 ### Risks and constraints
 
-- Official Yamaha application of `B5U-8291R-10`; exact model-year coverage;
+- Official Yamaha application of `BAP-8291R-10`; exact model-year coverage;
   exact market/variant; markings; connector manufacturer/family; physical
   connector cavity numbering; exact purchased-candidate pinout; actual wire
   colours; harness branching; supply/reference, ground, and APS signal
@@ -407,6 +417,7 @@ road use.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-08-30 | Corrected the current project-supplied identification to `BAP-8291R-10`, retained `B5U-8291R-10` as superseded/conflicting historic part-number information, and retained MTT890/B5U only as historic donor/source-model identification. | Preserve distinct identification provenance without inferring Yamaha application, variant coverage, or compatibility. |
 | 2026-08-13 | Added authoritative Yamaha Tracer 9 GT+ APS reference-architecture extraction. | Add donor/reference evidence without verifying purchased-candidate identity or accepting DBW. |
 | 2026-08-12 | Added independent rider-switch and accelerator-position/DBW subsystem evaluation boundaries. | Allow separate future status and recommendation without transferring engine authority or accepting either subsystem. |
 | 2026-08-11 | Created initial component evaluation record. | Record the purchased candidate and owner-reported provenance without selecting DBW or accepting application, compatibility, or validation. |

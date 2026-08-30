@@ -9,7 +9,9 @@ original character while applying modern, serviceable engineering solutions.
 
 - Modern fuel injection and electrical architecture.
 - Integrated controls, braking, lighting, instrumentation, and safety systems.
-- Reliability, safety, and serviceability as primary engineering priorities.
+- Safety, reliability, serviceability, OEM-like integration, functional
+  improvement, and future expandability, in that order, as project
+  priorities.
 - Staged development that validates each system before the next phase.
 - Reuse of proven production components where practical.
 - Documentation of requirements, research, decisions, testing, and results.

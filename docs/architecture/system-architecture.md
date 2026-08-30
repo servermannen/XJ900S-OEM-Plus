@@ -12,6 +12,11 @@ remain incomplete.
 
 **Status: Accepted**
 
+- When requirements or design objectives conflict, the accepted order is
+  safety, reliability, serviceability, OEM-like integration, functional
+  improvement, and future expandability. Lower-ranked objectives shall not
+  override higher-ranked priorities under
+  [ADR-0004](../decisions/ADR-0004-project-priority-order.md).
 - Engine-critical control remains in the engine-management system.
 - Non-engine body-control functions may be separated where this improves
   modularity, reliability, serviceability, or testability.
@@ -223,4 +228,4 @@ Status: Unverified
 
 ## Navigation
 
-[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [Decisions](../decisions/README.md) | [ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md)
+[Documentation index](../INDEX.md) | [System requirements](../requirements/system-requirements.md) | [Decisions](../decisions/README.md) | [ADR-0003](../decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md) | [ADR-0004](../decisions/ADR-0004-project-priority-order.md)

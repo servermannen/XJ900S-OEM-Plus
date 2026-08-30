@@ -61,9 +61,9 @@ Verification method: Traceability review.
 ### SYS-006
 
 Requirement ID: SYS-006
-Requirement: Reliability, safety, and serviceability shall take priority over novelty, maximum complexity, or unnecessary feature count.
+Requirement: Safety, reliability, and serviceability shall take priority, in that order, over OEM-like integration, functional improvement, future expandability, novelty, maximum complexity, or unnecessary feature count.
 Status: Accepted
-Rationale: Applies the accepted project priorities to all system decisions.
+Rationale: Applies the priority order accepted in ADR-0004 to all system decisions.
 Verification method: Documentation review.
 
 ## Functional modernization requirements
@@ -552,4 +552,4 @@ are established in this document.
 
 ## Navigation
 
-[Documentation index](../INDEX.md) · [System architecture](../architecture/system-architecture.md) · [Test strategy](../testing/test-strategy.md)
+[Documentation index](../INDEX.md) · [System architecture](../architecture/system-architecture.md) · [ADR-0004](../decisions/ADR-0004-project-priority-order.md) · [Test strategy](../testing/test-strategy.md)

@@ -9,7 +9,8 @@ developing the model into 2027.
 ## Documentation standards
 
 - Write all repository documentation in English.
-- Prioritize reliability, safety, serviceability, and OEM-like integration.
+- Prioritize safety, reliability, serviceability, OEM-like integration,
+  functional improvement, and future expandability, in that order.
 - Prefer proven production components where practical.
 - Clearly distinguish confirmed facts, unverified information, proposals, and
   accepted decisions.

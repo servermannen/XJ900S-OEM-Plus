@@ -43,6 +43,14 @@ compatible until it has been confirmed.
   harness](COMP-0007-tracer9-b5u-front-sub-harness.md) — purchased
   donor/reference candidate; identity, completeness, and compatibility require
   verification.
+- [COMP-0008: Owner-reported Yamaha Tracer 900 GT left handlebar
+  switch](COMP-0008-tracer-900-gt-left-handlebar-switch.md) — purchased
+  candidate; current and historic identifications conflict, and exact Yamaha
+  application, interfaces, compatibility, and acceptance remain unverified.
+- [COMP-0009: Owner-reported Yamaha R1 Blue Spot front brake
+  calipers](COMP-0009-r1-blue-spot-front-brake-calipers.md) — purchased pair;
+  identity, condition, service-part applicability, fitment, hydraulic
+  compatibility, braking suitability, and acceptance remain unverified.
 
 ## Navigation
 
