@@ -198,6 +198,60 @@ Mechanical safety constraints are:
   valve-clearance service.
 - No sealing method or cable exit is accepted without validation.
 
+## Proposed 36-1 and single-cam-tooth geometric baseline
+
+Status: Proposal
+
+Review: Technical Review Required
+
+The following values are a CAD/prototype geometric baseline only, not Accepted
+or Confirmed geometry or an accepted trigger implementation. Angles refer to
+normal engine rotation and cylinder #1 compression TDC for phase placement.
+
+| Geometric item | Proposed baseline |
+| --- | --- |
+| Crank trigger pattern | 36-1 |
+| Crank tooth pitch | 10.0 degrees crankshaft angle |
+| Crank mechanical datum | Geometric center of the missing tooth position; neither adjacent tooth edge |
+| Missing-tooth geometric center | 90.0 degrees BTDC cylinder #1 |
+| Cam target count | One target per camshaft revolution |
+| Cam reference edge | 90.0 degrees ATDC cylinder #1, referenced to #1 compression TDC |
+| Equivalent cam reference position | 45.0 degrees camshaft angle after #1 compression TDC |
+| Nominal cam target width | 30.0 degrees camshaft angle |
+| Equivalent target width | 60.0 degrees crankshaft angle |
+| Opposite/trailing target edge | 75.0 degrees camshaft angle after #1 compression TDC |
+| CKP missing-tooth center to CMP reference-edge separation | 180.0 degrees crankshaft angle, from the missing position preceding #1 compression TDC to the cam reference edge following it |
+
+Here, the compression-stroke reference identifies which #1 TDC is used; the
+ATDC edge follows that TDC. One cam target does not imply only one electrical
+transition. Electrical edge polarity remains Unverified. The intended ECU cam
+reference is a rising edge, subject to polarity validation: do not assume that
+the mechanical leading/reference edge produces an electrical rising edge until
+the final Hall sensor and target are bench-tested. The mechanical missing-tooth
+center is not a claimed decoder synchronization event or firmware offset.
+
+This proposal preserves the accepted Level 1 engine-critical authority and the
+current Stage 1 direction recorded in
+[RESEARCH-0007](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md#6-stage-1-working-definition):
+crank-only synchronization, semi-sequential injection, and wasted-spark ignition
+initially. Cam synchronization must not become a hidden Stage 1 dependency.
+The earlier broader first-start options and pattern comparisons above remain
+historical research context; 36-1 is now the proposed CAD/prototype baseline,
+not an accepted final pattern. RESEARCH-0007's original-pickup candidate
+allocation does not establish compatibility with this future geometry.
+
+Final acceptance requires direct verification of true cylinder #1 TDC, CKP and
+CMP electrical polarity verification, oscilloscope captures during cranking
+and running, confirmation of the actual rusEFI/uaEFI decoder synchronization
+event and its interpretation of the cam reference edge, timing-light comparison
+of commanded and measured ignition timing, and reliable target-width and
+air-gap operation with the selected Hall sensor. These checks are planned in
+[TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md#proposed-geometric-baseline-validation)
+and remain subject to its execution gates and technical review. No sensor,
+air gap, material specification, mounting dimension, or firmware setting is
+selected here. Documentation or purchase alone accepts no component or trigger
+implementation.
+
 ## Sensor and trigger-pattern considerations
 
 Variable-reluctance sensing requires assessment of passive operation, speed-dependent amplitude, polarity, cranking performance, air gap, zero-crossing conditioning, noise, shielding, and ECU compatibility. Hall-effect sensing requires assessment of supply, digital output, target, pull-up/output type, cranking consistency, environment, fault behavior, and ECU compatibility. Magnetoresistive or other active sensing is Status: Unverified and needs specific evidence.
@@ -319,6 +373,7 @@ location is accepted by this research record.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-08 | Added the proposed 36-1 and single-cam-tooth CAD/prototype geometry and validation boundary. | Record the geometric baseline without accepting hardware or changing crank-only Stage 1. |
 | 2026-08-06 | Consolidated source boundaries, staged synchronization, crank-pattern and cam-phase candidates, safe states, and evidence gates. | Prepare a component-neutral trigger decision path without promoting proposals or unexecuted tests. |
 | 2026-08-04 | Created initial research record. | Define evidence required for later trigger and synchronization decisions. |
 
