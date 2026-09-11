@@ -198,7 +198,7 @@ Mechanical safety constraints are:
   valve-clearance service.
 - No sealing method or cable exit is accepted without validation.
 
-## Proposed 36-1 and single-cam-tooth geometric baseline
+## Proposed 36-1 and single-feature cam-phase geometric baseline
 
 Status: Proposal
 
@@ -214,21 +214,76 @@ normal engine rotation and cylinder #1 compression TDC for phase placement.
 | Crank tooth pitch | 10.0 degrees crankshaft angle |
 | Crank mechanical datum | Geometric center of the missing tooth position; neither adjacent tooth edge |
 | Missing-tooth geometric center | 90.0 degrees BTDC cylinder #1 |
-| Cam target count | One target per camshaft revolution |
+| Cam phase feature count | One unique phase-identification feature per camshaft revolution |
 | Cam reference edge | 90.0 degrees ATDC cylinder #1, referenced to #1 compression TDC |
 | Equivalent cam reference position | 45.0 degrees camshaft angle after #1 compression TDC |
-| Nominal cam target width | 30.0 degrees camshaft angle |
-| Equivalent target width | 60.0 degrees crankshaft angle |
-| Opposite/trailing target edge | 75.0 degrees camshaft angle after #1 compression TDC |
+| Cam feature angular width | Unverified / TBD |
+| Opposite feature edge | Unverified; depends on validated feature width |
 | CKP missing-tooth center to CMP reference-edge separation | 180.0 degrees crankshaft angle, from the missing position preceding #1 compression TDC to the cam reference edge following it |
 
 Here, the compression-stroke reference identifies which #1 TDC is used; the
-ATDC edge follows that TDC. One cam target does not imply only one electrical
-transition. Electrical edge polarity remains Unverified. The intended ECU cam
-reference is a rising edge, subject to polarity validation: do not assume that
-the mechanical leading/reference edge produces an electrical rising edge until
-the final Hall sensor and target are bench-tested. The mechanical missing-tooth
-center is not a claimed decoder synchronization event or firmware offset.
+ATDC edge follows that TDC. The mechanical reference edge is independent of
+whether the feature is a positive tooth, a recessed/missing sector, or another
+mechanically validated single-feature geometry. One feature does not imply
+only one electrical transition. Electrical polarity remains Unverified until
+the selected sensor/target combination is tested. The intended ECU reference
+is a selected logical rising edge, after any configured cam-input inversion;
+neither the entering nor leaving physical edge is assumed to produce it.
+The mechanical missing-tooth center is not a claimed decoder synchronization
+event or firmware offset.
+
+The current preferred concept for evaluation is an annular/concentric
+ferromagnetic target with one recessed or missing sector per exhaust-camshaft
+revolution, read radially toward the target OD. One defined edge of the sector
+would provide the mechanical CMP reference. The preferred concept is informed
+by both Yamaha 2022 MT-10 service-manual illustrations showing the cam/cylinder-
+identification sensor arrangement and pickup-rotor geometry, and project visual
+review of marketplace photographs of 2022 MT-10 camshaft assemblies. Together,
+these sources support the interpretation of a substantially annular/concentric
+cam-phase target with a recessed or missing sector rather than an isolated
+protruding tooth.
+
+The service manual supports the construction principle and sensor/target
+arrangement but does not provide sufficient dimensional information to establish
+target OD, axial width, recess depth, notch angle, or sensor air gap. Marketplace
+photographs provide additional visual context but likewise do not establish
+exact dimensions. The topology remains an engineering reference and its
+interpretation remains Unverified; all exact MT-10 dimensions and XJ900S
+mechanical suitability remain Unverified. The XJ900S is not committed to copying
+the MT-10 arrangement. Target OD, radial height/depth, axial width,
+material, air gap, retention method, and mounting dimensions remain Unverified.
+No notch angle or other exact dimension shall be inferred from the photographs.
+The earlier fixed 30-degree cam width and derived opposite-edge position are
+withdrawn as CAD baselines; no replacement width is selected.
+
+### Reviewed rusEFI source and engineering implication
+
+The following upstream source observations are confirmed only at reviewed
+revision [7530ab14db50bf10aa8042e8cee5aa81707861de](https://github.com/rusefi/rusefi/commit/7530ab14db50bf10aa8042e8cee5aa81707861de),
+reviewed on 2026-09-11. They do not confirm the proposed XJ900S geometry or a
+final firmware configuration.
+
+| Pinned source | Reviewed behavior |
+| --- | --- |
+| [rusefi_enums.h](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/algo/rusefi_enums.h#L59-L62) | Describes `VVT_SINGLE_TOOTH` as one camshaft event anywhere in the 720-degree cycle. |
+| [engine.cpp](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/algo/engine.cpp#L71-L92) | `getVvtTriggerType()` maps `VVT_SINGLE_TOOTH` to `TT_HALF_MOON`. |
+| [trigger_structure.cpp](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/trigger/decoders/trigger_structure.cpp#L622-L627) | The ordinary `TT_HALF_MOON` decoder assumes equal open/closed sections; its comment warns that a non-symmetrical blind pattern will not work in that path. |
+| [trigger_central.cpp: runtime path](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/trigger/trigger_central.cpp#L130-L137) and [edge handling](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/trigger/trigger_central.cpp#L376-L397) | Explicitly excludes `VVT_SINGLE_TOOTH` from the real VVT decoder path. Non-real VVT decoders treat only logical rising edges as important and ignore the opposite edge for the phase event. |
+| [trigger_central.cpp: inversion](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/trigger/trigger_central.cpp#L300-L312) | Applies cam-input inversion before logical rise/fall handling. |
+| [trigger_central.cpp: synchronization warning](https://github.com/rusefi/rusefi/blob/7530ab14db50bf10aa8042e8cee5aa81707861de/firmware/controllers/trigger/trigger_central.cpp#L467-L472) | Warns when VVT synchronization occurs too close to primary trigger synchronization. |
+
+Engineering inference, Status: Proposal; Review: Technical Review Required.
+A narrow recessed/missing sector can therefore be evaluated as a single phase
+feature in the intended `VVT_SINGLE_TOOTH` phase-resolution path, using one
+selected logical rising edge rather than requiring a positive isolated tooth.
+This does not make the ordinary symmetrical `TT_HALF_MOON` decoder suitable
+for arbitrary asymmetric gaps, prove direct MT-10 target compatibility, or
+establish final firmware compatibility or an acceptable notch width. Bench
+validation remains required. The proposed 180.0-degree geometric separation
+intentionally keeps the references well separated; the actual decoder events
+and their separation must still be measured and validated.
+
+### Architecture and acceptance boundary
 
 This proposal preserves the accepted Level 1 engine-critical authority and the
 current Stage 1 direction recorded in
@@ -244,7 +299,7 @@ Final acceptance requires direct verification of true cylinder #1 TDC, CKP and
 CMP electrical polarity verification, oscilloscope captures during cranking
 and running, confirmation of the actual rusEFI/uaEFI decoder synchronization
 event and its interpretation of the cam reference edge, timing-light comparison
-of commanded and measured ignition timing, and reliable target-width and
+of commanded and measured ignition timing, and reliable feature-width and
 air-gap operation with the selected Hall sensor. These checks are planned in
 [TEST-PLAN-0002](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md#proposed-geometric-baseline-validation)
 and remain subject to its execution gates and technical review. No sensor,
@@ -373,6 +428,7 @@ location is accepted by this research record.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-11 | Made the cam proposal topology-neutral and recessed-sector-aware; withdrew fixed width and opposite-edge geometry. | Refine the proposal after MT-10 service-manual and marketplace-photo topology review and pinned rusEFI edge-handling review without accepting an implementation. |
 | 2026-09-08 | Added the proposed 36-1 and single-cam-tooth CAD/prototype geometry and validation boundary. | Record the geometric baseline without accepting hardware or changing crank-only Stage 1. |
 | 2026-08-06 | Consolidated source boundaries, staged synchronization, crank-pattern and cam-phase candidates, safe states, and evidence gates. | Prepare a component-neutral trigger decision path without promoting proposals or unexecuted tests. |
 | 2026-08-04 | Created initial research record. | Define evidence required for later trigger and synchronization decisions. |

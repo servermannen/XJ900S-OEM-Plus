@@ -70,7 +70,7 @@ Review: Technical Review Required
 
 **Result: Not run**
 
-The [36-1 and single-cam-tooth baseline](../research/RESEARCH-0003-trigger-and-synchronization-strategy.md#proposed-36-1-and-single-cam-tooth-geometric-baseline)
+The [36-1 and single-feature cam-phase baseline](../research/RESEARCH-0003-trigger-and-synchronization-strategy.md#proposed-36-1-and-single-feature-cam-phase-geometric-baseline)
 is a CAD/prototype proposal only. The values below are comparison targets,
 not measured results, Confirmed facts, firmware settings, or acceptance limits.
 Record measured values, deviations, methods, and evidence separately; do not
@@ -80,19 +80,30 @@ invent tolerances or mark the proposal validated from simulation alone.
 | --- | --- |
 | 36-1 crank pattern; 10.0 degrees crank tooth pitch | Inspect and measure the prototype pattern and pitch; retain the CAD revision and physical measurement record. |
 | Mechanical datum at the geometric center of the missing tooth position, 90.0 degrees BTDC #1 | Directly verify true cylinder #1 TDC and identify compression TDC using a reviewed method; measure the missing-position center relative to it. Neither adjacent tooth edge is the datum. |
-| One cam target per camshaft revolution | Inspect the target and correlate CKP/CMP evidence across the full 720-degree crank cycle. |
+| One unique phase-identification feature per camshaft revolution | Inspect the target and correlate simultaneous CKP/CMP captures and ECU logs across the full 720-degree crank cycle; confirm that no unintended additional cam events are interpreted as phase events. |
 | Cam reference edge at 90.0 degrees crank ATDC #1 compression TDC, equivalent to 45.0 degrees camshaft angle after that TDC | Measure the mechanical reference edge and correlate it with the electrical transition and selected decoder's phase interpretation. |
-| Nominal target width of 30.0 degrees camshaft angle, equivalent to 60.0 degrees crankshaft angle | Measure both mechanical edges; bench-test reliable detection with the selected Hall sensor and recorded actual air gap, then verify during permitted cranking and running. |
-| Opposite/trailing edge at 75.0 degrees camshaft angle after #1 compression TDC | Measure its position and correlate both target edges with captured transitions; do not equate mechanical width with measured electrical pulse width without evidence. |
+| Cam feature angular width: Unverified / TBD | Measure actual feature width and the positions of both physical feature edges relative to #1 compression TDC. Bench-test reliable detection with the selected Hall sensor over reviewed air-gap, cranking-speed, and running-speed conditions; verify under permitted installed conditions. |
+| Opposite feature edge: Unverified; depends on validated feature width | Measure its position and correlate both physical edges with electrical and logical transitions; do not equate mechanical width with electrical pulse width without evidence. |
 | CKP missing-tooth center to CMP reference-edge separation of 180.0 degrees crankshaft angle | Correlate the missing position preceding #1 compression TDC with the cam reference edge following it; retain the angular reference and synchronized captures. |
 
 Electrical CKP and CMP polarity remains Unverified. Bench-test the final Hall
-sensor and target to establish which electrical edge corresponds to the cam
-reference edge. The intended ECU reference is a rising edge subject to that
-validation; a mechanical leading edge is not necessarily an electrical rising
-edge. Record the actual sensor, target revision, air gap, interface, polarity,
-and tested conditions. No sensor, air gap, material, mounting dimensions, or
-final decoder configuration is selected by this plan.
+sensor and target to identify which physical feature edge produces the selected
+logical rising edge. Test normal and inverted cam-input polarity as required,
+recording both electrical transitions and the resulting logical edges. Verify
+that the selected edge resolves the correct 720-degree phase; neither entering
+nor leaving a feature is assumed to produce an electrical rising edge. Record
+the actual sensor, target revision, measured feature width and edge positions,
+air gap, interface, inversion state, and tested conditions. No sensor, air gap,
+material, mounting dimensions, or final decoder configuration is selected here.
+
+If the preferred annular target with one recessed/missing sector is used,
+bench-test the radial sensor response over the normal target OD, entering the
+recess, over the recess, and leaving it. Verify stable logical states over both
+the normal target surface and the recess, no double-triggering or chatter at
+either edge, and sufficient margin for runout and air-gap variation over the
+reviewed cranking-speed and running-speed conditions. Retain simultaneous
+CKP/CMP captures and correlated phase-event logs; establish the actual tested
+limits and margins without inventing dimensions or acceptance tolerances.
 
 Apply the existing preconditions, safe states, and stop conditions to these
 checks. Retain geometry and polarity records with DEC-CFG-001. In Phase A,
@@ -100,8 +111,14 @@ retain separately identified proposed-pattern simulations and physical sensor/
 target bench evidence with DEC-BENCH-001. Correlate the exact rusEFI/uaEFI
 firmware and decoder logs with the applied signal to identify the actual
 synchronization event; do not assume it is the missing-tooth geometric center.
-Confirm that the selected decoder interprets the cam reference edge as the
-intended #1 phase.
+For the proposed `VVT_SINGLE_TOOTH` evaluation, verify the single selected
+logical rising-edge phase path described in the
+[pinned source review](../research/RESEARCH-0003-trigger-and-synchronization-strategy.md#reviewed-rusefi-source-and-engineering-implication).
+Do not substitute assumptions from the ordinary symmetrical `TT_HALF_MOON`
+decoder. Confirm correct #1 phase resolution, that the opposite edge creates
+no additional phase event, and that actual cam/primary synchronization events
+remain adequately separated without proximity warnings. The 180.0-degree
+mechanical reference separation alone does not prove that runtime margin.
 
 In Phase B, capture CKP and, when evaluating the future cam-equipped prototype,
 CMP simultaneously during passive cranking with ECU logs under DEC-CRK-001
@@ -109,7 +126,7 @@ through DEC-CRK-003 as applicable. In Phase C, retain simultaneous CKP/CMP
 oscilloscope captures during separately approved running conditions with
 DEC-TIM-002 and DEC-TIM-003 as applicable, and perform the existing timing-light
 comparison of commanded versus measured ignition timing. Confirm reliable
-target-width and air-gap behavior over the reviewed conditions. Phase C
+feature-width and air-gap behavior over the reviewed conditions. Phase C
 remains Blocked; these additions do not authorize engine operation.
 
 Level 1 retains engine-critical authority. Stage 1 remains crank-only initially,
@@ -450,6 +467,7 @@ suitability, or component acceptance.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-11 | Made cam validation topology-neutral and added recessed-sector response, polarity, and phase-event checks. | Follow the MT-10 service-manual and marketplace-photo topology review and pinned rusEFI edge-handling review without fixed feature width, acceptance, or test execution. |
 | 2026-09-08 | Added explicit proposed 36-1 / cam geometry, polarity, decoder-event, waveform, and timing validation. | Define future prototype evidence without accepting a configuration, executing tests, or adding a Stage 1 cam dependency. |
 | 2026-08-06 | Created future trigger-decoder and fixed-timing validation plan. | Define staged evidence and safety gates after original pickup characterization. |
 
