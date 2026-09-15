@@ -34,6 +34,41 @@ use.
 | Mini LED turn indicators | Unknown | AliExpress | Not recorded | Exact manufacturer, model, part number, and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition and delivery status | Unverified; not accepted |
 | Three-pin LED flasher relay | Unknown | AliExpress | Not recorded | Exact manufacturer and model Unknown; three electrical contacts reported; pinout and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition, delivery status, and physical description | Unverified; not accepted |
 
+## Wemoto order 1305414493
+
+- Supplier: Wemoto
+- Purchase/order date: 2026-09-01
+- Delivery state: Delivered / on hand — owner-reported
+- Delivery date: Not recorded
+- Evidence basis: Owner-supplied order number, item numbers and descriptions, followed by the owner's report that all seven items have been delivered and are physically on hand. Detailed physical inspection is not recorded.
+
+The item numbers and descriptions below are supplied/order provenance, not verified physical identities, OEM specifications or manufacturer application claims. Brand names, material descriptions and the rear-pad "HH" designation are retained only as supplied in the order description. Quantity ordered does not establish delivered completeness.
+
+| Supplied/order description | Supplied/order part number | Source | Purchase date | Physical identity | Status | Evidence | Acceptance state |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| EBC sintered rear brake pads, HH | `AA5293` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| HEL rear hydraulic brake line | `SM-MVAA3733-BL-CA-61` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| Stainless double banjo bolt intended for the front master-cylinder / dual front brake-line arrangement | `PKAD5706` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| TRK stainless rear brake piston and seal kit | `PKAG7185` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| HEL front hydraulic brake lines, Race Set-Up | `SM-MVAB3633-BL-CA-61` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| Slinky Glide front-fork repair kit | `PKAA9870` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+| Copper sealing washers for the front-fork damper retaining bolt; quantity ordered: 2 | `AB7343` | Wemoto | 2026-09-01 | Unverified; supplied order description only | Purchased, delivered / on hand; detailed inspection not recorded | Owner-supplied order 1305414493 and owner-reported delivery/on-hand state | Unverified; not accepted |
+
+### Order evidence limitations
+
+Delivery/on-hand status establishes owner-reported acquisition/delivery provenance only. It does not establish exact physical identity, completeness, condition, seller-description accuracy, manufacturer authenticity beyond the supplied description, Yamaha application, mechanical/physical fit, hydraulic, suspension, functional or electrical compatibility, service or safety suitability, successful installation, validation, completed technical review, component selection or final acceptance.
+
+- The double banjo bolt's intended use does not establish fit with the MT-07 master cylinder, HEL hoses, Blue Spot calipers or XJ900S.
+- The rear piston/seal kit is not established as applicable to the installed/original rear caliper. The rear pads' description and HH designation do not confirm compound or application beyond the supplied order provenance.
+- The HEL line descriptions establish no hose dimensions, banjo angles, fitting specifications, homologation, routing suitability or installed compatibility.
+- The fork kit and damper-bolt washers have no verified exact fork application, seal/washer dimensions or suitability. Material wording is only the supplied description; ordering under a vehicle selection does not establish compatibility with the 1997 XJ900S.
+- These rear-brake items do not identify or resolve the separate front-caliper repair kits and EBC pads already recorded for COMP-0009.
+- Recording the brake-related items closes no open requirement or validation gate in [RESEARCH-0008](../research/RESEARCH-0008-front-brake-system-integration.md) or [TEST-PLAN-0003](../testing/TEST-PLAN-0003-front-brake-system-validation.md).
+
+**Review: Technical Review Required**
+
+This label preserves the safety-review requirement; it records no completed technical review or permission to install or test the items.
+
 ## Inventory use and evidence boundary
 
 The listed status records only the reported acquisition or availability state.
