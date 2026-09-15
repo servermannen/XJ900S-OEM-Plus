@@ -199,9 +199,9 @@ Do not use `Accept` while material compatibility questions remain unresolved.
 
 ## Traceability
 
-- Related research: None recorded
+- Related research: [RESEARCH-0008: Front brake system integration](../research/RESEARCH-0008-front-brake-system-integration.md)
 - Related ADRs: None; no final component-selection decision is recorded
-- Related tests: None recorded
+- Related tests: [TEST-PLAN-0003: Front brake system validation](../testing/TEST-PLAN-0003-front-brake-system-validation.md)
 - Roadmap stage: [Stage 2 — requirements and measurement
   capture](../implementation/roadmap.md#stage-2--requirements-and-measurement-capture);
   [Stage 8 — reliability and safety
@@ -209,10 +209,13 @@ Do not use `Accept` while material compatibility questions remain unresolved.
   [Stage 9 — OEM+ refinement](../implementation/roadmap.md#stage-9--oem-refinement),
   only after technical validation
 
+System-level evaluation and staged validation planning are now defined in the linked research and test plan. No new specifications, measurements, compatibility, acceptance or completed tests are established by these links.
+
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-15 | Linked system-level front-brake research and staged validation plan. | Define integration evaluation and safety gates without changing candidate status. |
 | 2026-08-06 | Created initial component evaluation record. | Record the acquired candidate and unresolved evidence needs without accepting or validating it. |
 
 ## Guidance

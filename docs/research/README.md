@@ -17,6 +17,7 @@ remain labelled `Status: Unverified` until it is confirmed.
 - [RESEARCH-0005: 1997-on electrical baseline extraction](RESEARCH-0005-1997-on-electrical-baseline.md)
 - [RESEARCH-0006: XJ900S to MT-10 intake and throttle-body interface](RESEARCH-0006-intake-and-throttle-body-interface.md)
 - [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md)
+- [RESEARCH-0008: Front brake system integration](RESEARCH-0008-front-brake-system-integration.md)
 
 ## Navigation
 

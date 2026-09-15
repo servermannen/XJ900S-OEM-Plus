@@ -28,6 +28,13 @@
 - [Trigger decoder and timing validation plan](testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
 - [ADR-0003: Retain Original Field-Regulated Charging Architecture](decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md)
 
+## Current chassis and brake records
+
+- [COMP-0001: MT-07 front brake master cylinder and lever](components/COMP-0001-2022-mt07-front-brake-master-cylinder.md)
+- [COMP-0009: R1 Blue Spot front brake calipers](components/COMP-0009-r1-blue-spot-front-brake-calipers.md)
+- [RESEARCH-0008: Front brake system integration](research/RESEARCH-0008-front-brake-system-integration.md)
+- [TEST-PLAN-0003: Front brake system validation](testing/TEST-PLAN-0003-front-brake-system-validation.md)
+
 ## Documentation conventions
 
 Use the labels defined in [AGENTS.md](../AGENTS.md): `Document status` records

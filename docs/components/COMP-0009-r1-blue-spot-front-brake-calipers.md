@@ -182,15 +182,18 @@ unresolved.
 ## Traceability
 
 - Related component: [COMP-0001 front brake master cylinder and lever](COMP-0001-2022-mt07-front-brake-master-cylinder.md)
-- Related research: None recorded
+- Related research: [RESEARCH-0008: Front brake system integration](../research/RESEARCH-0008-front-brake-system-integration.md)
 - Related ADRs: None; no final caliper-selection decision is recorded
-- Related tests: None recorded
+- Related tests: [TEST-PLAN-0003: Front brake system validation](../testing/TEST-PLAN-0003-front-brake-system-validation.md)
 - Roadmap stage: [Stage 2 - requirements and measurement capture](../implementation/roadmap.md#stage-2--requirements-and-measurement-capture); [Stage 8 - reliability and safety validation](../implementation/roadmap.md#stage-8--reliability-and-safety-validation)
+
+System-level evaluation and staged validation planning are now defined in the linked research and test plan. No new specifications, measurements, compatibility, acceptance or completed tests are established by these links.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-15 | Linked system-level front-brake research and staged validation plan. | Define integration evaluation and safety gates without changing candidate status. |
 | 2026-08-30 | Created purchased-candidate record for the reported caliper pair and associated service parts. | Record acquisition while leaving identity, condition, compatibility, braking suitability, acceptance, and validation Unverified. |
 
 ## Navigation
