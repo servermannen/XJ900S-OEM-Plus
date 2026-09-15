@@ -93,7 +93,8 @@ verified; any remaining location not yet captured stays explicitly unresolved.
 | --- | --- | --- | --- |
 | Exact Yamaha throttle-body assembly part number | Unknown | No authoritative purchased-component identity | Unverified |
 | Purchased-component markings and condition | Not inspected or recorded | No documented inspection | Unverified |
-| Dimensions, pinout, injector data, servo characteristics, TPS transfer functions, and mechanical throttle range | Unknown | No authoritative or measured purchased-component evidence | Unverified |
+| Engine-side geometry and port spacing | Direct measured values recorded below | Owner-performed measurements; linked RESEARCH-0006 evidence | Measured candidate only; compatibility Unverified |
+| Pinout, injector data, servo characteristics, TPS transfer functions, and mechanical throttle range | Unknown | No authoritative or measured purchased-component evidence for these attributes | Unverified |
 
 ## Physical construction and service information
 
@@ -117,9 +118,42 @@ Donor diagnostic information does not establish a project diagnostic implementat
 
 ## Physical compatibility
 
-All physical compatibility is Unverified: throttle bore diameter; engine-side outlet and airbox-side inlet diameters; insertion/mating lengths; cylinder centre spacing 1–2, 2–3, and 3–4; total width; runner offsets; injector angle/position; fuel-rail envelope; assembly depth; servo/TPS housing envelopes; fuel-hose interface; throttle-body joints; and clearances. Do not derive dimensions from photographs or visual proportions.
+Physical compatibility remains Unverified despite the candidate measurements now available. Intake integration is evaluated in [RESEARCH-0006](../research/RESEARCH-0006-intake-and-throttle-body-interface.md); no final adapter or component is accepted.
 
-This record answers what is known about the MT-10 throttle-body candidate itself. It does not solve how it should connect mechanically to the XJ900S cylinder head; that belongs in a separate future intake-interface research record, which is not created here.
+### Measured physical candidate data
+
+Source: [owner direct measurements and CAD progress](../research/evidence/RESEARCH-0006-mt10-throttle-body-direct-measurements.md). These are owner-performed direct physical measurements of the on-hand candidate, not Yamaha specifications or confirmation of donor application. Measurement metadata and limitations are retained in the evidence file.
+
+| Parameter | Direct measured value | Datum / scope |
+| --- | --- | --- |
+| Port centre spacing 1–2 | 84.0 mm | Measured physical candidate |
+| Port centre spacing 2–3 | 84.0 mm | Measured physical candidate |
+| Port centre spacing 3–4 | 84.0 mm | Measured physical candidate |
+| Engine-side cylindrical interface OD | 52.0 mm | External mating section |
+| Engine-side internal bore ID | 42.8 mm | Engine-side interface |
+| Straight/cylindrical interface length | 10.5 mm | From engine-side end face |
+| OD groove start | 4.5 mm | From engine-side end face; corrected by direct remeasurement |
+| OD groove width | 3.0 mm | Physically present groove |
+| OD groove depth | 0.95 mm | Physically present groove |
+
+The earlier groove-start reading of 3.0 mm from the end face is superseded by direct remeasurement to 4.5 mm; 3.0 mm remains the groove width. Groove-bottom diameter was not directly measured and is not inferred here.
+
+The 42.8 mm internal bore continues inward beyond the measured 10.5 mm external mating section. No external bead was observed at the engine-side interface, and no external step was observed over that section. The groove is physically present. The previously measured bearing-centre reference is approximately 32 mm from the engine-side end face. The four measured runner interfaces share the same nominal axis orientation as observed; quantified angles and offsets remain unresolved.
+
+Packaging observations for P2/P3/P4 are retained in the linked evidence under “Packaging observations requiring datum refinement”; they are not design constraints or a complete clearance envelope.
+
+### CAD/prototype progress
+
+The owner-reported current Fusion model includes:
+
+- A revolved MT-10 port/interface profile and four port bodies.
+- Parameter `TB_Port_Pitch = 84.0 mm`, with centre spacing verified as 84.0 mm in the model.
+- Packaging/keep-out bodies for P2/P3 and P4.
+- An XJ-side construction mid-plane at 126 mm and four XJ-side centres.
+- Construction/profile circles using the current working diameters.
+- An initial P2 loft test from the MT-10 Ø42.8 mm side toward the XJ P2 Ø33.8 mm side.
+
+This is CAD/prototype design progress, not validation. The loft is a geometry exploration only. The 126 mm value is a current CAD construction/reference value; independent physical evidence establishing it as a physical dimension is not supplied. Successful CAD construction does not establish physical fit, airflow quality, injector targeting, sealing, structural adequacy, manufacturability, or acceptance.
 
 ## Electrical or functional compatibility
 
@@ -141,11 +175,11 @@ physical candidate, nor do they establish XJ900S or rusEFI compatibility.
 
 ### Risks and constraints
 
-Exact physical identity, mechanical dimensions, XJ900S intake interface, injector characterization, connector/pin identification, electrical compatibility, DBW control strategy, rusEFI compatibility, and safety validation remain unresolved.
+Exact physical identity, remaining mechanical dimensions, XJ900S intake interface, injector characterization, connector/pin identification, electrical compatibility, DBW control strategy, rusEFI compatibility, and safety validation remain unresolved.
 
 ### Required adaptations
 
-Unknown. No mechanical, electrical, software, connector, fuel-system, or control adaptation is proposed or accepted.
+Final adaptations remain Unknown. Intake-interface proposals and CAD geometry exploration are recorded in RESEARCH-0006; no mechanical, electrical, software, connector, fuel-system, or control adaptation is accepted.
 
 ### Missing evidence
 
@@ -173,13 +207,13 @@ Throttle control and fuel delivery are safety-critical. Before any powered test,
 
 **Recommendation: Continue evaluation as primary throttle-body candidate**
 
-This means continued evaluation, not acceptance. Material unresolved issues include exact physical identity, mechanical dimensions, XJ900S intake interface, injector characterization, connector/pin identification, electrical compatibility, DBW control strategy, rusEFI compatibility, and safety validation.
+This means continued evaluation, not acceptance. Material unresolved issues include exact physical identity, remaining mechanical dimensions, XJ900S intake interface, injector characterization, connector/pin identification, electrical compatibility, DBW control strategy, rusEFI compatibility, and safety validation.
 
 ## Direct inspection and measurement still required
 
 ### Mechanical and intake geometry
 
-Not yet measured: throttle bore diameter at a defined datum; engine-side OD for each runner; engine-side insertion/mating length; airbox-side OD and length; centre spacings 1–2, 2–3, and 3–4; overall width; runner centreline offsets; bridge/bracket dimensions; injector angle relative to runner centreline; injector location from a defined engine-side datum; fuel-rail envelope; front-to-rear depth; servo and TPS housing envelopes; and connector/fuel-hose clearance envelope.
+Recorded engine-side OD, ID, cylindrical length, groove geometry, and port spacings are listed above. Still required: per-runner raw dimension records and method details; groove-bottom diameter; full inward bore extent; throttle bore diameter at other defined datums; usable clamp zone and retention/sealing design; airbox-side OD and length; overall width; runner centreline offsets; bridge/bracket dimensions; injector angle relative to runner centreline; injector location from a defined engine-side datum; fuel-rail envelope; front-to-rear depth; servo and TPS housing envelopes; and connector/fuel-hose clearance envelope.
 
 ### Physical identification
 
@@ -202,7 +236,7 @@ Still required: injector markings; authoritative OEM/manufacturer identity if ob
 - Verify exact physical candidate identity from markings and authoritative Yamaha evidence where available.
 - Complete the listed inspections and measurements without treating them as compatibility evidence in isolation.
 - Define and technically review electrical and functional bench methods before energization.
-- Evaluate mechanical XJ900S integration only in the separate future intake-interface research scope.
+- Evaluate mechanical XJ900S integration in [RESEARCH-0006](../research/RESEARCH-0006-intake-and-throttle-body-interface.md).
 - Define safety, fault handling, integration, and road-use validation before any acceptance.
 
 ## Traceability
@@ -214,8 +248,11 @@ Still required: injector markings; authoritative OEM/manufacturer identity if ob
 
 ## Change history
 
+Dates below identify documentation updates, not measurement dates.
+
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-15 | Recorded owner direct geometry, explicit groove-position correction, and separate CAD progress with linked RESEARCH-0006 evidence. | Replace resolved dimension gaps while preserving identity, compatibility, and safety-review boundaries. |
 | 2026-08-13 | Created the initial component evaluation from purchase provenance and Yamaha 2022 MT-10 service-manual source extraction. | Record donor-system evidence and explicit uncertainty without physical inspection or test execution. |
 
 ## Guidance
