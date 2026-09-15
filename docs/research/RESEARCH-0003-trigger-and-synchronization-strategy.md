@@ -235,13 +235,16 @@ event or firmware offset.
 The current preferred concept for evaluation is an annular/concentric
 ferromagnetic target with one recessed or missing sector per exhaust-camshaft
 revolution, read radially toward the target OD. One defined edge of the sector
-would provide the mechanical CMP reference. The preferred concept is informed
-by both Yamaha 2022 MT-10 service-manual illustrations showing the cam/cylinder-
-identification sensor arrangement and pickup-rotor geometry, and project visual
-review of marketplace photographs of 2022 MT-10 camshaft assemblies. Together,
-these sources support the interpretation of a substantially annular/concentric
-cam-phase target with a recessed or missing sector rather than an isolated
-protruding tooth.
+would provide the mechanical CMP reference. The preferred concept is informed by
+Yamaha 2022 MT-10 service-manual evidence for the cylinder-identification
+sensor and by project visual review of marketplace photographs of 2022 MT-10
+camshaft assemblies. The donor/reference evidence and its limitations are
+preserved separately in
+[RESEARCH-0003 evidence: MT-10 cam/cylinder-identification reference](evidence/RESEARCH-0003-mt10-cam-trigger-reference.md).
+The Unverified visual/reference observations, considered alongside the
+manual-confirmed sensor context, inform the proposal/reference interpretation
+of a substantially annular/concentric cam-phase target with a recessed or
+missing sector rather than an isolated protruding tooth.
 
 The service manual supports the construction principle and sensor/target
 arrangement but does not provide sufficient dimensional information to establish
@@ -428,6 +431,7 @@ location is accepted by this research record.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-15 | Added traceability to the MT-10 cam/cylinder-identification evidence record. | Preserve donor/reference evidence boundaries for the recessed-sector proposal without accepting a design decision. |
 | 2026-09-11 | Made the cam proposal topology-neutral and recessed-sector-aware; withdrew fixed width and opposite-edge geometry. | Refine the proposal after MT-10 service-manual and marketplace-photo topology review and pinned rusEFI edge-handling review without accepting an implementation. |
 | 2026-09-08 | Added the proposed 36-1 and single-cam-tooth CAD/prototype geometry and validation boundary. | Record the geometric baseline without accepting hardware or changing crank-only Stage 1. |
 | 2026-08-06 | Consolidated source boundaries, staged synchronization, crank-pattern and cam-phase candidates, safe states, and evidence gates. | Prepare a component-neutral trigger decision path without promoting proposals or unexecuted tests. |
