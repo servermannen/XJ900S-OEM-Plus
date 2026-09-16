@@ -36,6 +36,7 @@
 - [COMP-0009: R1 Blue Spot front brake calipers](components/COMP-0009-r1-blue-spot-front-brake-calipers.md)
 - [RESEARCH-0008: Front brake system integration](research/RESEARCH-0008-front-brake-system-integration.md)
 - [RESEARCH-0010: XJ900S front-fork upgrade and pre-installation verification](research/RESEARCH-0010-front-fork-upgrade-pre-installation-verification.md)
+- [RESEARCH-0011: XJ900S rear-brake caliper candidate evaluation](research/RESEARCH-0011-rear-brake-caliper-candidate-evaluation.md)
 - [TEST-PLAN-0003: Front brake system validation](testing/TEST-PLAN-0003-front-brake-system-validation.md)
 
 ## Documentation conventions
