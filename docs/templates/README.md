@@ -10,6 +10,7 @@
 | [ADR template](adr-template.md) | Record an accepted architecture or design decision |
 | [Research record template](research-record-template.md) | Capture research, evidence, uncertainty, and open questions |
 | [Component evaluation template](component-evaluation-template.md) | Evaluate a candidate component against requirements |
+| [Connector identification template](connector-identification-template.md) | Reusable evidence record/template for connector, terminal, locking, depinning, crimping, and compatibility evidence |
 | [Test-case template](test-case-template.md) | Define and record a repeatable verification activity |
 
 ## Naming conventions
@@ -21,6 +22,10 @@
 - Tests: `TEST-<DOMAIN>-<NUMBER>-<short-title>.md`
 
 Check numbering against existing records before creating a file.
+
+The connector identification template is a reusable evidence record/template.
+It does not require a sequential ID unless a later repository convention
+explicitly creates one.
 
 ## Status conventions
 

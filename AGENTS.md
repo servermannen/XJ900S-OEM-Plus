@@ -45,6 +45,18 @@ protection are safety-critical. Mark them `Review: Technical Review Required`
 until they have received technical review, then use
 `Review: Technically Reviewed`.
 
+## Connector documentation
+
+Whenever a connector is identified or documented, record where evidence allows:
+connector family, exact housing, mating housing/header, terminal
+family/type/size, cavity numbering and viewing orientation, primary locking
+method, secondary lock / TPA / retainer, seal/cavity plug where applicable,
+correct removal/depinning tool and method, and crimp tool/terminal replacement
+data where applicable. Do not infer identity from visual similarity, do not
+infer pinout from cavity count or wire colour, do not treat physical mating as
+electrical or functional compatibility, and preserve Unknown/Unverified where
+evidence is missing.
+
 ## Git workflow
 
 - Make focused changes related only to the requested task.

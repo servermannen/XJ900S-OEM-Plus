@@ -41,3 +41,8 @@
 Use the labels defined in [AGENTS.md](../AGENTS.md): `Document status` records
 document maturity, `Status` records information confidence, and `Review`
 records technical review separately for safety-critical claims.
+
+Templates are indexed in [Documentation templates](templates/README.md),
+including the reusable [connector identification
+template](templates/connector-identification-template.md) for connector,
+terminal, locking, depinning, crimping, and compatibility evidence.

@@ -46,6 +46,20 @@ Identification, evidence, compatibility status, safety, and recommendation are m
 - Environmental suitability: `<Evidence or Unknown>`
 - Required modifications: `<Evidence or Unknown>`
 
+### Connector evidence
+
+For each relevant connector, summarize the evidence boundary here and create or
+reference a [connector identification record](connector-identification-template.md)
+when connector identity, serviceability, or compatibility matters.
+
+- Housing/family: `<Evidence or Unknown>`
+- Mating side: `<Harness-side housing | Device/header-side | Inline mating half | Unknown>`
+- Terminal family: `<Evidence or Unknown>`
+- Cavity map/orientation: `<Evidence or Unknown>`
+- Locking/TPA status: `<Evidence or Unknown>`
+- Removal tool: `<Evidence or Unknown>`
+- Unresolved evidence: `<Evidence still needed>`
+
 ## Electrical or functional compatibility
 
 - Supply and signals: `<Evidence or Unknown>`
