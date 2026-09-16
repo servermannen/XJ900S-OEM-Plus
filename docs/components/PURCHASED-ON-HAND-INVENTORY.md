@@ -35,6 +35,31 @@ use.
 | Mini LED turn indicators | Unknown | AliExpress | Not recorded | Exact manufacturer, model, part number, and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition and delivery status | Unverified; not accepted |
 | Three-pin LED flasher relay | Unknown | AliExpress | Not recorded | Exact manufacturer and model Unknown; three electrical contacts reported; pinout and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition, delivery status, and physical description | Unverified; not accepted |
 
+## YSS front-fork upgrade parts
+
+- Supplier: Not recorded
+- Purchase/order date: Not recorded
+- Delivery state: Delivered / physically on hand — owner-reported / directly
+  observed markings as listed below
+- Delivery date: Not recorded
+- Evidence basis: Owner-reported delivery/on-hand state and retained visible
+  markings. These entries are acquisition and marking evidence only.
+
+The markings below do not establish XJ900S compatibility, cap thread
+compatibility, spring suitability, valve suitability, required damper-rod
+modification, oil recommendation, oil level, preload, fork setup, or road
+acceptance.
+
+| Supplied / observed item | Supplied or observed identifier | Source | Purchase date | Physical identity | Status | Evidence | Acceptance state |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| YSS fork cap | Marking/model `FCM38-41-001-50`; marking `M38x1.0`; marking `tube 41 mm` | Not recorded | Not recorded | Owner-observed markings only; XJ900S cap-thread compatibility and installed geometry Unverified | Delivered / physically on hand | Owner-reported/on-hand state and observed markings | Unverified; not accepted; technical review required |
+| YSS PD Fork Valve | Marking/model `PD335-D` | Not recorded | Not recorded | Owner-observed marking only; exact valve dimensions, intended fork architecture, setup data and XJ900S compatibility Unverified | Delivered / physically on hand | Owner-reported/on-hand state and observed marking | Unverified; not accepted; technical review required |
+| YSS fork spring pair | Unknown | Not recorded | Not recorded | Delivered spring pair; exact part number, rate, free length, dimensions, application and suitability Unknown | Delivered / physically on hand | Owner-reported/on-hand state | Unverified; not accepted; technical review required |
+
+See [RESEARCH-0010](../research/RESEARCH-0010-front-fork-upgrade-pre-installation-verification.md)
+for the front-fork pre-installation evidence and modification gates. Recording
+these parts here does not authorize installation or modification.
+
 ## Wemoto order 1305414493
 
 - Supplier: Wemoto

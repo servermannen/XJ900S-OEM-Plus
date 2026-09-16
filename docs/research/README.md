@@ -19,6 +19,7 @@ remain labelled `Status: Unverified` until it is confirmed.
 - [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md)
 - [RESEARCH-0008: Front brake system integration](RESEARCH-0008-front-brake-system-integration.md)
 - [RESEARCH-0009: Smart ignition coil candidate evaluation](RESEARCH-0009-smart-ignition-coil-candidate-evaluation.md)
+- [RESEARCH-0010: XJ900S front-fork upgrade and pre-installation verification](RESEARCH-0010-front-fork-upgrade-pre-installation-verification.md)
 
 ## Navigation
 
