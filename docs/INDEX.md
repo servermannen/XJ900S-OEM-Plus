@@ -30,6 +30,10 @@
 - [Trigger decoder and timing validation plan](testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md)
 - [ADR-0003: Retain Original Field-Regulated Charging Architecture](decisions/ADR-0003-retain-original-field-regulated-charging-architecture.md)
 
+## Current lighting and body-control records
+
+- [RESEARCH-0012: XJ900S LED turn-indicator and flasher integration](research/RESEARCH-0012-led-turn-indicator-flasher-integration.md)
+
 ## Current chassis and brake records
 
 - [COMP-0001: MT-07 front brake master cylinder and lever](components/COMP-0001-2022-mt07-front-brake-master-cylinder.md)
