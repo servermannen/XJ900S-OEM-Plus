@@ -452,6 +452,8 @@ configuration. The pinned schematic notes state that the outputs are
 logic-level/smart-coil outputs by default, with an onboard IGBT populate option.
 Direct drive of the original XJ coils is not confirmed. Onboard IGBTs,
 external igniters, and smart coils remain open alternatives under HG-05.
+Candidate smart-coil evidence gaps are tracked separately in
+[RESEARCH-0009](RESEARCH-0009-smart-ignition-coil-candidate-evaluation.md).
 B4-B7 remain reserved for later sequential-ignition capability.
 
 ## 14. Safety and supervisory inputs

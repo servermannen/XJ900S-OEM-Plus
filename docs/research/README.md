@@ -18,6 +18,7 @@ remain labelled `Status: Unverified` until it is confirmed.
 - [RESEARCH-0006: XJ900S to MT-10 intake and throttle-body interface](RESEARCH-0006-intake-and-throttle-body-interface.md)
 - [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md)
 - [RESEARCH-0008: Front brake system integration](RESEARCH-0008-front-brake-system-integration.md)
+- [RESEARCH-0009: Smart ignition coil candidate evaluation](RESEARCH-0009-smart-ignition-coil-candidate-evaluation.md)
 
 ## Navigation
 
