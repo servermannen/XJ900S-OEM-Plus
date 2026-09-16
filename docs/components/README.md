@@ -51,6 +51,11 @@ compatible until it has been confirmed.
   calipers](COMP-0009-r1-blue-spot-front-brake-calipers.md) — purchased pair;
   identity, condition, service-part applicability, fitment, hydraulic
   compatibility, braking suitability, and acceptance remain unverified.
+- [COMP-0010: Owner-observed Yamaha B5Y inertial-module
+  candidate](COMP-0010-owner-observed-yamaha-b5y-inertial-module-candidate.md)
+  — on-hand reference candidate; exact identity, function, connector identity,
+  pinout, protocol, compatibility, safety suitability, and acceptance remain
+  unverified.
 
 ## Navigation
 

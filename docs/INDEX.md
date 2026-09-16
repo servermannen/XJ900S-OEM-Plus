@@ -21,6 +21,7 @@
 - [Trigger and synchronization strategy](research/RESEARCH-0003-trigger-and-synchronization-strategy.md)
 - [RESEARCH-0004: rusEFI dual-bank short-term fuel trim](research/RESEARCH-0004-rusefi-dual-bank-stft.md)
 - [COMP-0005: Owner-reported 2022 MT-10 throttle-body assembly](components/COMP-0005-2022-mt10-throttle-body-assembly.md)
+- [COMP-0010: Owner-observed Yamaha B5Y inertial-module candidate](components/COMP-0010-owner-observed-yamaha-b5y-inertial-module-candidate.md)
 - [RESEARCH-0006: XJ900S to MT-10 Intake and Throttle-Body Interface](research/RESEARCH-0006-intake-and-throttle-body-interface.md)
 - [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](research/RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md)
 - [RESEARCH-0009: Smart ignition coil candidate evaluation](research/RESEARCH-0009-smart-ignition-coil-candidate-evaluation.md)

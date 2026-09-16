@@ -232,9 +232,9 @@ proposals requiring technical review and fault-injection evidence.
 | Tip-over | Sensor not selected | Independent direct analog safety input candidate | Sensor voltage/interface Unverified | Level 1 shutdown of ETB, injectors, ignition and fuel pump; deliberate recovery | A | A6 | `MM100_IN_O2S2_ANALOG`; AIN2 with 500K pulldown | Sensor selection, interface, thresholds and diagnostics open | Disconnected/short/stuck/frozen behavior must be validated | Stage 1 Required safety function | PASS | Upstream input/pulldown Confirmed; sensor and project implementation Proposal/Unverified |
 | CAN to Level 2 | Level 2 not selected | Differential CAN | Physical layer is upstream-defined; project network details Unverified | Level 1 remains autonomous if CAN is lost | D | D18/D19 | CAN Low / CAN High | Termination, topology, protection, protocol and timeouts open | Loss/invalid/stale data must not transfer Level 1 authority | Stage 1 interface | PASS | Upstream CAN cavities Confirmed; project interface Proposal |
 
-The purchased B5Y IMU gains no Level 1 shutdown authority in this record. Its
-interface, protocol, startup diagnostics, stale-data behavior, failure
-handling, and functional suitability have not been validated.
+The on-hand B5Y module candidate gains no Level 1 shutdown authority in this
+record. Its interface, protocol, startup diagnostics, stale-data behavior,
+failure handling, and functional suitability have not been validated.
 
 ## 9. Full 120-pin cavity map
 
@@ -470,7 +470,9 @@ B4-B7 remain reserved for later sequential-ignition capability.
 - A valid fall event must retain Level 1 authority over ETB, injectors,
   ignition, and fuel pump and require deliberate recovery. The direct sensor
   strategy remains open under HG-07.
-- The purchased B5Y IMU has no shutdown authority in this allocation.
+- The on-hand B5Y module candidate has no shutdown authority in this
+  allocation. The on-hand B5Y inertial-module candidate is tracked separately in
+  [COMP-0010](../components/COMP-0010-owner-observed-yamaha-b5y-inertial-module-candidate.md).
 
 ## 15. Future reserved resources
 
@@ -535,7 +537,7 @@ controlled energization, fault injection, or bench validation.
 | HG-04 — XJ900S CKP electrical compatibility | Loss/false synchronization can cause mistimed fuel or ignition | D10/D11 MAX9924 path and firmware default are confirmed upstream; original pickup remains an Unverified passive-VR candidate | Direct 1997 resistance, polarity, cranking waveform, amplitude versus RPM where practical, air gap, noise, conditioner behavior and decoder stability | Use the reviewed pickup-characterization and later decoder-validation plans; validate D10/D11 conditioning, cranking/run synchronization and loss-of-sync response | Reliable crank synchronization over cranking and operating range with defined loss-of-sync behavior | OPEN | Satisfy TEST-PLAN-0001 safety prerequisites before waveform work |
 | HG-05 — Ignition-driver compatibility | Incorrect dwell/driver selection can damage hardware or create unintended/no spark | B2/B3 exist; upstream outputs are logic/smart-coil by default with optional onboard IGBTs | XJ coil primary resistance, inductance, current and dwell; physical ECU IGBT population; comparison of onboard IGBT, external igniter and smart-coil alternatives | Inspect ECU population; collect coil evidence; analyze alternatives; use bench-safe loads before any coil energization | Selected ignition architecture has adequate electrical/thermal margin and a defined no-spark safe state | OPEN | Identify physical ECU build and retain all three driver alternatives until evidence supports selection |
 | HG-06 — Injector electrical compatibility | Incorrect driver/load/fuel delivery can cause overheating, leakage or uncontrolled fueling | Four required low-side outputs are statically available | Selected injector identity, impedance, current, flow, pressure, dead time versus voltage, driver/thermal margin, fuse and power architecture | Establish authoritative injector data and a technically reviewed safe-load/driver validation plan before fuel testing | Selected injectors are electrically compatible and have sufficient controlled operating margin | OPEN | Identify injectors and obtain authoritative electrical/fuel data before sizing or energization |
-| HG-07 — Tip-over / fall-event Level 1 safety path | A failed fall path can leave throttle, fuel or ignition active | A6 is statically available as a direct Level 1 input; accepted requirements retain Level 1 shutdown authority | Direct sensor strategy, interface, orientation, threshold, transient behavior, disconnected/short/stuck/frozen behavior, complete shutdown and deliberate restart behavior | Select only a test candidate; define reviewed bench and fault-injection tests covering ETB, injectors, ignition, pump, reset and Level 2 independence | A validated Level 1 fall-event path produces the defined safe state without Level 2 or an unvalidated B5Y IMU communication path | OPEN | Develop a dedicated direct-sensor safety requirement and test method; do not grant the B5Y IMU authority |
+| HG-07 — Tip-over / fall-event Level 1 safety path | A failed fall path can leave throttle, fuel or ignition active | A6 is statically available as a direct Level 1 input; accepted requirements retain Level 1 shutdown authority | Direct sensor strategy, interface, orientation, threshold, transient behavior, disconnected/short/stuck/frozen behavior, complete shutdown and deliberate restart behavior | Select only a test candidate; define reviewed bench and fault-injection tests covering ETB, injectors, ignition, pump, reset and Level 2 independence | A validated Level 1 fall-event path produces the defined safe state without Level 2 or an unvalidated B5Y module-candidate communication path | OPEN | Develop a dedicated direct-sensor safety requirement and test method; do not grant the B5Y module candidate authority |
 
 ## 18. Safe-state proposal
 
@@ -627,7 +629,7 @@ component interface.
 - Direct-driving original coils from default logic outputs without verified
   driver architecture.
 - Underestimating ETB/injector/relay current, fuse, flyback or thermal demand.
-- Giving an unvalidated B5Y IMU or Level 2 CAN hidden shutdown or throttle
+- Giving an unvalidated B5Y module candidate or Level 2 CAN hidden shutdown or throttle
   authority.
 - Defining recovery, degraded operation or limp-home behavior without a
   reviewed safety analysis and fault-injection evidence.
@@ -646,7 +648,8 @@ component interface.
 6. Identify the selected injectors and authoritative electrical/fuel data for
    HG-06.
 7. Define the independent direct Level 1 fall-sensor requirements and fault
-   tests for HG-07 without granting authority to the unvalidated B5Y IMU.
+   tests for HG-07 without granting authority to the unvalidated B5Y module
+   candidate.
 8. Design power, grounding, protection, fusing and relay interfaces only after
    the relevant current and fault evidence exists.
 9. Create subsequent bench-test records with explicit preconditions, safe
