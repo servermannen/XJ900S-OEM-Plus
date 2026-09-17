@@ -41,7 +41,8 @@ permanent fork modification?
   spacer fabrication, spring cutting, fork-cap modification, or permanent
   damper-rod modification.
 - Creation of separate component records for each YSS part.
-- Use of specifications from another Yamaha model.
+- Use of 1995 Yamaha manual specifications as confirmed 1997 project
+  motorcycle specifications before applicability is established.
 
 ## Current status
 
@@ -56,15 +57,52 @@ by this record.
 
 ## Sources and current evidence
 
-Repository records reviewed on 2026-09-16. This is not a purchase, measurement,
-installation, or test date.
+Repository records reviewed on 2026-09-16 and reconciled with supplied Yamaha
+manual evidence on 2026-09-17. These dates are not purchase, measurement,
+installation, or test dates.
 
 | Source | Type | Relevance | Evidence boundary |
 | --- | --- | --- | --- |
+| Yamaha XJ900S(G) '95 Service Manual, manual number `4KM-28197-20`, chassis maintenance specifications, manual page 2-13, project PDF page 33 | Yamaha service manual evidence supplied to the project | Provides front-suspension maintenance specification values for the manual-stated XJ900S(G) '95 application. | Confirmed for the Yamaha 1995 manual application only. Use as confirmed 1997 Yamaha factory specifications requires authoritative Yamaha continuity evidence. Direct project-bike measurements can establish as-found geometry and dimensions, but not Yamaha 1997 factory specification continuity. |
 | [Purchased / on-hand component inventory](../components/PURCHASED-ON-HAND-INVENTORY.md) | Project inventory | Records acquisition/on-hand context for fork-related parts. | Availability record only; not compatibility or acceptance evidence. |
 | [RESEARCH-0008](RESEARCH-0008-front-brake-system-integration.md) | Project research | Defines front-brake integration evidence needs involving the actual XJ900S fork, wheel, discs, hoses, and suspension movement. | Brake-system evidence gate only; does not validate fork upgrade components. |
 | [TEST-PLAN-0003](../testing/TEST-PLAN-0003-front-brake-system-validation.md) | Project test plan | Defines staged front-brake validation and movement/clearance checks. | Not executed; does not authorize road use. |
 | [System requirements](../requirements/system-requirements.md) | Project requirements | Defines safety, staged validation, documentation, and technical-review obligations. | Requirements and process basis only; not fork specification data. |
+
+## Yamaha 1995 baseline evidence
+
+The following values are retained from the Yamaha XJ900S(G) '95 Service Manual,
+manual number `4KM-28197-20`, chassis maintenance specifications, manual page
+2-13, project PDF page 33.
+
+**Status: Confirmed** for the Yamaha 1995 manual application.
+
+**Status: Unverified** for the project-recorded 1997 XJ900S until
+authoritative Yamaha evidence establishes no relevant fork specification change
+for 1997. Direct physical measurements may establish as-found geometry,
+dimensions, interfaces, stack height, spring dimensions, damper-rod
+architecture, and other directly measurable characteristics of the actual
+project fork, but do not by themselves confirm Yamaha's 1997 factory
+specification for oil grade, oil capacity, oil level, spring rate, spring-rate
+transition/stroke, or model-year specification continuity.
+
+| Front-suspension item | Yamaha 1995 manual value | Evidence status | 1997 project applicability |
+| --- | --- | --- | --- |
+| Front fork travel | 140 mm | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Front spring free length | 505 mm | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Spring rate K1 | 5.0 N/mm (0.5 kg/mm) | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Spring rate K2 | 9.0 N/mm (0.9 kg/mm) | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Stroke K1 | 0-80 mm | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Stroke K2 | 80-140 mm | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Optional spring | No | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Oil capacity | 444 cm3 | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Oil level | 133 mm | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+| Oil grade | Fork oil 5W or equivalent | Confirmed for Yamaha XJ900S(G) '95 manual application | Unverified |
+
+This baseline does not establish fork-cap thread specification, damper-rod
+dimensions, compression-hole count or diameter, fork-cap sealing geometry,
+41 mm fork-tube applicability to the 1997 motorcycle, PD335-D compatibility,
+YSS spring compatibility, or any requirement to drill the damper rod.
 
 ## On-hand parts and evidence boundary
 
@@ -95,11 +133,16 @@ acceptance evidence.
 - Do not infer Wemoto `PKAA9870` or `AB7343` applicability from ordering under
   a vehicle selection.
 
-## Required XJ900S baseline evidence
+## Required 1997 XJ900S baseline evidence
 
-The exact XJ900S fork variant and specifications remain evidence gaps unless
-separately retained from an authoritative XJ900S source or direct measurement.
-Do not use specifications from another Yamaha model.
+The exact 1997 XJ900S fork variant and project-motorcycle specifications
+remain evidence gaps unless separately retained from an authoritative 1997
+XJ900S source or established by authoritative Yamaha continuity evidence.
+Direct measurement of the actual project motorcycle may establish as-found
+physical geometry and dimensions, but not Yamaha factory specification
+continuity. The 1995 Yamaha manual values above may be used as bounded
+comparison evidence only until 1997 specification applicability is established
+by authoritative Yamaha evidence.
 
 Require verification and recorded evidence for at least:
 
@@ -128,6 +171,94 @@ Require verification and recorded evidence for at least:
 - Rebound path and orifice arrangement.
 - Bottom retaining-bolt and copper-washer interface.
 - Seal and bushing dimensions where replacement parts are considered.
+
+## 1997 applicability gate
+
+Before using any 1995 Yamaha value as a confirmed 1997 Yamaha factory
+specification, establish authoritative Yamaha specification continuity for that
+value. Direct project-bike measurement remains useful for physical
+compatibility work, but it does not confirm Yamaha's factory specification
+continuity.
+
+Evidence paths are separated as follows:
+
+- OEM part-number/specification continuity: requires authoritative Yamaha
+  evidence.
+- Actual physical geometry: may be established by direct measurement of the
+  actual project fork.
+- Spring rate: requires authoritative Yamaha evidence or controlled
+  spring-rate measurement; dimensional inspection alone is insufficient.
+- Oil grade, oil capacity, and oil level as Yamaha factory specifications:
+  require authoritative Yamaha evidence.
+
+Until authoritative continuity evidence is retained for a given factory
+specification, the corresponding 1995 value remains confirmed only for the
+manual-stated 1995 application and Unverified for the project-recorded 1997
+motorcycle.
+
+## Direct-measurement gate
+
+Before any irreversible fork or damper-rod modification, record the following
+minimum measurements from the actual project motorcycle and on-hand parts.
+
+### Fork / original cap
+
+- Fork tube outside diameter.
+- Original cap male-thread major diameter.
+- Thread pitch.
+- Usable thread engagement length.
+- Original cap shoulder/seating geometry.
+- Sealing/O-ring arrangement.
+- Internal depth from tube top to spring/spacer stack.
+
+### Original spring/stack
+
+- Spring free length.
+- Spring outside diameter and inside diameter.
+- Wire diameter.
+- End geometry.
+- Spacer length.
+- Washer thickness, outside diameter, and inside diameter.
+- Existing static preload derived from measured stack dimensions.
+
+### YSS cap
+
+- Measured thread major diameter.
+- Measured pitch.
+- Threaded length.
+- Shoulder/seating geometry.
+- O-ring/seal geometry.
+- Adjuster travel.
+- Protrusion above fork tube / possible handlebar or upper-yoke interference.
+
+### YSS spring
+
+- Exact visible part number or label.
+- Free length.
+- Outside diameter.
+- Inside diameter.
+- Wire diameter.
+- End geometry.
+- Spring-rate evidence if present on label or documentation.
+
+### PD335-D
+
+- Outside diameter.
+- Total height.
+- Lower seating diameter/profile.
+- Top spring-contact geometry.
+
+### Damper rod
+
+Only after normal reversible disassembly, record:
+
+- Top outside diameter.
+- Central bore inside diameter.
+- Seating-face geometry available for the PD valve.
+- Existing compression-hole count.
+- Existing hole diameters.
+- Axial positions of holes.
+- Wall thickness where modification might otherwise be proposed.
 
 ## Fork-cap verification gate
 
@@ -194,8 +325,8 @@ Unverified.
 
 ## Explicit modification gate
 
-No drilling, enlarging, welding, machining, shortening, spacer fabrication,
-spring cutting, fork-cap modification, or permanent damper-rod modification is
+No drilling, enlargement, welding, machining, shortening, spacer fabrication,
+spring cutting, fork-cap modification, or permanent damper-rod alteration is
 authorized by this research record.
 
 Before any damper rod is drilled or modified, require all of the following:
@@ -272,21 +403,19 @@ severity, or numerical acceptance criteria are assigned here.
 | Wheel/fender contact | Full-compression and steering-envelope checks. |
 | Fastener/retaining-bolt sealing failure | Bottom-bolt and copper-washer interface evidence, sealing inspection, and reviewed service data. |
 
-## Validation stages
+## Decision gates
 
-No validation stage is executed or passed by this record. Each stage requires
-recorded left/right symmetry and measurements.
+No gate is executed or passed by this record. Each gate requires recorded
+left/right symmetry and measurements where applicable.
 
-| Stage | Initial state | Gate intent |
+| Gate | Initial state | Gate intent |
 | --- | --- | --- |
-| A. Evidence and parts identification | Not started | Exact parts, markings, labels, source documentation, and evidence class retained. |
-| B. Direct dimensional inspection | Not started | Actual XJ fork, original parts, and candidate parts measured at defined datums. |
-| C. Dry stack / non-destructive fit check | Not started | Stack height, seating, cap engagement, clearances, and left/right symmetry checked without permanent change. |
-| D. Modification review gate | Blocked | Permanent fork or damper-rod modification remains blocked unless the explicit modification gate is satisfied. |
-| E. Controlled fork assembly | Blocked | Assembly only after evidence, measurements, service method, oil data, and technical review support it. |
-| F. Static motorcycle checks | Blocked | Steering, suspension movement, leaks, sag, hose routing, brake clearance, and left/right behavior checked under reviewed methods. |
-| G. Low-risk functional checks | Blocked | Controlled non-road or low-risk checks only after static gates pass and review authorizes the exact scope. |
-| H. Road validation only after technical review | Blocked | Road validation requires completed prerequisite evidence, system-level brake/fork review, defined criteria, and separate authorization. |
+| A. Documentation baseline | Not started | Applicability status of relevant Yamaha specifications explicitly known, and unresolved model-year differences identified. Authoritative continuity evidence is required wherever a 1995 Yamaha value is to be used as a confirmed 1997 factory specification. |
+| B. Dimensional | Not started | YSS cap/spring/PD valve and actual fork dimensions recorded as as-found physical evidence; this can proceed without resolving every Yamaha factory-specification continuity question. |
+| C. Dry compatibility | Not started | Thread engagement, sealing seat, centering, stack height, and mechanical clearances demonstrated without permanent modification. |
+| D. Reversible assembly | Blocked | Only after Gates A-C pass and oil/stack/preload requirements are defined. |
+| E. Permanent modification | Blocked | Requires separate technical review and explicit evidence for the exact PD335-D installation requirements on this fork architecture. |
+| F. Road validation | Blocked | Remains blocked until assembly, sag, travel, damping behavior, clearance, and safety validation are completed. |
 
 Successful assembly, threading, or bounce testing does not equal road
 validation.
@@ -315,15 +444,19 @@ validation.
   [TEST-PLAN-0003](../testing/TEST-PLAN-0003-front-brake-system-validation.md).
 - ADR required: Undetermined; a future accepted fork-upgrade configuration or
   permanent modification may require a decision record.
-- Recommended next action: retain part-label photographs, obtain authoritative
-  YSS PD335-D and cap/spring documentation, measure the actual XJ fork and
-  original parts, then complete a technical review before any installation or
-  modification.
+- Recommended next action: document the 1997 applicability status of the
+  retained 1995 Yamaha baseline, retain part-label photographs, obtain
+  authoritative YSS PD335-D and cap/spring documentation, measure the actual XJ
+  fork and original parts, then complete a technical review before any
+  installation or modification.
 
 ## Open questions
 
 - What exact XJ900S fork variant is installed on the project motorcycle?
-- What Yamaha manual or parts data applies directly to that exact fork?
+- Do authoritative Yamaha records show the 1997 fork assembly / OEM
+  part-number family, tube/top-thread geometry, spring specification,
+  damper-rod architecture, and oil specification are materially unchanged from
+  the 1995 manual application?
 - What are the original fork-cap thread, sealing, shoulder, and engagement
   dimensions?
 - What is the exact YSS spring part number, rate, free length, end treatment,
@@ -340,14 +473,21 @@ validation.
 
 The front-fork upgrade may continue as controlled research and
 pre-installation verification only. The on-hand YSS and Wemoto parts are not
-accepted for installation or road use by this record. Permanent modification is
-blocked until authoritative documentation, direct XJ measurements, structural
-review, cleaning/reassembly procedure, and technical review are complete.
+accepted for installation or road use by this record. The recovered Yamaha
+front-suspension values are confirmed only for the manual-stated 1995
+application and remain Unverified for the project-recorded 1997 motorcycle.
+Direct project-bike measurements may establish as-found physical compatibility
+evidence but do not confirm Yamaha factory specification continuity. Permanent
+modification is blocked until required documentation status, direct project
+measurements, authoritative PD335-D documentation, structural review,
+cleaning/reassembly procedure, and technical review are complete.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-18 | Clarified that direct measurement can establish as-found physical evidence but not Yamaha factory specification continuity, and that dimensional evidence may proceed independently of unresolved factory-specification continuity. | Prevent direct project-bike measurement from being read as confirming complete 1995-to-1997 Yamaha specification applicability. |
+| 2026-09-17 | Reconciled recovered Yamaha XJ900S(G) '95 front-suspension service-manual evidence, added 1997 applicability and direct-measurement gates, and restated permanent-modification blocking. | Preserve confirmed 1995 Yamaha baseline values without converting them into confirmed 1997 project specifications or authorizing YSS installation/drilling. |
 | 2026-09-16 | Created front-fork upgrade and pre-installation verification record. | Preserve on-hand part evidence while defining safety-critical evidence, modification, and validation gates. |
 
 ## Navigation
