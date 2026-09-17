@@ -36,6 +36,7 @@
 
 ## Current chassis and brake records
 
+- [RESEARCH-0013: XJ900S handlebar, switchgear and bar-end integration](research/RESEARCH-0013-handlebar-switchgear-bar-end-integration.md)
 - [COMP-0001: MT-07 front brake master cylinder and lever](components/COMP-0001-2022-mt07-front-brake-master-cylinder.md)
 - [COMP-0009: R1 Blue Spot front brake calipers](components/COMP-0009-r1-blue-spot-front-brake-calipers.md)
 - [RESEARCH-0008: Front brake system integration](research/RESEARCH-0008-front-brake-system-integration.md)

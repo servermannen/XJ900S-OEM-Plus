@@ -22,6 +22,7 @@ remain labelled `Status: Unverified` until it is confirmed.
 - [RESEARCH-0010: XJ900S front-fork upgrade and pre-installation verification](RESEARCH-0010-front-fork-upgrade-pre-installation-verification.md)
 - [RESEARCH-0011: XJ900S rear-brake caliper candidate evaluation](RESEARCH-0011-rear-brake-caliper-candidate-evaluation.md)
 - [RESEARCH-0012: XJ900S LED turn-indicator and flasher integration](RESEARCH-0012-led-turn-indicator-flasher-integration.md)
+- [RESEARCH-0013: XJ900S handlebar, switchgear and bar-end integration](RESEARCH-0013-handlebar-switchgear-bar-end-integration.md)
 
 ## Navigation
 
