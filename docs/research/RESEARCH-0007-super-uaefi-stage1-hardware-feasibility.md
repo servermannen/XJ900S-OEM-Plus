@@ -279,7 +279,7 @@ proposals requiring technical review and fault-injection evidence.
 | TPS1 | 2022 MT-10 throttle-body candidate | Analog position | Candidate transfer curve and electrical limits Unverified | Remove ETB drive for implausible/invalid redundant feedback | A | A5 | `MM100_IN_TPS_ANALOG` / TPS1 | Candidate-specific interface Unverified | Redundant-pair plausibility and fault response required | Stage 1 Required | PASS | Upstream pin Confirmed; candidate interface Unverified; allocation Proposal |
 | TPS2 | 2022 MT-10 throttle-body candidate | Analog position | Candidate transfer curve and electrical limits Unverified | Remove ETB drive for implausible/invalid redundant feedback | A | A15 | `MM100_IN_AUX1_ANALOG` / TPS2 | Candidate-specific interface Unverified | Redundant-pair plausibility and fault response required | Stage 1 Required | PASS | Upstream pin Confirmed; candidate interface Unverified; allocation Proposal |
 | ETB | 2022 MT-10 throttle-body servo candidate | Bidirectional DC motor | Motor running, transient and stall current Unverified | De-energize bridge; throttle returns to validated mechanical safe position | D | D6/D7 | `DC1-` / `DC1+`; TLE9201SG H-bridge; default `etbFunctions[0] = DC_Throttle1` | H-bridge is upstream-conditioned; fuse/current/thermal strategy open | Fault must remove unsafe drive and enter defined DBW safe state | Stage 1 Required | PASS | Upstream bridge/default Confirmed; motor/thermal suitability Unverified; allocation Proposal |
-| MAP | Purchased Yamaha MAP candidate | Analog pressure | Identity and transfer function Unverified | Defined degraded response; no value invented | B | B26 | `MM100_IN_MAP1_ANALOG` / MAP | B16 +5 V and B23 GNDA proposed | Missing/invalid response and substitution policy Unverified | Stage 1 Required | PASS | Upstream pin/supply/return Confirmed; sensor interface Unverified; allocation Proposal |
+| MAP | Two separate pressure-sensor candidates: MT-10 throttle-body-associated pressure-sensor candidate and loose Yamaha `1WS-82380-00-00` candidate | ECU-side analog MAP/load input capability; candidate sensor identity, electrical interface, and calibration all unresolved | ECU B26 input capability identified upstream; candidate sensor supply, output range, pressure range, and transfer function Unverified | Defined degraded response; no value invented | B | B26 | `MM100_IN_MAP1_ANALOG` / MAP | B16 +5 V and B23 GNDA exist as proposed uaEFI resources only; no Yamaha sensor compatibility inferred | Missing/invalid response and substitution policy Unverified | Stage 1 Required | PASS | Upstream MAP input path Confirmed; candidate identities/interfaces/calibrations Unverified; allocation Proposal |
 | IAT | Purchased Yamaha B5Y temperature-sensor candidate | Resistive/analog temperature candidate | Exact identity and calibration Unverified | Defined bounded fault response; no value invented | A | A12 | `MM100_IN_IAT_ANALOG` / IAT | Upstream default analog-temperature pull-up path; candidate calibration Unverified | Open/short/plausibility handling required | Stage 1 Required | PASS | Upstream pin Confirmed; sensor identity/calibration Unverified; allocation Proposal |
 | Engine temperature | Sensor not selected | Analog temperature candidate | Sensor and range Unverified | Defined bounded fault response; no value invented | A | A11 | `MM100_IN_CLT_ANALOG` / CLT-labelled input | Upstream default analog-temperature pull-up path; air-cooled sensor/location open | Open/short/plausibility handling required | Stage 1 Required | PASS | Upstream pin Confirmed; sensor/location Proposal and Unverified |
 | Injector 1 | Injector not selected | Low-side injector output | Impedance, current and dead time Unverified | Command disabled for shutdown/critical fault | B | B13 | `MM100_INJ1` | Driver compatibility, flyback, fuse and power architecture Unverified | No unintended fuel command; diagnostic response required | Stage 1 Required | PASS | Upstream output Confirmed; injector compatibility Unverified; allocation Proposal |
@@ -368,17 +368,17 @@ future use.
 | B13 | Injector 1 / INJ1 | Injector 1 | PASS |
 | B14 | Coil 8 unused | None | UNALLOCATED |
 | B15 | Power/chassis ground | ECU power/chassis ground | PASS |
-| B16 | +5 V | MAP supply candidate | PASS |
+| B16 | +5 V | Proposed MAP supply resource only; candidate sensor supply requirement Unverified | PASS |
 | B17 | +5 V | Future sensor-supply reserve | RESERVED |
 | B18 | Injector 8 / SPI2_SCK-backed output | Future injector-output reserve | RESERVED |
 | B19 | Injector 7 / SPI2_CS-backed output | Future injector-output reserve | RESERVED |
 | B20 | Low-Side 1 output | Future low-side reserve | RESERVED |
 | B21 | Low-Side 2 output | Future low-side reserve | RESERVED |
 | B22 | Low-Side 3 output | Future low-side reserve | RESERVED |
-| B23 | GNDA analog/sensor ground | MAP return | PASS |
+| B23 | GNDA analog/sensor ground | Proposed MAP return resource only; candidate sensor ground/reference Unverified | PASS |
 | B24 | GNDA analog/sensor ground | Future sensor-return reserve | RESERVED |
 | B25 | Digital input / FLEX fuel sensor | Future digital/event-input reserve | RESERVED |
-| B26 | MAP signal / MAP1 analog | MAP candidate signal | PASS |
+| B26 | MAP signal / MAP1 analog | ECU-side MAP analog input capability; candidate sensor signal compatibility Unverified | PASS |
 
 ### Connector C — 34 cavities
 
@@ -459,12 +459,46 @@ future use.
 | Permanent battery supply | C26 | Upstream function is hot-at-all-times +12 V. External fusing, wire sizing, transient/reverse-polarity protection, and isolation are not designed or accepted. |
 | Key/ignition sense | C1 | Upstream function is an ignition-switch/battery-voltage analog input. The XJ interface remains Unverified. |
 | ETB/H-bridge switched supply | C10 | Upstream function feeds the H-bridges from main-relay +12 V. Fuse, relay, current and thermal strategy remain open. |
-| +5 V references | A4 direct safety-sensor candidate; A10 TPS; A18 APS; B16 MAP | Each named cavity is identified as +5 V in the pinned YAML. This does not establish sensor compatibility, supply grouping, current budget, independence, or fault containment. |
-| GNDA sensor returns | A23 TPS; A24 APS; A25 engine temperature; A26 IAT; A27 tip-over; B23 MAP | Each named cavity is identified as GNDA in the pinned YAML. Final reference routing, shared-fault analysis, and shielding remain open. |
+| +5 V references | A4 direct safety-sensor candidate; A10 TPS; A18 APS; B16 proposed MAP resource | Each named cavity is identified as +5 V in the pinned YAML. This does not establish sensor compatibility, supply requirement, supply grouping, current budget, independence, or fault containment. |
+| GNDA sensor returns | A23 TPS; A24 APS; A25 engine temperature; A26 IAT; A27 tip-over; B23 proposed MAP resource | Each named cavity is identified as GNDA in the pinned YAML. Final reference routing, candidate sensor ground/reference architecture, shared-fault analysis, and shielding remain open. |
 | Power/chassis grounds | B15, C21, C22, D17 | These are upstream power/chassis grounds and are not relabelled as sensor grounds. Final conductor sizing, topology, bonding, and voltage-drop criteria remain open. |
 
 The static mapping separates GNDA from power/chassis ground. It does not
 accept a grounding, protection, or harness architecture.
+
+### MAP candidate reconciliation
+
+**Status: Unverified**
+
+Recent project discussion identifies two physically separate pressure-sensor
+candidates relevant to the proposed MAP function:
+
+- the MT-10 throttle-body-associated pressure-sensor candidate recorded in
+  [COMP-0005](../components/COMP-0005-2022-mt10-throttle-body-assembly.md);
+  and
+- the separate loose Yamaha `1WS-82380-00-00` pressure-sensor candidate
+  recorded in
+  [COMP-0011](../components/COMP-0011-yamaha-1ws-82380-00-00-pressure-sensor-candidate.md).
+
+This record does not select either candidate. Evidence about one candidate
+shall not be propagated to the other. Identical-looking housings, physical
+fit, or a plausible sensor voltage do not establish electrical equivalence,
+pressure range, transfer function, calibration, or uaEFI compatibility.
+
+B26 / `MM100_IN_MAP1_ANALOG` remains an ECU-side MAP analog input capability
+and proposed allocation. B16 +5 V and B23 GNDA remain proposed uaEFI resources
+only. They do not establish that either Yamaha candidate requires 5 V, uses
+that ground/reference architecture, has a compatible output range, or has a
+known transfer function.
+
+MAP acceptance remains blocked until exact sensor identity, connector
+identity, pinout, supply/reference requirement, ground/reference architecture,
+output voltage range, pressure units/range, absolute-versus-gauge behavior,
+atmospheric behavior, fault behavior, plausibility, ECU ADC/input range,
+rusEFI calibration implementation, power-up behavior, wiring protection, and
+retained validation evidence are established under a technically reviewed
+method. No powered sensor test is authorized from generic three-pin automotive
+sensor assumptions.
 
 ## 11. DBW allocation
 
@@ -772,6 +806,7 @@ No ADR is created or superseded.
 | --- | --- | --- |
 | 2026-08-26 | Created the Super uaEFI Stage 1 static hardware-feasibility and 120-cavity allocation record. | Preserve pinned upstream evidence, proposed project allocation, resource analysis, discrepancies, and remaining hardware/safety gates without accepting hardware. |
 | 2026-09-17 | Reconciled delivered-unit evidence for the purchased Super uaEFI. | Preserve delivered/on-hand status, observed `mega-uaEFI 0.3` / Rev B marking, unpopulated `Q841`-`Q846` IGBT positions, read-only signature/calibration evidence, and open compatibility gates without accepting the ECU or ignition architecture. |
+| 2026-09-17 | Reconciled MAP candidate evidence and separated the MT-10 throttle-body-associated pressure-sensor candidate from the loose `1WS-82380-00-00` candidate. | Preserve ECU-side B26 capability while keeping Yamaha sensor identity, interface, transfer function, calibration, and uaEFI compatibility unverified. |
 
 ## 26. Navigation
 

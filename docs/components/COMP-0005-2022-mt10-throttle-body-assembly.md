@@ -29,6 +29,7 @@ Purchase provenance and donor-system information do not establish the physical c
 | --- | --- | --- |
 | COMP-0005-SRC-001 | Owner-reported purchase identification | Acquisition provenance only; does not confirm Yamaha application, exact variant, OEM assembly part number, condition, compatibility, or acceptance. |
 | COMP-0005-SRC-002 | *Yamaha 2022 MT-10 / MT-10SP Service Manual*, LIT-11616-35-64; Yamaha identifier B5Y-28197-10; first edition January 2022 | Authoritative only for the documented donor system and manual models MT10N, MT10NC, MT10SPN, and MT10SPNC. It does not identify the purchased component or independently confirm RN781 applicability. |
+| COMP-0005-SRC-003 | Recent project discussion of a pressure/MAP-sensor candidate physically associated with the on-hand throttle-body assembly | Project discussion/direct-observation context only. It preserves that a pressure-sensor candidate is physically associated with the assembly; it does not establish exact sensor identity, Yamaha part number, official donor application, MAP function, pinout, connector identity, pressure range, transfer function, calibration, or uaEFI compatibility. |
 
 ## Intended function
 
@@ -93,6 +94,7 @@ verified; any remaining location not yet captured stays explicitly unresolved.
 | --- | --- | --- | --- |
 | Exact Yamaha throttle-body assembly part number | Unknown | No authoritative purchased-component identity | Unverified |
 | Purchased-component markings and condition | Not inspected or recorded | No documented inspection | Unverified |
+| MT-10 throttle-body-associated pressure-sensor candidate | Physically associated with the on-hand throttle-body assembly in recent project discussion; exact markings not retained in this repository | Project discussion only | Unverified |
 | Engine-side geometry and port spacing | Direct measured values recorded below | Owner-performed measurements; linked RESEARCH-0006 evidence | Measured candidate only; compatibility Unverified |
 | Pinout, injector data, servo characteristics, TPS transfer functions, and mechanical throttle range | Unknown | No authoritative or measured purchased-component evidence for these attributes | Unverified |
 
@@ -111,6 +113,40 @@ The donor direct functional check uses approximately 3 V from two C-size cells a
 ## Fuel injectors and fuel rail
 
 The donor system has four individual injector diagnostics, P0201 through P0204. Exact injector part number, flow rate, dead time, spray pattern, connector family, fuel-rail interface, and purchased configuration remain Unverified.
+
+## Throttle-body-associated pressure-sensor candidate
+
+**Status: Unverified**
+
+Recent project discussion identified a pressure/MAP-sensor candidate
+physically associated with the on-hand owner-reported 2022 MT-10
+throttle-body assembly. That physical association is not promoted here into a
+confirmed MAP function, exact Yamaha identity, donor application, electrical
+interface, or calibration.
+
+This candidate is recorded as the **MT-10 throttle-body-associated
+pressure-sensor candidate** until stronger retained evidence exists.
+
+Known and unresolved evidence:
+
+| Attribute | Evidence boundary | Status |
+| --- | --- | --- |
+| Physical presence / association | Project discussion records a pressure-sensor candidate physically associated with the on-hand throttle-body assembly | Unverified beyond project-discussion context |
+| Visible markings | Not retained in this repository | Unverified |
+| Exact Yamaha part number | Not established | Unverified |
+| Exact donor application | Not established for the sensor itself | Unverified |
+| Exact function | Pressure/MAP function is project interpretation only | Unverified |
+| Connector identity, cavity numbering, and terminals | Unknown | Unverified |
+| Pinout, supply/reference, ground, and signal output | Unknown | Unverified |
+| Pressure range, absolute/gauge behavior, transfer function, and calibration | Unknown | Unverified |
+| uaEFI compatibility | Not established | Unverified |
+
+The separate loose Yamaha `1WS-82380-00-00` pressure-sensor candidate is a
+different physical item and is not part of this throttle-body assembly record.
+Evidence about either item shall not be propagated to the other. Similar
+appearance, physical fit, or a plausible sensor voltage would not establish
+electrical interchangeability, pressure transfer function, calibration, or
+uaEFI compatibility.
 
 ## Donor diagnostics and fault handling
 
@@ -252,6 +288,7 @@ Dates below identify documentation updates, not measurement dates.
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-17 | Added evidence-bound MT-10 throttle-body-associated pressure-sensor candidate section and separated it from the loose `1WS-82380-00-00` candidate. | Preserve recent pressure-sensor discussion without inventing identity, MAP function, pinout, calibration, or compatibility. |
 | 2026-09-15 | Recorded owner direct geometry, explicit groove-position correction, and separate CAD progress with linked RESEARCH-0006 evidence. | Replace resolved dimension gaps while preserving identity, compatibility, and safety-review boundaries. |
 | 2026-08-13 | Created the initial component evaluation from purchase provenance and Yamaha 2022 MT-10 service-manual source extraction. | Record donor-system evidence and explicit uncertainty without physical inspection or test execution. |
 

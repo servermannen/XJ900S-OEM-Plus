@@ -56,6 +56,11 @@ compatible until it has been confirmed.
   — on-hand reference candidate; exact identity, function, connector identity,
   pinout, protocol, compatibility, safety suitability, and acceptance remain
   unverified.
+- [COMP-0011: Yamaha 1WS-82380-00-00 pressure-sensor
+  candidate](COMP-0011-yamaha-1ws-82380-00-00-pressure-sensor-candidate.md)
+  — separate loose on-hand/reference/test candidate; Yamaha application,
+  exact function, connector identity, pinout, calibration, uaEFI
+  compatibility, safety suitability, and acceptance remain unverified.
 
 ## Navigation
 
