@@ -500,6 +500,71 @@ retained validation evidence are established under a technically reviewed
 method. No powered sensor test is authorized from generic three-pin automotive
 sensor assumptions.
 
+### O2 / lambda candidate reconciliation
+
+**Status: Unverified**
+
+**Review: Technical Review Required**
+
+Recent project discussion identifies one or more existing donor O2 / lambda
+sensor candidates reported as physically/project-observed. The retained
+identifiers are:
+
+- visible/project-observed marking `2CR-10`;
+- visible/project-observed marking `270 0101722`;
+- candidate Yamaha identifier `2CR-8592A-20-00`, retained here as
+  project-supplied / Unverified rather than authoritative Yamaha evidence.
+
+The compact form `2700101722` is retained only as a search/normalization key
+for the spaced marking `270 0101722`; it is not separately established as a
+visible marking.
+
+The repository search for this reconciliation found no earlier retained
+authoritative Yamaha application evidence for `2CR-8592A-20-00`, no retained
+source that confirms an official donor application for the observed markings,
+and no retained direct `DENSO` marking or manufacturer document. Therefore
+DENSO manufacturer identity remains Unverified in this record. The `2CR-10`
+and `270 0101722` markings are preserved only as reported physical/project
+observations; they do not establish Yamaha application, manufacturer, sensor
+technology, heater architecture, wire count, pinout, connector identity,
+signal type, switching behavior, or controller compatibility.
+
+Recent project discussion has treated the existing donor sensor candidate(s)
+as likely conventional heated narrowband oxygen sensors. That remains an
+Unverified project interpretation: the retained evidence in this record does
+not confirm exact sensor technology, heater architecture, wire count,
+switching behavior, four-wire architecture, heater resistance/current,
+switching-voltage range, stoichiometric switching behavior, exhaust
+application, or any electrical pinout for the donor O2 sensor candidate(s),
+and it does not establish LSU/wideband architecture.
+
+The Super uaEFI WBO1 and WBO2 cavity resources documented in this record are
+wideband-controller resources. Availability of those resources does not make
+the existing donor O2 sensor candidate(s) compatible with WBO1/WBO2. A
+conventional heated narrowband sensor cannot be treated as an LSU 4.9 sensor
+merely because it has a heater or multiple wires. Wideband controller
+compatibility is separate from narrowband sensor input compatibility, and no
+existing donor O2 sensor is accepted for uaEFI WBO use by this task.
+
+**Status: Proposal**
+
+If true wideband lambda is required for calibration, monitoring, or later
+closed-loop fuel control, a sensor/controller architecture compatible with
+the Super uaEFI WBO implementation must be established. Bosch LSU 4.9 remains
+a project-discussed candidate direction only. Exact LSU 4.9 sensor variant,
+Bosch part number, connector, calibration resistor details, heater
+resistance/current, pump-cell calibration, controller calibration, exhaust
+bung geometry, installation location, and final acceptance remain open.
+
+Stage 1 remains open-loop initially and has no closed-loop lambda dependency.
+Future wideband implementation shall not become a hidden prerequisite for
+initial reliable Level 1 operation unless a later accepted decision changes
+that architecture.
+
+No powered O2/lambda sensor testing is authorized until sensor technology,
+pinout, heater requirements, signal/controller interface, current-limited and
+protected method, stop conditions, and technical review are documented.
+
 ## 11. DBW allocation
 
 **Status: Proposal**
@@ -729,6 +794,10 @@ schematic/BOM/build-option applicability or any Yamaha component interface.
   ignition-driver choice, injector compatibility, and direct tip-over path.
 - Main-relay, pump-relay, key, engine-stop, sidestand, neutral and clutch
   electrical interfaces and complete safe-state logic.
+- Existing donor O2 / lambda sensor candidate identity, Yamaha application,
+  DENSO manufacturer identity, narrowband/wideband technology, heater
+  architecture, wire count, pinout, signal type, controller requirements,
+  uaEFI WBO1/WBO2 compatibility, and final acceptance.
 - Harness, fuse, power, ground, thermal, EMC, environmental, diagnostic,
   startup, shutdown, recovery and road-use suitability.
 
@@ -745,8 +814,19 @@ schematic/BOM/build-option applicability or any Yamaha component interface.
 - Direct-driving original coils from default logic outputs without verified
   driver architecture.
 - Underestimating ETB/injector/relay current, fuse, flyback or thermal demand.
-- Giving an unvalidated B5Y module candidate or Level 2 CAN hidden shutdown or throttle
-  authority.
+- Treating existing donor O2 sensor markings, heater presence, connector fit,
+  or possible wire count as evidence of LSU-style wideband compatibility.
+- Interpreting a narrowband O2 signal as a wideband lambda / AFR value, using
+  an incompatible wideband controller/sensor pairing, or basing closed-loop
+  fuel control on invalid lambda data.
+- Energizing an unidentified sensor heater without known pinout, current,
+  control requirements, grounding, protection, stop conditions, and technical
+  review.
+- Allowing exhaust leaks, sensor placement, calibration mismatch, or invalid
+  ground reference to produce false lambda evidence during calibration or
+  closed-loop evaluation.
+- Giving an unvalidated B5Y module candidate or Level 2 CAN hidden shutdown
+  or throttle authority.
 - Defining recovery, degraded operation or limp-home behavior without a
   reviewed safety analysis and fault-injection evidence.
 
@@ -769,9 +849,17 @@ schematic/BOM/build-option applicability or any Yamaha component interface.
 7. Define the independent direct Level 1 fall-sensor requirements and fault
    tests for HG-07 without granting authority to the unvalidated B5Y module
    candidate.
-8. Design power, grounding, protection, fusing and relay interfaces only after
+8. Preserve the existing donor O2 / lambda sensor candidate(s) as
+   evidence-bounded inventory/research items until exact identity, Yamaha
+   application, manufacturer, technology, heater, pinout, signal type and
+   controller/interface requirements are established.
+9. If true wideband lambda becomes required for calibration or later
+   closed-loop work, evaluate a Super uaEFI-compatible wideband
+   sensor/controller architecture separately; keep Bosch LSU 4.9 as Proposal
+   only until an exact variant and controller path are evidenced and reviewed.
+10. Design power, grounding, protection, fusing and relay interfaces only after
    the relevant current and fault evidence exists.
-9. Create subsequent bench-test records with explicit preconditions, safe
+11. Create subsequent bench-test records with explicit preconditions, safe
    loads, stop/recovery criteria, execution status and results. Do not mark a
    gate passed from documentation or power-on evidence alone.
 
@@ -798,6 +886,10 @@ ECU, throttle body, DBW implementation, ignition system, injector, sensor,
 wiring strategy, safe state, firmware suitability, calibration workflow, or
 road-use configuration is accepted by this record.
 
+No existing donor O2 / lambda sensor candidate is accepted for uaEFI WBO1 or
+WBO2 use. Bosch LSU 4.9 is not selected; it remains only a proposed future
+wideband direction if true wideband lambda is required.
+
 No ADR is created or superseded.
 
 ## 25. Change history
@@ -807,6 +899,7 @@ No ADR is created or superseded.
 | 2026-08-26 | Created the Super uaEFI Stage 1 static hardware-feasibility and 120-cavity allocation record. | Preserve pinned upstream evidence, proposed project allocation, resource analysis, discrepancies, and remaining hardware/safety gates without accepting hardware. |
 | 2026-09-17 | Reconciled delivered-unit evidence for the purchased Super uaEFI. | Preserve delivered/on-hand status, observed `mega-uaEFI 0.3` / Rev B marking, unpopulated `Q841`-`Q846` IGBT positions, read-only signature/calibration evidence, and open compatibility gates without accepting the ECU or ignition architecture. |
 | 2026-09-17 | Reconciled MAP candidate evidence and separated the MT-10 throttle-body-associated pressure-sensor candidate from the loose `1WS-82380-00-00` candidate. | Preserve ECU-side B26 capability while keeping Yamaha sensor identity, interface, transfer function, calibration, and uaEFI compatibility unverified. |
+| 2026-09-17 | Reconciled existing donor O2 / lambda sensor candidate evidence against Super uaEFI WBO1/WBO2 resources and future LSU 4.9 direction. | Preserve reported `2CR-10`, `270 0101722`, and project-supplied candidate `2CR-8592A-20-00` identifiers while keeping donor identity, DENSO identification, narrowband/wideband technology, heater, pinout, uaEFI compatibility, LSU 4.9 selection, and closed-loop lambda dependency unaccepted. |
 
 ## 26. Navigation
 
