@@ -51,11 +51,11 @@ compatible until it has been confirmed.
   calipers](COMP-0009-r1-blue-spot-front-brake-calipers.md) — purchased pair;
   identity, condition, service-part applicability, fitment, hydraulic
   compatibility, braking suitability, and acceptance remain unverified.
-- [COMP-0010: Owner-observed Yamaha B5Y inertial-module
-  candidate](COMP-0010-owner-observed-yamaha-b5y-inertial-module-candidate.md)
+- [COMP-0010: Owner-observed B5Y-marked module
+  candidate](COMP-0010-owner-observed-b5y-marked-module-candidate.md)
   — on-hand reference candidate; exact identity, function, connector identity,
-  pinout, protocol, compatibility, safety suitability, and acceptance remain
-  unverified.
+  pinout, protocol, project role, compatibility, safety suitability, and
+  acceptance remain unverified.
 - [COMP-0011: Yamaha 1WS-82380-00-00 pressure-sensor
   candidate](COMP-0011-yamaha-1ws-82380-00-00-pressure-sensor-candidate.md)
   — separate loose on-hand/reference/test candidate; Yamaha application,

@@ -1,8 +1,8 @@
-# COMP-0010: Owner-observed Yamaha B5Y inertial-module candidate
+# COMP-0010: Owner-observed B5Y-marked module candidate
 
-**Purpose:** Evaluate an on-hand Yamaha B5Y inertial-module candidate without
-promoting unverified identity, pinout, protocol, compatibility, or safety
-claims.
+**Purpose:** Evaluate an on-hand B5Y-marked module candidate without promoting
+unverified Yamaha identity, function, pinout, protocol, compatibility, project
+role, or safety claims.
 
 **Document status: Draft**
 
@@ -11,16 +11,18 @@ safety boundaries, and recommendation are mandatory.
 
 ## Candidate identification
 
-- Component: Yamaha B5Y inertial-module candidate
-- Manufacturer: Unverified; project context associates the module with Yamaha
-  B5Y hardware
+- Component: B5Y-marked module candidate
+- Manufacturer: Unverified; project context associates the visible B5Y marking
+  with Yamaha hardware, but exact Yamaha identity remains Unverified
 - Source model: Unknown
 - Model year or range: Unknown
 - OEM part number: Unknown
 - Variant identifiers: visible label `B5Y0`; visible marking/serial
   `B5Y000M33S205A`
-- Source or listing: Not recorded
-- Acquisition context: Acquired / on hand; detailed source not recorded
+- Seller/source: Baboon marketplace provenance
+- Seller label: `Snelheids Sensor`
+- Seller item/stock ID: `000001631688`
+- Acquisition context: Acquired / on hand; detailed purchase date not recorded
 - Evaluation date: 2026-09-16
 
 ## Evaluation status
@@ -29,18 +31,19 @@ safety boundaries, and recommendation are mandatory.
 
 **Review: Technical Review Required**
 
-This component is not accepted. Physical possession, visible markings, and
-connector presence do not establish exact Yamaha part number, source-model
-application, function, electrical interface, protocol, safety suitability, or
-project compatibility.
+This component is not accepted. Physical possession, visible markings, seller
+terminology, seller stock ID, and connector presence do not establish exact
+Yamaha part number, source-model application, module function, electrical
+interface, protocol, safety suitability, project role, or project
+compatibility.
 
 ## Intended function
 
 **Status: Unverified**
 
-The module may be relevant as a Yamaha-associated B5Y donor/reference candidate
-for future inertial, IMU, or lean-angle-related research. The exact component
-function is not established by this record.
+The module may be relevant as a Yamaha-associated B5Y-marked donor/reference
+candidate for future evidence gathering. The exact component function is not
+established by this record.
 
 The module is not a selected or accepted Level 1 fall-event input. If this
 component is ever considered for project use, its data may become relevant only
@@ -75,7 +78,18 @@ this component satisfies any requirement.
 | Four mounting holes | Physical observation only |
 | Metal bushings present in mounting holes | Physical observation only |
 | Integrated 4-position connector | Physical observation only |
+| Blue terminal inserts in the integrated connector | Physical observation only; terminal family and insert function Unknown |
 | Associated connector/harness wire colours observed left-to-right as red/white, blue/black, blue/white, black/white | Visual order when viewed from the wire-entry side in the project-shown orientation; this is not OEM cavity numbering |
+
+### Seller provenance
+
+**Status: Unverified**
+
+| Seller/provenance item | Evidence boundary |
+| --- | --- |
+| Seller/source Baboon | Marketplace provenance only; not authoritative Yamaha evidence |
+| Seller label `Snelheids Sensor` | Seller terminology only; does not establish the Yamaha function of the module |
+| Seller item/stock ID `000001631688` | Seller inventory identifier only; not a Yamaha part number |
 
 ### Unverified identity and function
 
@@ -86,13 +100,17 @@ this component satisfies any requirement.
   `B5Y-8593A-00` applies.
 - Exact source-model application and model year.
 - Whether this component is specifically an OEM IMU, lean-angle sensor,
-  inertial sensor, or other module.
+  speed sensor, or any other defined module function.
+- Orientation requirements.
+- Level 1 or Level 2 project role.
 - Whether all observed wiring belongs to a stock MT-10 implementation.
 - Exact connector manufacturer, family, housing part number, terminal family,
-  sealing system, lock design, and depinning method.
-- Pinout, supply voltage, ground assignment, CAN usage, CAN H / CAN L
-  assignment, baud rate, protocol, message IDs, scaling, update rate, startup
-  behavior, stale-data behavior, diagnostics, and failure behavior.
+  terminal type, sealing system, lock design, and depinning method.
+- Cavity numbering, pinout, supply voltage, ground assignment, CAN or other
+  communications protocol, signal semantics, CAN H / CAN L assignment, baud
+  rate, message IDs, scaling, update rate, startup behavior, stale-data
+  behavior, diagnostics, and failure behavior.
+- XJ900S compatibility, safety suitability, and final acceptance.
 
 No wire-function assignment is made by this record.
 
@@ -105,6 +123,9 @@ No wire-function assignment is made by this record.
 | Mounting holes | 4 | Count | Owner-observed physical evidence | Confirmed |
 | Mounting-hole bushings | Metal bushings present | Not applicable | Owner-observed physical evidence | Confirmed |
 | Integrated connector | 4 positions observed | Count | Owner-observed physical evidence | Confirmed |
+| Connector insert colour | Blue terminal inserts observed | Not applicable | Owner-observed physical evidence | Confirmed |
+| Seller label | `Snelheids Sensor` | Not applicable | Baboon marketplace provenance | Unverified |
+| Seller item/stock ID | `000001631688` | Not applicable | Baboon marketplace provenance | Unverified |
 | Exact Yamaha part number | Unknown | Not applicable | No authoritative evidence recorded | Unverified |
 | Exact function | Unknown | Not applicable | No authoritative evidence recorded | Unverified |
 | Source vehicle/model/year | Unknown | Not applicable | No authoritative evidence recorded | Unverified |
@@ -116,9 +137,10 @@ No wire-function assignment is made by this record.
   fastener size, orientation, isolation requirements, and installation
   constraints Unknown.
 - Clearances: Unknown.
-- Connectors and routing: integrated 4-position connector observed; connector
-  family, mating housing, terminal system, orientation requirements, branch
-  routing, strain relief, and environmental suitability Unknown.
+- Connectors and routing: integrated 4-position connector and blue terminal
+  inserts observed; connector family, mating housing, terminal system,
+  orientation requirements, branch routing, strain relief, and environmental
+  suitability Unknown.
 - Environmental suitability: Unknown for XJ900S installation.
 - Required modifications: Unknown.
 
@@ -131,6 +153,7 @@ record. The connector identity remains unresolved.
 - Mating side: device/header-side integrated connector observed; associated
   connector/harness side observed only by wire-entry-side colour order.
 - Terminal family: Unknown.
+- Terminal type: Unknown.
 - Cavity map/orientation: OEM cavity numbering Unknown. The observed
   left-to-right wire colour order from the wire-entry side, in the
   project-shown orientation, is:
@@ -157,11 +180,13 @@ OEM cavity numbering. No temporary project cavity numbers are assigned.
 - Electrical identity: Unknown.
 - Supply and signals: Unknown.
 - Inputs and outputs: Unknown.
-- Communication and diagnostics: Unknown; CAN usage, CAN H / CAN L assignment,
-  baud rate, protocol, message IDs, scaling, update rate, startup behavior,
-  stale-data behavior, diagnostics, and failure behavior are all Unverified.
+- Communication and diagnostics: Unknown; CAN or other communications protocol,
+  signal semantics, CAN H / CAN L assignment, baud rate, message IDs, scaling,
+  update rate, startup behavior, stale-data behavior, diagnostics, and failure
+  behavior are all Unverified.
 - Control authority and failure behavior: no project control authority is
   assigned; failure behavior Unknown.
+- Level 1 or Level 2 project role: not selected.
 - Required interface hardware: Unknown.
 - Functional compatibility: Unverified.
 - Safety suitability: Unverified.
@@ -174,8 +199,8 @@ is not compatibility evidence.
 
 ### Benefits
 
-- The component is physically on hand and may be useful as a B5Y reference
-  hardware candidate for future inertial-module research.
+- The component is physically on hand and may be useful as a B5Y-marked
+  reference hardware candidate for future evidence gathering.
 - Observed markings and connector/wire-colour evidence provide a starting
   point for later identification work.
 
@@ -190,10 +215,11 @@ is not compatibility evidence.
 - Missing data.
 - Startup transient.
 - Communication fault.
-- False motion or lean interpretation.
+- False interpretation of unknown module data or seller terminology.
 - Hidden dependency on Level 1.
-- Treating wire colours, cavity count, or visible markings as confirmed
-  electrical identity.
+- Treating wire colours, cavity count, seller label, seller stock ID, or
+  visible markings as confirmed electrical identity, Yamaha application, or
+  module function.
 
 ### Required adaptations
 
@@ -203,14 +229,14 @@ is not compatibility evidence.
 
 ### Missing evidence
 
-- Authoritative Yamaha part-number and application evidence.
+- Authoritative Yamaha part-number, function, and application evidence.
 - Direct physical measurements and full photographic evidence set.
 - Connector family, exact housings, terminal family, lock design, seal system,
   depinning method, and crimp/terminal replacement data.
 - Verified OEM cavity numbering and orientation.
-- Pinout, voltage limits, ground reference, communication physical layer,
-  protocol, message definitions, timing, startup behavior, diagnostic behavior,
-  stale-data behavior, and failure behavior.
+- Pinout, voltage limits, ground reference, communication physical layer, CAN
+  or other protocol, signal semantics, message definitions, timing, startup
+  behavior, diagnostic behavior, stale-data behavior, and failure behavior.
 - Defined project interface, authority boundary, validation plan, and technical
   review.
 
@@ -218,8 +244,8 @@ is not compatibility evidence.
 
 **Review: Technical Review Required**
 
-Unknown inertial-module data or protocol must not become a dependency for
-initial reliable Level 1 operation.
+Unknown module data or protocol must not become a dependency for initial
+reliable Level 1 operation.
 
 This module has no hidden authority over fuel, ignition, throttle, engine
 shutdown, fuel-pump safety, engine synchronization, or any other Level 1
@@ -230,7 +256,8 @@ fuel-pump behavior in the XJ900S project.
 Safe project behavior must not depend on this module until a future design
 explicitly defines the interface, authority, diagnostics, stale-data handling,
 fault behavior, and validation method, and that design receives technical
-review.
+review. No Level 1 role, Level 2 role, or other project role is selected by
+this record.
 
 ## Serviceability and availability
 
@@ -243,16 +270,18 @@ review.
 **Recommendation: Continue research**
 
 **Rationale:** The module is physically on hand and may be useful as a
-Yamaha-associated B5Y donor/reference candidate, but identity, exact function,
-part number, source application, connector identity, pinout, interface,
-protocol, failure behavior, and project suitability remain unresolved.
+Yamaha-associated B5Y-marked donor/reference candidate, but identity, exact
+function, part number, source application, connector identity, pinout,
+interface, protocol, signal semantics, diagnostics, failure behavior, project
+role, and project suitability remain unresolved.
 
 Do not use `Accept` while material compatibility questions remain unresolved.
 
 ## Required validation
 
 - Photograph the module, label, marking/serial, mounting features, connector
-  face, wire-entry side, latch/lock features, and associated harness context.
+  face, blue terminal inserts, wire-entry side, latch/lock features, and
+  associated harness context.
 - Record direct measurements where physical fit or orientation matters.
 - Establish authoritative Yamaha part-number and application evidence, or keep
   identity Unknown.
@@ -279,6 +308,7 @@ Do not use `Accept` while material compatibility questions remain unresolved.
 | Date | Change | Reason |
 | --- | --- | --- |
 | 2026-09-16 | Created initial component evaluation record. | Preserve on-hand B5Y module observations without promoting unverified identity, pinout, protocol, compatibility, or safety claims. |
+| 2026-09-17 | Reconciled component title, seller provenance, and observed connector insert evidence. | Preserve Baboon marketplace provenance, blue terminal-insert observation, and neutral B5Y-marked module wording without converting seller terminology or markings into component identification, function, project role, or acceptance. |
 
 ## Guidance
 

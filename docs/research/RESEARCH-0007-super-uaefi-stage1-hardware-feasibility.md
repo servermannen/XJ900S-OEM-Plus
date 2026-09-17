@@ -643,8 +643,8 @@ B4-B7 remain reserved for later sequential-ignition capability.
   ignition, and fuel pump and require deliberate recovery. The direct sensor
   strategy remains open under HG-07.
 - The on-hand B5Y module candidate has no shutdown authority in this
-  allocation. The on-hand B5Y inertial-module candidate is tracked separately in
-  [COMP-0010](../components/COMP-0010-owner-observed-yamaha-b5y-inertial-module-candidate.md).
+  allocation. The on-hand B5Y-marked module candidate is tracked separately in
+  [COMP-0010](../components/COMP-0010-owner-observed-b5y-marked-module-candidate.md).
 
 ## 15. Future reserved resources
 
