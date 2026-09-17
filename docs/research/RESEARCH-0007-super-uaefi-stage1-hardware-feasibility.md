@@ -64,13 +64,74 @@ technical suitability or acceptance.
 | Order | `#00012` |
 | Order date | 2026-08-25 |
 | Quantity | 1 |
-| Procurement status | Purchased / On order |
+| Procurement status | Delivered / physically on hand |
 | Intended project role | Primary Level 1 ECU candidate |
 | Technical acceptance | Not accepted |
 
-The exact hardware revision, build options, populated ignition drivers,
-condition, and correspondence to the reviewed pinout remain Unverified until
-the delivered unit is inspected.
+Physical possession is confirmed as project acquisition/delivery evidence
+only. It does not establish technical suitability, electrical compatibility,
+firmware suitability, calibration validity, harness compatibility, or final
+acceptance.
+
+### Delivered-unit reconciliation evidence
+
+**Status: Unverified except where explicitly stated as direct project
+observation**
+
+Later project evidence records the purchased rusEFI uaEFI SUPER as delivered
+and physically on hand. The original procurement provenance remains VERÉB
+ecu&more, supplier SKU `SQ2035226`, order `#00012`, order date 2026-08-25,
+quantity 1.
+
+Physical possession / delivery status: `Status: Confirmed` as project
+acquisition and direct possession evidence only.
+
+Direct physical board/revision observation:
+
+- Visible physical markings were observed consistent with the Super uaEFI /
+  mega-uaEFI family, `mega-uaEFI 0.3`, Rev B.
+- This is direct physical identification evidence for the delivered unit's
+  visible board/revision marking.
+- It does not prove that every Rev B schematic, BOM, pin definition, or build
+  option applies exactly to the delivered unit.
+- Rev C schematic notes remain part of the earlier upstream evidence baseline,
+  so Rev B versus Rev C documentation applicability and build-option
+  differences remain Unverified.
+
+Direct component-population observation:
+
+- Optional ignition IGBT positions `Q841`, `Q842`, `Q843`, `Q844`, `Q845`,
+  and `Q846` were observed not populated on the delivered PCB.
+- This observation establishes only the physical population state of those
+  positions. It does not establish transistor type, output voltage/current,
+  source/sink capability, polarity, default state, protection details, or
+  coil compatibility.
+
+Software/read-only observation:
+
+- A later read-only software session connected sufficiently to inspect the
+  as-delivered state and read calibration pages.
+- Bundle branch observed in the session: `development`.
+- Target: `super-uaefi`.
+- Read firmware signature:
+  `rusEFI master.2026.04.09.super-uaefi.3109453375`.
+- No firmware flash, firmware change, calibration write, or configuration
+  write is established by this record.
+
+Software/tooling compatibility observation:
+
+- The read-only inspection path exposed a TunerStudio/INI compatibility issue
+  against the as-delivered ECU.
+- The exact retained parser/error detail is currently absent from the
+  repository evidence reviewed for this reconciliation.
+- This is software/tooling compatibility evidence, not ECU hardware-failure
+  evidence, not proof that the ECU calibration is invalid, and not an
+  accepted reason to alter or flash the ECU.
+
+Remaining open gates include applicable schematic/build-option matching,
+exact ignition-output electrical characteristics, coil selection, dwell,
+current, pinout, safe no-spark behavior, and all other HG-01 through HG-07
+acceptance criteria.
 
 ## 4. Evidence baseline and pinned revisions
 
@@ -113,10 +174,17 @@ cross-check. The pinned public hardware document still links a schematic
 identified as Rev B. This is an evidence discrepancy, not proof that one
 revision supersedes or applies to the ordered unit.
 
-The delivered uaEFI SUPER must be inspected for PCB and revision markings and
-matched positively to an applicable schematic and pinout. Until then, Rev B
-versus Rev C applicability and any build-option differences remain
-Unverified. This discrepancy is HG-01 and blocks hardware acceptance.
+The delivered uaEFI SUPER has since been inspected sufficiently to observe
+visible physical markings consistent with the Super uaEFI / mega-uaEFI
+family, `mega-uaEFI 0.3`, Rev B. This narrows the physical identity evidence
+from completely unknown to observed board/revision marking evidence.
+
+The observed Rev B / `mega-uaEFI 0.3` marking does not by itself prove that
+every Rev B schematic, BOM, pin definition, or build option applies exactly to
+the delivered unit, nor does it silently resolve differences against the
+pinned Rev C schematic notes. Applicable schematic/pinout/build-option
+matching remains Unverified. This discrepancy remains part of HG-01 and
+continues to block hardware acceptance.
 
 ### A6/A15 platform-symbol and summary inconsistency
 
@@ -450,8 +518,13 @@ fusing, flyback and thermal compatibility remain Unverified under HG-06.
 B2/B3 provide two ignition commands for the proposed wasted-spark Stage 1
 configuration. The pinned schematic notes state that the outputs are
 logic-level/smart-coil outputs by default, with an onboard IGBT populate option.
-Direct drive of the original XJ coils is not confirmed. Onboard IGBTs,
-external igniters, and smart coils remain open alternatives under HG-05.
+Later direct inspection of the delivered PCB observed optional ignition IGBT
+positions `Q841` through `Q846` not populated. Direct drive of the original XJ
+coils is not confirmed. The unpopulated optional IGBT positions support
+continued evaluation of the default logic-level/smart-coil output path, but do
+not establish output electrical characteristics or accept any coil. Onboard
+IGBT population for those positions is not present on the delivered board;
+external igniters and smart coils remain open alternatives under HG-05.
 Candidate smart-coil evidence gaps are tracked separately in
 [RESEARCH-0009](RESEARCH-0009-smart-ignition-coil-candidate-evaluation.md).
 B4-B7 remain reserved for later sequential-ignition capability.
@@ -531,11 +604,11 @@ controlled energization, fault injection, or bench validation.
 
 | Gate | Safety relevance | Current evidence | Missing evidence | Required test/document | Pass criterion | Current result | Next action |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HG-01 — Physical uaEFI SUPER hardware revision | Pinout, driver, protection and build-option applicability, including safety-relevant A6 and DBW-feedback A15 | Pinned Rev C firmware/schematic notes, connector YAML, platform metadata, board defaults, and public Rev B documentation; the A6/A15 summary inconsistency is recorded | Delivered-unit PCB/revision markings, build population, and physical confirmation that the applicable A6/A15 paths match the pinned allocation | Inspect delivered ECU; photograph/transcribe PCB and revision markings; compare with pinned schematic and pinout; resolve Rev B/Rev C applicability; check A6 and A15 before either is accepted | Physical unit revision and applicable schematic/pinout are positively matched, including the A6/A15 paths used by this allocation | OPEN | Quarantine the allocation from harness release and do not accept A6 or A15 until physical identity and applicable paths are recorded |
+| HG-01 — Physical uaEFI SUPER hardware revision | Pinout, driver, protection and build-option applicability, including safety-relevant A6 and DBW-feedback A15 | Pinned Rev C firmware/schematic notes, connector YAML, platform metadata, board defaults, public Rev B documentation, and delivered-unit physical marking observed as `mega-uaEFI 0.3` / Rev B; the A6/A15 summary inconsistency is recorded | Applicable schematic/BOM/build-option matching, full build population, and physical confirmation that the applicable A6/A15 paths match the pinned allocation | Preserve delivered-unit photos/transcription; compare observed Rev B / `mega-uaEFI 0.3` marking with applicable immutable schematic, BOM, pinout and build-option evidence; resolve Rev B/Rev C applicability; check A6 and A15 before either is accepted | Physical unit revision and applicable schematic/pinout are positively matched, including the A6/A15 paths used by this allocation | OPEN | Keep the allocation quarantined from harness release and do not accept A6 or A15 until applicable paths are recorded |
 | HG-02 — MT-10 ETB electrical and thermal compatibility | Direct throttle actuation and uncontrolled-motion risk | D6/D7 DC1 and TLE9201SG path exist upstream; donor assembly is a candidate only | Exact motor connector/pinout, meaningful resistance, running/transient/stall current, bridge/PCB/fuse/thermal margins, spring-return safe position | Create a technically reviewed, current-limited ETB characterization method; record running, transient and safe stall characterization plus thermal-margin analysis | Validated current and thermal margins plus defined safe de-energized behavior | OPEN | Positively identify servo terminals and define the reviewed method before energization |
 | HG-03 — APS/TPS redundant DBW sensor interfaces | Incorrect demand/feedback could command unsafe throttle | Four upstream analog cavities and firmware defaults are statically available; donor manuals describe redundant reference architectures | Candidate APS1/APS2 and TPS1/TPS2 pinouts, references, returns, full-travel curves, directions/correlation, normal ranges, thresholds, and electrical-fault behavior | Characterize both pairs independently; test disconnected, short-to-ground and short-to-reference conditions under a reviewed method; define DBW safe-state logic | Both redundant pairs can be independently acquired and reliably checked for plausibility with defined DBW safe-state behavior | OPEN | Complete positive connector identification before defining powered tests |
 | HG-04 — XJ900S CKP electrical compatibility | Loss/false synchronization can cause mistimed fuel or ignition | D10/D11 MAX9924 path and firmware default are confirmed upstream; original pickup remains an Unverified passive-VR candidate | Direct 1997 resistance, polarity, cranking waveform, amplitude versus RPM where practical, air gap, noise, conditioner behavior and decoder stability | Use the reviewed pickup-characterization and later decoder-validation plans; validate D10/D11 conditioning, cranking/run synchronization and loss-of-sync response | Reliable crank synchronization over cranking and operating range with defined loss-of-sync behavior | OPEN | Satisfy TEST-PLAN-0001 safety prerequisites before waveform work |
-| HG-05 — Ignition-driver compatibility | Incorrect dwell/driver selection can damage hardware or create unintended/no spark | B2/B3 exist; upstream outputs are logic/smart-coil by default with optional onboard IGBTs | XJ coil primary resistance, inductance, current and dwell; physical ECU IGBT population; comparison of onboard IGBT, external igniter and smart-coil alternatives | Inspect ECU population; collect coil evidence; analyze alternatives; use bench-safe loads before any coil energization | Selected ignition architecture has adequate electrical/thermal margin and a defined no-spark safe state | OPEN | Identify physical ECU build and retain all three driver alternatives until evidence supports selection |
+| HG-05 — Ignition-driver compatibility | Incorrect dwell/driver selection can damage hardware or create unintended/no spark | B2/B3 exist; upstream outputs are logic/smart-coil by default with optional onboard IGBTs; delivered PCB positions `Q841`, `Q842`, `Q843`, `Q844`, `Q845`, and `Q846` were observed unpopulated | Exact ignition-output voltage/current/source/sink/polarity/default-state behavior; XJ coil primary resistance, inductance, current and dwell; comparison of default logic-level/smart-coil path, external igniter and any documented build options | Retain physical population evidence; collect coil evidence; establish applicable hardware/schematic evidence and/or controlled verification with bench-safe loads before any coil energization | Selected ignition architecture has adequate electrical/thermal margin and a defined no-spark safe state | OPEN | Continue default logic-level/smart-coil output evaluation while retaining external igniter alternatives; do not select or energize a coil until evidence supports it |
 | HG-06 — Injector electrical compatibility | Incorrect driver/load/fuel delivery can cause overheating, leakage or uncontrolled fueling | Four required low-side outputs are statically available | Selected injector identity, impedance, current, flow, pressure, dead time versus voltage, driver/thermal margin, fuse and power architecture | Establish authoritative injector data and a technically reviewed safe-load/driver validation plan before fuel testing | Selected injectors are electrically compatible and have sufficient controlled operating margin | OPEN | Identify injectors and obtain authoritative electrical/fuel data before sizing or energization |
 | HG-07 — Tip-over / fall-event Level 1 safety path | A failed fall path can leave throttle, fuel or ignition active | A6 is statically available as a direct Level 1 input; accepted requirements retain Level 1 shutdown authority | Direct sensor strategy, interface, orientation, threshold, transient behavior, disconnected/short/stuck/frozen behavior, complete shutdown and deliberate restart behavior | Select only a test candidate; define reviewed bench and fault-injection tests covering ETB, injectors, ignition, pump, reset and Level 2 independence | A validated Level 1 fall-event path produces the defined safe state without Level 2 or an unvalidated B5Y module-candidate communication path | OPEN | Develop a dedicated direct-sensor safety requirement and test method; do not grant the B5Y module candidate authority |
 
@@ -586,8 +659,8 @@ allocation calculation:
   function and no blocking physical conflict other than the unused C32
   documentation discrepancy.
 
-These findings do not confirm the delivered hardware revision or any Yamaha
-component interface.
+These upstream/static findings do not confirm delivered-unit
+schematic/BOM/build-option applicability or any Yamaha component interface.
 
 ## 20. Proposals
 
@@ -605,8 +678,17 @@ component interface.
 
 **Status: Unverified**
 
-- Delivered ECU revision, build options, condition, waterproofing, connector
-  fit, and correspondence to Rev B or Rev C evidence.
+- Delivered ECU visible board/revision marking is observed as `mega-uaEFI 0.3`
+  / Rev B, but exact schematic/BOM/build-option applicability, condition,
+  waterproofing, connector fit, and correspondence to Rev B or Rev C evidence
+  remain Unverified.
+- Delivered PCB optional ignition IGBT positions `Q841` through `Q846` were
+  observed unpopulated, but exact ignition-output electrical characteristics
+  and coil compatibility remain Unverified.
+- Firmware signature
+  `rusEFI master.2026.04.09.super-uaefi.3109453375` and calibration-page reads
+  are recorded as read-only software-session observations; firmware
+  suitability and clean TunerStudio/INI workflow remain Unverified.
 - All Yamaha-side connector identities, pinouts, voltages, currents, transfer
   functions, grounding, protection, polarity and compatibility.
 - ETB current/thermal margin, APS/TPS plausibility, CKP signal compatibility,
@@ -636,15 +718,18 @@ component interface.
 
 ## 23. Next evidence-producing actions
 
-1. Complete HG-01 by inspecting the delivered ECU and matching its physical
-   revision and build population to applicable immutable documentation.
+1. Continue HG-01 by matching the observed delivered-unit `mega-uaEFI 0.3` /
+   Rev B marking and build population to applicable immutable documentation.
 2. Photograph and positively identify every candidate connector before any
    powered characterization.
 3. Produce technically reviewed methods for HG-02 and HG-03, including
    current-limited ETB work and redundant-sensor fault testing.
 4. Complete the existing original-pickup safety prerequisites and evidence
    path before testing D10/D11 under HG-04.
-5. Gather original-coil and physical ECU driver-population evidence for HG-05.
+5. Gather original-coil evidence and complete applicable ignition-output
+   documentation or controlled verification for HG-05, preserving the direct
+   observation that delivered PCB positions `Q841` through `Q846` are
+   unpopulated.
 6. Identify the selected injectors and authoritative electrical/fuel data for
    HG-06.
 7. Define the independent direct Level 1 fall-sensor requirements and fault
@@ -672,11 +757,12 @@ hardware baseline.
 
 ### Not accepted
 
-Super uaEFI remains the primary Level 1 ECU candidate and purchased hardware,
-but final hardware acceptance remains open until HG-01 through HG-07 and
-subsequent bench validation satisfy their pass criteria. No ECU, throttle
-body, DBW implementation, ignition system, injector, sensor, wiring strategy,
-safe state, or road-use configuration is accepted by this record.
+Super uaEFI remains the primary Level 1 ECU candidate and is now delivered /
+physically on hand, but final hardware acceptance remains open until HG-01
+through HG-07 and subsequent bench validation satisfy their pass criteria. No
+ECU, throttle body, DBW implementation, ignition system, injector, sensor,
+wiring strategy, safe state, firmware suitability, calibration workflow, or
+road-use configuration is accepted by this record.
 
 No ADR is created or superseded.
 
@@ -685,6 +771,7 @@ No ADR is created or superseded.
 | Date | Change | Reason |
 | --- | --- | --- |
 | 2026-08-26 | Created the Super uaEFI Stage 1 static hardware-feasibility and 120-cavity allocation record. | Preserve pinned upstream evidence, proposed project allocation, resource analysis, discrepancies, and remaining hardware/safety gates without accepting hardware. |
+| 2026-09-17 | Reconciled delivered-unit evidence for the purchased Super uaEFI. | Preserve delivered/on-hand status, observed `mega-uaEFI 0.3` / Rev B marking, unpopulated `Q841`-`Q846` IGBT positions, read-only signature/calibration evidence, and open compatibility gates without accepting the ECU or ignition architecture. |
 
 ## 26. Navigation
 

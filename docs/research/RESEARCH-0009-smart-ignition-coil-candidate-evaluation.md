@@ -56,17 +56,20 @@ compatible, or road-approved.
 records that the pinned Super uaEFI schematic implements the relevant ignition
 outputs as logic-level/smart-coil outputs by default, with an onboard IGBT
 population option. This hardware default does not select the project's final
-ignition architecture or a smart-coil candidate. The exact delivered Super
-uaEFI hardware revision, onboard IGBT population, final ignition architecture,
-and exact coil choice remain unresolved. No proposed smart-coil architecture
-is accepted by this record.
+ignition architecture or a smart-coil candidate. Later delivered-unit
+inspection recorded the project ECU as physically on hand, observed visible
+board/revision marking consistent with `mega-uaEFI 0.3` / Rev B, and observed
+optional ignition IGBT positions `Q841`, `Q842`, `Q843`, `Q844`, `Q845`, and
+`Q846` unpopulated. Exact ignition-output electrical characteristics, final
+ignition architecture, and exact coil choice remain unresolved. No proposed
+smart-coil architecture is accepted by this record.
 
 ## Sources
 
 | Source | Type | Date accessed | Relevance | Reliability notes |
 | --- | --- | --- | --- | --- |
 | [RESEARCH-0002: Level 1 I/O and trigger requirements](RESEARCH-0002-level-1-io-and-trigger-requirements.md) | Project research | 2026-09-16 | Defines the requirement for four ignition commands and preserves logic-level versus power-driving as coil/module-dependent. | Project requirement-planning record; does not select coils. |
-| [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md) | Project research | 2026-09-16 | Records B2/B3 Stage 1 ignition commands, default logic/smart-coil direction, onboard IGBT option, and HG-05 ignition-driver gate. | Static allocation only; delivered ECU revision and driver population remain Unverified. |
+| [RESEARCH-0007: Super uaEFI Stage 1 hardware feasibility](RESEARCH-0007-super-uaefi-stage1-hardware-feasibility.md) | Project research | 2026-09-17 | Records B2/B3 Stage 1 ignition commands, default logic/smart-coil direction, onboard IGBT option, delivered-unit `mega-uaEFI 0.3` / Rev B marking observation, unpopulated `Q841`-`Q846` observation, and HG-05 ignition-driver gate. | Static allocation and delivered-unit observations only; exact schematic/BOM/build-option applicability and ignition-output electrical characteristics remain Unverified. |
 | [System architecture](../architecture/system-architecture.md) | Project architecture | 2026-09-16 | Keeps fuel, ignition, engine authority, and safety-critical behavior inside Level 1. | Does not select an ignition component. |
 | [System requirements](../requirements/system-requirements.md) | Project requirements | 2026-09-16 | Defines safety, serviceability, electrical protection, documentation, and validation requirements applicable to ignition. | Requirement record only; implementation evidence remains required. |
 | [TEST-PLAN-0002: Trigger decoder and timing validation](../testing/TEST-PLAN-0002-trigger-decoder-and-timing-validation.md) | Project test plan | 2026-09-16 | Requires identified ECU configuration, safe output disablement, reviewed live-ignition method, and fixed-timing validation before running ignition work. | Future plan; no coil testing has been executed. |
@@ -177,9 +180,13 @@ The phrase `5 V trigger` alone is not proof of electrical compatibility.
 
 Minimum required Super uaEFI evidence:
 
-- exact PCB and hardware revision of the delivered unit;
+- applicable PCB and hardware-revision evidence for the delivered unit; current
+  direct physical observation records visible `mega-uaEFI 0.3` / Rev B marking,
+  but exact schematic/BOM/build-option applicability remains Unverified;
 - whether the relevant ignition outputs are logic-level or IGBT/high-current
-  outputs for the actual delivered unit;
+  outputs for the actual delivered unit; current direct physical observation
+  records optional IGBT positions `Q841`, `Q842`, `Q843`, `Q844`, `Q845`, and
+  `Q846` unpopulated, without establishing the complete output circuit;
 - output high and low voltage characteristics;
 - permitted source and sink current;
 - required pull-up or pull-down behavior;
@@ -207,6 +214,11 @@ Minimum required coil-side evidence:
 
 The safe state for ignition faults is no unintended spark and ignition energy
 removed where a fault requires shutdown.
+
+The unpopulated `Q841`-`Q846` observation supports continued evaluation of the
+default logic-level/smart-coil output path, but does not establish smart-coil
+compatibility. Trigger thresholds, polarity, dwell, current, grounding,
+pinout, default state, and safe no-spark behavior remain open.
 
 ## Dwell and coil-current evidence
 
@@ -282,8 +294,9 @@ has enough retained evidence for acceptance.
 
 ## Evidence required before narrowing the candidate set
 
-1. Verify the exact delivered Super uaEFI hardware revision and ignition-output
-   hardware population.
+1. Match the observed delivered-unit `mega-uaEFI 0.3` / Rev B marking and
+   unpopulated `Q841`-`Q846` positions to applicable immutable hardware
+   documentation, then establish exact ignition-output electrical behavior.
 2. Obtain authoritative datasheets or service documentation for each
    candidate's pinout, input architecture, dwell, current, grounding, and
    connector.
@@ -325,16 +338,20 @@ This record does not create that bench test plan.
 ## Conclusion
 
 The retained evidence is insufficient for acceptance of any smart ignition
-coil candidate. The next evidence-producing action is to verify the exact
-delivered Super uaEFI hardware revision and ignition-output population, then
-collect authoritative candidate-coil documentation and direct XJ900S packaging
-measurements before any candidate is narrowed or energized.
+coil candidate. The delivered Super uaEFI has now been physically inspected
+for visible board/revision marking and optional IGBT population, but exact
+ignition-output electrical characteristics remain open. The next
+evidence-producing action is to match the delivered-unit observations to
+applicable immutable hardware documentation, then collect authoritative
+candidate-coil documentation and direct XJ900S packaging measurements before
+any candidate is narrowed or energized.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
 | 2026-09-16 | Created smart ignition-coil candidate evaluation record. | Preserve the Level 1 ignition candidate set and safety/evidence gates without selecting a coil. |
+| 2026-09-17 | Reconciled ECU-side delivered-unit observations. | Record observed `mega-uaEFI 0.3` / Rev B marking and unpopulated `Q841`-`Q846` positions while keeping ignition-output characteristics and coil acceptance open. |
 
 ## Navigation
 
