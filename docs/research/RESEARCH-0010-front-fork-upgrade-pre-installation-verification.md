@@ -57,9 +57,12 @@ by this record.
 
 ## Sources and current evidence
 
-Repository records reviewed on 2026-09-16 and reconciled with supplied Yamaha
-manual evidence on 2026-09-17. These dates are not purchase, measurement,
-installation, or test dates.
+Repository records reviewed on 2026-09-16, reconciled with supplied Yamaha
+manual evidence on 2026-09-17, and updated on 2026-09-21 with owner-supplied
+physical pre-installation measurements and observations obtained during the
+current verification work. These dates describe repository/evidence handling
+unless an individual measurement date is explicitly stated; they shall not be
+read as purchase, installation, or test dates.
 
 | Source | Type | Relevance | Evidence boundary |
 | --- | --- | --- | --- |
@@ -113,10 +116,99 @@ acceptance evidence.
 | Item | Current retained evidence | Current status |
 | --- | --- | --- |
 | YSS fork cap | Marking/model `FCM38-41-001-50`; marking `M38x1.0`; marking `tube 41 mm`; delivered / physically on hand. | Unverified; no XJ900S fit or thread compatibility established. |
-| YSS PD Fork Valve | Marking/model `PD335-D`; delivered / physically on hand. | Unverified; no XJ900S fit, valve size, seating, oil, setting, or damper-rod modification requirement established. |
-| YSS fork spring pair | Delivered / physically on hand. Exact spring part number, rate, free length, and application are Unknown. | Unverified; no XJ900S fit, spring rate, preload, travel, or coil-bind suitability established. |
+| YSS PD Fork Valve | Marking/model `PD335-D`; delivered / physically on hand; direct owner-supplied physical measurements recorded below. | Unverified; no XJ900S fit, seating, oil, setting, or damper-rod modification requirement established. |
+| YSS fork spring pair | Delivered / physically on hand; observed label `LR350A095S340X`; application marking observed on label `YAM\MT 07 689 '14-16`; batch marking `231024-01`; barcode text `8859253963621`; direct owner-supplied physical measurements recorded below. | Unverified for XJ900S fit, preload, travel, or coil-bind suitability. Interpretation of `A095` as 0.95 kg/mm is project-confirmed by the owner, not independently manufacturer-verified. |
 | Wemoto Slinky Glide front-fork repair kit | Supplied/order part number `PKAA9870`; delivered / on hand. | Unverified; exact contents, seal/bushing dimensions, application, and fit remain Unverified. |
 | Wemoto copper sealing washers for front-fork damper retaining bolts | Supplied/order part number `AB7343`; quantity ordered 2; delivered / on hand. | Unverified; dimensions, material specification, sealing interface, and application remain Unverified. |
+
+## Direct physical pre-installation measurements
+
+The following dimensions are direct owner-supplied physical measurements from
+the on-hand candidate parts and project motorcycle. They establish as-found
+physical evidence only. They do not establish manufacturer specification,
+component compatibility, accepted installation configuration, installed preload,
+safe modification, or road-use approval.
+
+**Evidence status:** Direct dimensions and physical observations below are
+confirmed as owner-supplied project evidence where explicitly identified as
+such. Interpretations that are not independently manufacturer-verified retain
+their stated narrower evidence boundary.
+
+**Review: Technical Review Required**
+
+### Project motorcycle
+
+| Measured item | Direct measurement | Evidence boundary |
+| --- | --- | --- |
+| Fork tube outside diameter | 41.00 mm | Confirms the measured project motorcycle fork-tube OD only; does not confirm original Yamaha model-year specification continuity or fork-cap compatibility. |
+
+### YSS fork springs
+
+| Measured / observed item | Direct measurement or observation | Evidence boundary |
+| --- | --- | --- |
+| Observed label | `LR350A095S340X` | Part-label evidence only. |
+| Application marking observed on label | `YAM\MT 07 689 '14-16` | Label marking only; not XJ900S application evidence. |
+| Batch marking | `231024-01` | Label marking only. |
+| Barcode text | `8859253963621` | Label text only. |
+| Free length | 340 mm each | Direct measurement; not accepted installed stack evidence. |
+| Outside diameter | 34.90 mm | Direct measurement; does not establish fork compatibility. |
+| Inside diameter | 24.60 mm | Direct measurement; does not establish stack or guide compatibility. |
+| Wire diameter | 4.99 mm | Direct measurement; not spring-rate verification. |
+| Coil count | 25.5 turns | Direct observation/count; not coil-bind verification. |
+| End treatment | Both ends ground flat | Direct observation; not installed seating acceptance. |
+| `A095` interpretation | Project-confirmed by owner as 0.95 kg/mm | Owner-confirmed project interpretation only; not independently manufacturer-verified. |
+
+### YSS PD335-D fork valve
+
+| Measured item | Direct measurement | Evidence boundary |
+| --- | --- | --- |
+| Maximum outside diameter | 33.7 mm | Direct measurement; does not establish damper-rod seating or centering. |
+| Total height | 21.7 mm | Direct measurement; does not establish stack-height suitability. |
+| Lower seating outside diameter | 27.94 mm | Direct measurement; damper-rod top geometry remains open. |
+| Lower seating axial height | 6.30 mm | Direct measurement; seating engagement remains open. |
+| Upper spring-support outside diameter | 33.7 mm | Direct measurement; spring interface remains open. |
+| Underside recess/opening inside diameter | 20.09 mm | Direct measurement; damper-rod bore relationship remains open. |
+| Underside recess depth | 6.30 mm | Direct measurement; seating and centering remain open. |
+
+### YSS fork cap `FCM38-41-001-50`
+
+| Measured item | Direct measurement | Evidence boundary |
+| --- | --- | --- |
+| Thread major outside diameter | 37.91 mm | Direct measurement; original XJ fork-cap thread geometry remains open. |
+| Thread pitch | 1.00 mm | Direct measurement; original XJ fork-cap thread geometry remains open. |
+| Axial thread length | 8.1 mm | Direct measurement; usable installed engagement remains open. |
+| Installed upper O-ring outside diameter | 39.18 mm | Direct measurement; original cap seating and sealing geometry remain open. |
+| Lower aluminium cylindrical section outside diameter | 34.60 mm | Direct measurement; internal fork-cap clearance remains open. |
+| Preload plate outside diameter | 34.51 mm | Direct measurement; spring/washer interface remains open. |
+| Preload plate inside diameter | 8.18 mm | Direct measurement; adjuster/interface evidence only. |
+| Preload plate thickness | 2.87 mm | Direct measurement; installed stack effect remains open. |
+| Preload plate datum distance at mechanical end A | 19.15 mm from the shoulder below the M38 thread to the underside of the preload plate | Direct measurement using stated datum. |
+| Preload plate datum distance at mechanical end B | 9.28 mm from the shoulder below the M38 thread to the underside of the preload plate | Direct measurement using stated datum. |
+| Derived preload adjustment travel | 9.87 mm | Derived from measured mechanical end positions; installed preload remains open. |
+
+The dark line below the grey aluminium cap body is recorded as the visible gap
+between the grey aluminium body and the movable steel preload plate. It is not
+identified as an O-ring.
+
+Any previously observed intermediate preload-adjuster position is superseded by
+the two measured mechanical end positions above and shall not be described as a
+lower cylinder length.
+
+## Compact verification matrix
+
+This matrix compares known Yamaha/XJ baseline evidence with the measured YSS
+candidate evidence without accepting compatibility.
+
+| Verification item | Known Yamaha/XJ baseline | YSS candidate / project measurement | Current state |
+| --- | --- | --- | --- |
+| Manual spring free length baseline | 505 mm confirmed only for the Yamaha XJ900S(G) '95 manual application | YSS springs measured 340 mm each | Open; do not treat 505 mm as confirmed for the 1997 project motorcycle. |
+| Project fork tube OD | Project motorcycle measured 41.00 mm | YSS cap marked `tube 41 mm` and measured as above | Open; tube OD alone does not establish cap fit. |
+| Original XJ fork-cap thread geometry | Unknown / Unverified | YSS cap thread major OD 37.91 mm, pitch 1.00 mm, axial thread length 8.1 mm | Open; direct original-cap comparison required. |
+| Cap seating and sealing geometry | Unknown / Unverified | YSS upper O-ring OD 39.18 mm; lower aluminium cylindrical section OD 34.60 mm | Open; original seating, shoulder, and sealing method required. |
+| Original spring/spacer/washer stack | Unknown / Unverified | YSS spring free length 340 mm, OD 34.90 mm, ID 24.60 mm; cap preload plate and adjustment travel measured above | Open; installed stack height and preload not established. |
+| Damper-rod top geometry and compression-hole configuration | Unknown / Unverified | PD335-D lower seating OD 27.94 mm, recess ID 20.09 mm, recess depth 6.30 mm | Open; damper-rod seating, bore, and compression-hole evidence required. |
+| Installed preload | Unknown / Unverified | Cap preload plate mechanical end positions 19.15 mm and 9.28 mm from stated datum; derived travel 9.87 mm | Open; installed preload requires original stack, candidate stack, and assembly datum evidence. |
+| PD-valve seating and centering | Unknown / Unverified | PD335-D maximum OD 33.7 mm; lower seating OD 27.94 mm; lower seating axial height 6.30 mm | Open; dry seating and centering evidence required before assembly or modification planning. |
 
 ## Evidence classification rules
 
@@ -446,9 +538,9 @@ validation.
   permanent modification may require a decision record.
 - Recommended next action: document the 1997 applicability status of the
   retained 1995 Yamaha baseline, retain part-label photographs, obtain
-  authoritative YSS PD335-D and cap/spring documentation, measure the actual XJ
-  fork and original parts, then complete a technical review before any
-  installation or modification.
+  authoritative YSS PD335-D and cap/spring documentation, measure the original
+  XJ fork cap, spring/spacer/washer stack, damper rod, and sealing interfaces,
+  then complete a technical review before any installation or modification.
 
 ## Open questions
 
@@ -459,8 +551,9 @@ validation.
   the 1995 manual application?
 - What are the original fork-cap thread, sealing, shoulder, and engagement
   dimensions?
-- What is the exact YSS spring part number, rate, free length, end treatment,
-  and application?
+- What authoritative manufacturer evidence confirms the exact YSS spring
+  specification, rate, and application beyond the observed project label and
+  owner-confirmed `A095` interpretation?
 - What are the authoritative YSS instructions for `PD335-D`?
 - What oil recommendation, oil level / air-gap method, and setup data apply to
   the exact valve/spring/fork combination?
@@ -476,16 +569,18 @@ pre-installation verification only. The on-hand YSS and Wemoto parts are not
 accepted for installation or road use by this record. The recovered Yamaha
 front-suspension values are confirmed only for the manual-stated 1995
 application and remain Unverified for the project-recorded 1997 motorcycle.
-Direct project-bike measurements may establish as-found physical compatibility
-evidence but do not confirm Yamaha factory specification continuity. Permanent
-modification is blocked until required documentation status, direct project
-measurements, authoritative PD335-D documentation, structural review,
-cleaning/reassembly procedure, and technical review are complete.
+Direct project-bike measurements may establish as-found physical evidence but
+do not confirm Yamaha factory specification continuity or component
+compatibility. Permanent modification is blocked until required documentation
+status, direct project measurements, authoritative PD335-D documentation,
+structural review, cleaning/reassembly procedure, and technical review are
+complete.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-21 | Added direct physical pre-installation measurements for the YSS springs, PD335-D fork valve, FCM38-41-001-50 fork cap, and project fork tube; added compact verification matrix and retained unresolved verification gates. | Preserve new measured evidence while avoiding compatibility, installation, drilling, or road-use acceptance claims. |
 | 2026-09-18 | Clarified that direct measurement can establish as-found physical evidence but not Yamaha factory specification continuity, and that dimensional evidence may proceed independently of unresolved factory-specification continuity. | Prevent direct project-bike measurement from being read as confirming complete 1995-to-1997 Yamaha specification applicability. |
 | 2026-09-17 | Reconciled recovered Yamaha XJ900S(G) '95 front-suspension service-manual evidence, added 1997 applicability and direct-measurement gates, and restated permanent-modification blocking. | Preserve confirmed 1995 Yamaha baseline values without converting them into confirmed 1997 project specifications or authorizing YSS installation/drilling. |
 | 2026-09-16 | Created front-fork upgrade and pre-installation verification record. | Preserve on-hand part evidence while defining safety-critical evidence, modification, and validation gates. |
