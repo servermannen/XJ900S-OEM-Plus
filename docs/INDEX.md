@@ -4,6 +4,7 @@
 
 ## Project documentation
 
+- [Project source files in Google Drive](references/drive-source-files.md)
 - [System requirements](requirements/system-requirements.md)
 - [System architecture](architecture/system-architecture.md)
 - [Decisions](decisions/README.md)

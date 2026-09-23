@@ -15,3 +15,9 @@ original character while applying modern, serviceable engineering solutions.
 - Staged development that validates each system before the next phase.
 - Reuse of proven production components where practical.
 - Documentation of requirements, research, decisions, testing, and results.
+
+## Source material
+
+[Project source files in Google Drive](docs/references/drive-source-files.md)
+indexes the manuals, images and other uploaded source material. Engineering
+documentation and decisions remain in this repository.
