@@ -34,8 +34,10 @@ use.
 | EBC brake pads intended for COMP-0009 | Unknown | Owner-provided purchase identification | Not recorded | Exact part number, compound, dimensions, homologation, and applicability Unknown | Purchased / on hand | Owner/project-reported acquisition, brand, and intended association | Unverified; not accepted |
 | Original XJ900S passenger grab handles | Unknown | Owner-provided acquisition identification | Not recorded | Yamaha OEM/original XJ900S provenance owner-reported; exact part numbers and physical identity Unverified | Acquired / on hand | Owner-reported acquisition and provenance | Unverified; not accepted |
 | Aftermarket mirrors | Unknown | Owner-provided purchase identification | Not recorded | Exact manufacturer, model, part number, specifications, and physical identity Unknown | Purchased / on hand | Owner-reported acquisition | Unverified; not accepted |
-| T10/W5W instrument-cluster LED lamps | Unknown | Owner-provided installation status | Not recorded | Installed in the XJ900S instrument cluster; exact manufacturer, model, part number, and electrical specifications Unknown | Installed | Owner-reported installation status | Unverified; installation does not establish legal compliance, durability, or final acceptance |
-| Mini LED turn indicators | Unknown | AliExpress | Not recorded | Exact manufacturer, model, part number, and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition and delivery status | Unverified; not accepted |
+| T10/W5W instrument-cluster LED lamps | Unknown | Owner-provided installation and test evidence | Not recorded | Owner-observed installation in the XJ900S instrument cluster; retained package photograph reports `T10`, `W5W`, `194`, `COB LED`, `White`, `6000 K`, `10 pcs` as package markings only; exact manufacturer, model, part number, and electrical specifications Unknown | Installed and function-tested — 2026-09-28 | Owner-reported installation and successful functional test; retained package photograph | Not finally accepted; package claims Unverified; functional operation does not establish technical validation, regulatory compliance, or durability |
+| XSTORM H4 LED headlight | Unknown | Owner-provided installation and test evidence | Not recorded | Owner-observed installation in the XJ900S; retained package photograph reports `XSTORM`, `H4 LED`, `100W`, `60000LM`, and `Canbus`; 100 W, 60000 lm, and Canbus are package/seller claims only, not independently verified technical specifications | Installed and function-tested — 2026-09-28 | Owner-reported installation and successful low-/high-beam functional test; retained package photograph | Not finally accepted; package/seller claims Unverified; see lighting evidence boundaries below |
+| Mini LED turn indicators | Unknown | AliExpress | Not recorded | Four LED turn indicators installed, owner-observed; exact manufacturer, model, part number, and electrical specifications Unknown | Installed and function-tested — 2026-09-28 | Owner-reported installation and successful functional test: all four operate, with owner-observed normal flash rate; frequency not measured | Not finally accepted; see lighting evidence boundaries below |
+| LED replacement rear/brake lamp | Unknown | Owner-provided installation and test evidence | Not recorded | Owner-observed installation; retained product listing image identifies `Ruiandsion`, `1157`, `12 V`, `BAY15D`, `2057 / 2357 / 7528`, `White`, `3014`, and `12 SMD` as product-listing claims only | Installed and function-tested — 2026-09-28 | Owner-reported installation and successful functional test: tail/running-light and brake-light functions operate; brake light activated by both front-brake and rear-brake switches; retained product listing image | Not finally accepted; listing claims Unverified; Review: Technical Review Required; see lighting evidence boundaries below |
 | Three-pin LED flasher relay | Unknown | AliExpress | Not recorded | Exact manufacturer and model Unknown; three electrical contacts reported; pinout and electrical specifications Unknown | Purchased, delivered, on hand | Owner-reported acquisition, delivery status, and physical description | Unverified; not accepted |
 
 ## YSS front-fork upgrade parts
@@ -100,20 +102,59 @@ This label preserves the safety-review requirement; it records no completed tech
 
 ## Inventory use and evidence boundary
 
-The listed status records only the reported acquisition or availability state.
-It does not verify seller/donor identification, Yamaha application, part-number
-application, component completeness, condition, connector identity, electrical
-function, physical fit, functional fit, safety suitability, or final
-acceptance. Each of those matters requires its own evidence and review.
+The listed status records the reported acquisition, availability, installation,
+or explicitly tested functional state. Successful functional operation confirms
+only the tested functions. It does not independently verify seller/donor
+identification, Yamaha application, part-number application, component
+completeness, condition, connector identity, broader electrical or functional
+compatibility, safety suitability, or final acceptance. Each of those matters
+requires its own evidence and review.
 
-No voltage, power, current, polarity, connector type, homologation, E-mark
-status, relay pin assignment, load range, or flash-rate characteristic is
-recorded for the unmarked LED items because no evidence is retained here.
+### Lighting installation and functional-test evidence — 2026-09-28
+
+**Status: Confirmed** — limited to owner-observed installation and
+owner-performed successful functional testing of the functions recorded in the
+four lighting rows above. These are owner-reported observations and tests, not
+independent technical validation.
+
+**Status: Unverified** — package/listing specifications. The retained package
+photographs and product listing image document markings/claims only; they do
+not establish confirmed manufacturer specifications. In particular, `10 pcs`
+is a package marking, not an installed instrument-cluster lamp count.
+
+- **Instrument-cluster LEDs:** Successful installed operation is recorded;
+  electrical specifications are not inferred or independently verified from
+  the package.
+- **H4 LED headlight:** Successful low- and high-beam operation does not
+  establish correct beam pattern, optical compatibility with the original
+  reflector, glare performance, actual luminous flux, actual electrical
+  power/current, thermal suitability, EMC performance, homologation / E-mark
+  approval, regulatory or road-use compliance, or long-term reliability.
+- **Mini LED turn indicators:** All four installed indicators operate.
+  "Normal flash rate" is an owner-observed functional result, not a measured
+  frequency. It does not establish exact flash frequency, luminous intensity,
+  viewing angles, electrical current/power, homologation / E-mark approval,
+  regulatory compliance, or long-term reliability.
+- **LED rear/brake lamp:** Tail/running-light and brake-light operation, with
+  brake-light activation by each of the front-brake and rear-brake switches,
+  is recorded. This does not establish actual current or power, luminous
+  intensity, brightness ratio between tail and stop functions, polarity
+  architecture beyond demonstrated functional operation, optical suitability,
+  homologation / E-mark approval, regulatory compliance, or long-term
+  reliability. **Review: Technical Review Required** applies to these
+  brake-light functional claims; no completed technical review is recorded.
+
+Installation and functional testing remain separate from technical validation,
+regulatory compliance, durability evidence, and final acceptance. No final
+acceptance is recorded for these lighting items. No additional electrical,
+connector, relay pin-assignment, or load-range data is inferred from these
+results.
 
 ## Change history
 
 | Date | Change | Reason |
 | --- | --- | --- |
+| 2026-09-28 | Updated instrument-cluster LEDs to installed/function-tested status; recorded H4 LED headlight installation and successful low/high-beam functional test; updated four mini LED turn indicators to installed/function-tested status with owner-observed normal flash rate; recorded LED tail/brake lamp installation, tail/running-light operation, and brake-light operation from both front and rear brake switches. | Preserve dated owner installation and functional-test evidence separately from package/listing specifications, which remain Unverified; functional testing does not establish photometric, regulatory, durability, or final acceptance. |
 | 2026-09-17 | Added existing donor O2 / lambda sensor candidate inventory entry with reported `2CR-10`, `270 0101722`, search form `2700101722`, and project-supplied candidate `2CR-8592A-20-00` identifiers. | Preserve acquisition/observation evidence without accepting identity, Yamaha application, DENSO manufacturer identity, sensor technology, heater, pinout, signal type, uaEFI WBO compatibility, or final selection. |
 
 ## Navigation
