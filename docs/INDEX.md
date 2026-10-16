@@ -6,6 +6,7 @@
 
 - [Project source files in Google Drive](references/drive-source-files.md)
 - [System requirements](requirements/system-requirements.md)
+- [First-start DBW requirements (Draft / Proposal)](requirements/dbw-first-start-requirements.md)
 - [System architecture](architecture/system-architecture.md)
 - [Decisions](decisions/README.md)
 - [ADR-0004: Project Priority Order](decisions/ADR-0004-project-priority-order.md)
